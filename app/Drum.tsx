@@ -1,13 +1,26 @@
 "use client";
 import { useState } from "react";
 
-export default function Drum({ kind }: { kind: string }) {
-  const drum = "border-2 border-cyan-500 rounded-full w-12 h-12";
-  const drum1 = "border-2 border-cyan-200 ml-4 rounded-full w-12 h-12";
-  const cymbal = "border-2 border-purple-500 rounded-full w-10 h-10";
-  const cymbal1 = "border-2 border-purple-300 ml-4 rounded-full w-10 h-10";
-  const cymbal2 = "border-2 border-purple-300 mb-4 rounded-full w-10 h-10";
-  const pedal = "border-2 border-yellow-500 place-self-center  w-5 h-10";
+export default function Drum({
+  kind,
+  currentNum,
+  reset,
+}: {
+  kind: string;
+  currentNum: number;
+  reset: boolean;
+}) {
+  const drum = "border-2 border-cyan-500 rounded-full w-12 h-12 text-center";
+  const drum1 =
+    "border-2 border-cyan-200 ml-4 rounded-full w-12 h-12 text-center";
+  const cymbal =
+    "border-2 border-purple-500 rounded-full w-10 h-10 text-center";
+  const cymbal1 =
+    "border-2 border-purple-300 ml-4 rounded-full w-10 h-10 text-center";
+  const cymbal2 =
+    "border-2 border-purple-300 mb-4 rounded-full w-10 h-10 text-center";
+  const pedal =
+    "border-2 border-yellow-500 place-self-center  w-5 h-10 text-center";
 
   let divName = "";
 
@@ -34,16 +47,22 @@ export default function Drum({ kind }: { kind: string }) {
       break;
   }
 
-  const [tap, setTap] = useState(false);
-
+  const [text, setText] = useState("");
+  console.log(text);
   return (
     <p
       onClick={() => {
-        setTap((curr) => !curr);
+        if (reset) {
+          setText("");
+        } else {
+          setText((curr) => {
+            return curr + ` ${currentNum}`;
+          });
+        }
       }}
       className={divName}
     >
-      {tap ? "tap" : null}
+      {text ? text : null}
     </p>
   );
 }

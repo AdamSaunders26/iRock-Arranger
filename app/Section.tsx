@@ -4,9 +4,11 @@ import DrumPad from "./DrumPad";
 import KeysPad from "./KeysPad";
 import NumberSelector from "./NumberSelector";
 import RhythmStave from "./RhythmStave";
+import ToolSelector from "./ToolSelector";
 
 export default function Section() {
   const [currentNum, setCurrentNum] = useState(1);
+  const [reset, setReset] = useState(false);
 
   return (
     <div className="border-2 border-green-500 flex justify-end w-full ">
@@ -16,8 +18,9 @@ export default function Section() {
         <KeysPad />
       </div>
       <div className="flex">
-        <DrumPad />
+        <DrumPad currentNum={currentNum} reset={reset} />
         <NumberSelector currentNum={currentNum} setCurrentNum={setCurrentNum} />
+        <ToolSelector reset={reset} setReset={setReset} />
       </div>
     </div>
   );
