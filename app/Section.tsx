@@ -10,6 +10,7 @@ export default function Section() {
   const [currentNum, setCurrentNum] = useState(1);
   const [reset, setReset] = useState(false);
   const [quaver, setQuaver] = useState(false);
+  const [and, setAnd] = useState(false);
 
   return (
     <div className="border-2 border-green-500 flex justify-end w-full ">
@@ -19,13 +20,27 @@ export default function Section() {
         <KeysPad />
       </div>
       <div className="flex">
-        <DrumPad currentNum={currentNum} reset={reset} quaver={quaver} />
-        <NumberSelector currentNum={currentNum} setCurrentNum={setCurrentNum} />
+        <DrumPad
+          currentNum={currentNum}
+          reset={reset}
+          quaver={quaver}
+          and={and}
+        />
+        <NumberSelector
+          currentNum={currentNum}
+          setCurrentNum={setCurrentNum}
+          setReset={setReset}
+          setQuaver={setQuaver}
+          setAnd={setAnd}
+        />
         <ToolSelector
           reset={reset}
           setReset={setReset}
           quaver={quaver}
           setQuaver={setQuaver}
+          and={and}
+          setAnd={setAnd}
+          setCurrentNum={setCurrentNum}
         />
       </div>
     </div>

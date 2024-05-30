@@ -6,10 +6,14 @@ export default function QuaverTool({
   quaver,
   setQuaver,
   setReset,
+  setAnd,
+  setCurrentNum,
 }: {
   quaver: boolean;
   setQuaver: React.Dispatch<React.SetStateAction<boolean>>;
+  setAnd: React.Dispatch<React.SetStateAction<boolean>>;
   setReset: React.Dispatch<React.SetStateAction<boolean>>;
+  setCurrentNum: React.Dispatch<React.SetStateAction<number>>;
 }) {
   const buttonClass =
     "border-2 border-red-500 h-full p-2 flex  justify-center ";
@@ -21,6 +25,8 @@ export default function QuaverTool({
       onClick={() => {
         setQuaver((curr) => !curr);
         setReset(false);
+        setAnd(false);
+        setCurrentNum(0);
       }}
     >
       <LuMusic2 className="" />

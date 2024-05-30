@@ -7,11 +7,13 @@ export default function Drum({
   currentNum,
   reset,
   quaver,
+  and,
 }: {
   kind: string;
   currentNum: number;
   reset: boolean;
   quaver: boolean;
+  and: boolean;
 }) {
   const drum =
     "border-2 border-cyan-500 rounded-full w-12 h-12  flex justify-center items-center";
@@ -60,6 +62,10 @@ export default function Drum({
           setText("");
         } else if (quaver) {
           setText(<LuMusic2 />);
+        } else if (and) {
+          setText((curr) => {
+            return curr + `+`;
+          });
         } else {
           if (typeof text == "object") {
             console.log("noted");
