@@ -12,7 +12,7 @@ export default function DrumPad({
   and: boolean;
 }) {
   return (
-    <div className="border-2 border-orange-500 flex">
+    <div className="border-2 border-orange-500 p-2 flex">
       <div className=" flex flex-col">
         <Drum
           kind={"cymbal1"}
