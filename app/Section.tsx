@@ -9,6 +9,7 @@ import ToolSelector from "./ToolSelector";
 export default function Section() {
   const [currentNum, setCurrentNum] = useState(1);
   const [reset, setReset] = useState(false);
+  const [quaver, setQuaver] = useState(false);
 
   return (
     <div className="border-2 border-green-500 flex justify-end w-full ">
@@ -18,9 +19,14 @@ export default function Section() {
         <KeysPad />
       </div>
       <div className="flex">
-        <DrumPad currentNum={currentNum} reset={reset} />
+        <DrumPad currentNum={currentNum} reset={reset} quaver={quaver} />
         <NumberSelector currentNum={currentNum} setCurrentNum={setCurrentNum} />
-        <ToolSelector reset={reset} setReset={setReset} />
+        <ToolSelector
+          reset={reset}
+          setReset={setReset}
+          quaver={quaver}
+          setQuaver={setQuaver}
+        />
       </div>
     </div>
   );

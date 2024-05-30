@@ -1,26 +1,30 @@
 "use client";
 import { useState } from "react";
+import { LuMusic2 } from "react-icons/lu";
 
 export default function Drum({
   kind,
   currentNum,
   reset,
+  quaver,
 }: {
   kind: string;
   currentNum: number;
   reset: boolean;
+  quaver: boolean;
 }) {
-  const drum = "border-2 border-cyan-500 rounded-full w-12 h-12 text-center";
+  const drum =
+    "border-2 border-cyan-500 rounded-full w-12 h-12  flex justify-center items-center";
   const drum1 =
-    "border-2 border-cyan-200 ml-4 rounded-full w-12 h-12 text-center";
+    "border-2 border-cyan-200 ml-4 rounded-full w-12 h-12  flex justify-center items-center";
   const cymbal =
-    "border-2 border-purple-500 rounded-full w-10 h-10 text-center";
+    "border-2 border-purple-500 rounded-full w-10 h-10  flex justify-center items-center";
   const cymbal1 =
-    "border-2 border-purple-300 ml-4 rounded-full w-10 h-10 text-center";
+    "border-2 border-purple-300 ml-4 rounded-full w-10 h-10  flex justify-center items-center";
   const cymbal2 =
-    "border-2 border-purple-300 mb-4 rounded-full w-10 h-10 text-center";
+    "border-2 border-purple-300 mb-4 rounded-full w-10 h-10  flex justify-center items-center";
   const pedal =
-    "border-2 border-yellow-500 place-self-center  w-5 h-10 text-center";
+    "border-2 border-yellow-500 place-self-center  w-5 h-10  flex justify-center items-center";
 
   let divName = "";
 
@@ -48,16 +52,25 @@ export default function Drum({
   }
 
   const [text, setText] = useState("");
-  console.log(text);
+  console.log(typeof text);
   return (
     <p
       onClick={() => {
         if (reset) {
           setText("");
+        } else if (quaver) {
+          setText(<LuMusic2 />);
         } else {
-          setText((curr) => {
-            return curr + ` ${currentNum}`;
-          });
+          if (typeof text == "object") {
+            console.log("noted");
+            setText(() => {
+              return `${currentNum}`;
+            });
+          } else {
+            setText((curr) => {
+              return curr + ` ${currentNum}`;
+            });
+          }
         }
       }}
       className={divName}
