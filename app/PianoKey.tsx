@@ -4,32 +4,32 @@ import { useState } from "react";
 export default function PianoKey({
   kind,
   keyState1,
+  setKeyState1,
   keyState2,
-}: // prevKeyState,
-{
+  setKeyState2,
+  prevKeyState,
+  setPrevKeyState,
+  currentNum,
+}: {
   kind: string;
   keyState1: string;
+  setKeyState1: React.Dispatch<React.SetStateAction<string>>;
   keyState2: string;
-  // prevKeyState: string;
+  setKeyState2?: React.Dispatch<React.SetStateAction<string>>;
+  prevKeyState: string;
+  setPrevKeyState?: React.Dispatch<React.SetStateAction<string>>;
+  currentNum: number;
 }) {
-  const [key1Pressed, setKey1Pressed] = useState(false);
-  const [key2Pressed, setKey2Pressed] = useState(false);
+  // const [key1Pressed, setKey1Pressed] = useState(false);
+  // const [key2Pressed, setKey2Pressed] = useState(false);
 
-  const solid = key2Pressed
-    ? "bg-black flex-1 text-pink-500 text-center"
-    : "bg-black flex-1 text-white text-center";
-  const emptyR = key1Pressed
-    ? "bg-white border-r-2 border-black flex-1 text-center text-pink-500"
-    : "bg-white border-r-2 border-black flex-1 text-center";
-  const emptyL = key1Pressed
-    ? "bg-white border-l-2 border-black flex-1 text-center text-pink-500"
-    : "bg-white border-l-2 border-black flex-1 text-center";
-  const bothR = key2Pressed
-    ? "bg-black border-r-2 border-white flex-1 text-pink-500 text-center"
-    : "bg-black border-r-2 border-white flex-1 text-white text-center";
-  const bothL = key2Pressed
-    ? "bg-black border-l-2 border-white flex-1 text-pink-500 text-center"
-    : "bg-black border-l-2 border-white flex-1 text-white text-center";
+  const solid = "bg-black flex-1 text-white text-center";
+  const emptyR = "bg-white border-r-2 border-black flex-1 text-center";
+  const emptyL = "bg-white border-l-2 border-black flex-1 text-center";
+  const bothR =
+    "bg-black border-r-2 border-white flex-1 text-white text-center";
+  const bothL =
+    "bg-black border-l-2 border-white flex-1 text-white text-center";
 
   let tlClass = "";
   let trClass = "";
@@ -60,17 +60,31 @@ export default function PianoKey({
       break;
   }
 
-  const [text, setText] = useState("key");
-
   return (
     <div className=" h-full flex flex-col flex-1 justify-center items-center ">
-      <div className=" flex flex-1 w-full ">
+      <div className=" flex flex-1 w-full min-h-8 ">
         <div
           className={tlClass}
           onClick={() => {
             switch (kind) {
               case "right":
-                setKey1Pressed((curr) => !curr);
+                setKeyState1(() => {
+                  return `${currentNum}`;
+                });
+                break;
+              case "both":
+                setPrevKeyState
+                  ? setPrevKeyState(() => {
+                      return `${currentNum}`;
+                    })
+                  : null;
+                break;
+              case "left":
+                setPrevKeyState
+                  ? setPrevKeyState(() => {
+                      return `${currentNum}`;
+                    })
+                  : null;
                 break;
               default:
                 break;
@@ -82,7 +96,23 @@ export default function PianoKey({
           onClick={() => {
             switch (kind) {
               case "right":
-                setKey2Pressed((curr) => !curr);
+                setKeyState2
+                  ? setKeyState2(() => {
+                      return `${currentNum}`;
+                    })
+                  : null;
+                break;
+              case "both":
+                setKeyState2
+                  ? setKeyState2(() => {
+                      return `${currentNum}`;
+                    })
+                  : null;
+                break;
+              case "left":
+                setKeyState1(() => {
+                  return `${currentNum}`;
+                });
                 break;
               default:
                 break;
@@ -98,7 +128,19 @@ export default function PianoKey({
           onClick={() => {
             switch (kind) {
               case "right":
-                setKey1Pressed((curr) => !curr);
+                setKeyState1(() => {
+                  return `${currentNum}`;
+                });
+                break;
+              case "both":
+                setKeyState1(() => {
+                  return `${currentNum}`;
+                });
+                break;
+              case "left":
+                setKeyState1(() => {
+                  return `${currentNum}`;
+                });
                 break;
               default:
                 break;
@@ -112,7 +154,19 @@ export default function PianoKey({
           onClick={() => {
             switch (kind) {
               case "right":
-                setKey1Pressed((curr) => !curr);
+                setKeyState1(() => {
+                  return `${currentNum}`;
+                });
+                break;
+              case "both":
+                setKeyState1(() => {
+                  return `${currentNum}`;
+                });
+                break;
+              case "left":
+                setKeyState1(() => {
+                  return `${currentNum}`;
+                });
                 break;
               default:
                 break;
