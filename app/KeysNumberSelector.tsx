@@ -8,7 +8,7 @@ export default function KeysNumberSelector({
   setCurrentNum: React.Dispatch<React.SetStateAction<number>>;
 }) {
   return (
-    <div className="flex  flex-1 text-center ">
+    <div className="flex  flex-1 items-center ">
       <KeysNumberButton
         num={1}
         currentNum={currentNum}
@@ -26,6 +26,11 @@ export default function KeysNumberSelector({
       />
       <KeysNumberButton
         num={4}
+        currentNum={currentNum}
+        setCurrentNum={setCurrentNum}
+      />
+      <KeysNumberButton
+        num={5}
         currentNum={currentNum}
         setCurrentNum={setCurrentNum}
       />

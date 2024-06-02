@@ -60,31 +60,48 @@ export default function PianoKey({
       break;
   }
 
+  function KS1() {
+    currentNum === 5
+      ? setKeyState1("")
+      : setKeyState1((curr) => {
+          return curr + ` ${currentNum}`;
+        });
+  }
+
+  function KS2() {
+    if (setKeyState2) {
+      currentNum === 5
+        ? setKeyState2("")
+        : setKeyState2((curr) => {
+            return curr + ` ${currentNum}`;
+          });
+    }
+  }
+
+  function PKS() {
+    if (setPrevKeyState) {
+      currentNum === 5
+        ? setPrevKeyState("")
+        : setPrevKeyState((curr) => {
+            return curr + ` ${currentNum}`;
+          });
+    }
+  }
   return (
     <div className=" h-full flex flex-col flex-1 justify-center items-center ">
-      <div className=" flex flex-1 w-full min-h-8 ">
+      <div className=" flex flex-1 w-full min-h-16 ">
         <div
           className={tlClass}
           onClick={() => {
             switch (kind) {
               case "right":
-                setKeyState1(() => {
-                  return `${currentNum}`;
-                });
+                KS1();
                 break;
               case "both":
-                setPrevKeyState
-                  ? setPrevKeyState(() => {
-                      return `${currentNum}`;
-                    })
-                  : null;
+                PKS();
                 break;
               case "left":
-                setPrevKeyState
-                  ? setPrevKeyState(() => {
-                      return `${currentNum}`;
-                    })
-                  : null;
+                PKS();
                 break;
               default:
                 break;
@@ -96,23 +113,13 @@ export default function PianoKey({
           onClick={() => {
             switch (kind) {
               case "right":
-                setKeyState2
-                  ? setKeyState2(() => {
-                      return `${currentNum}`;
-                    })
-                  : null;
+                KS2();
                 break;
               case "both":
-                setKeyState2
-                  ? setKeyState2(() => {
-                      return `${currentNum}`;
-                    })
-                  : null;
+                KS2();
                 break;
               case "left":
-                setKeyState1(() => {
-                  return `${currentNum}`;
-                });
+                KS1();
                 break;
               default:
                 break;
@@ -122,25 +129,19 @@ export default function PianoKey({
           {kind !== "left" ? keyState2 : null}
         </div>
       </div>
-      <div className=" flex w-full min-h-8">
+      <div className=" flex w-full min-h-16">
         <div
           className={blClass}
           onClick={() => {
             switch (kind) {
               case "right":
-                setKeyState1(() => {
-                  return `${currentNum}`;
-                });
+                KS1();
                 break;
               case "both":
-                setKeyState1(() => {
-                  return `${currentNum}`;
-                });
+                KS1();
                 break;
               case "left":
-                setKeyState1(() => {
-                  return `${currentNum}`;
-                });
+                KS1();
                 break;
               default:
                 break;
@@ -154,19 +155,13 @@ export default function PianoKey({
           onClick={() => {
             switch (kind) {
               case "right":
-                setKeyState1(() => {
-                  return `${currentNum}`;
-                });
+                KS1();
                 break;
               case "both":
-                setKeyState1(() => {
-                  return `${currentNum}`;
-                });
+                KS1();
                 break;
               case "left":
-                setKeyState1(() => {
-                  return `${currentNum}`;
-                });
+                KS1();
                 break;
               default:
                 break;

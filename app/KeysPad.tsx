@@ -28,7 +28,7 @@ export default function KeysPad({ currentNum }: { currentNum: number }) {
   const [key23, setKey23] = useState("");
   const [key24, setKey24] = useState("");
   return (
-    <div className="border-purple-500 border-2 h-full w-full justify-evenly flex">
+    <div className="border-purple-500 border-2 h-full w-full justify-evenly flex text-xs">
       <PianoKey
         kind="right"
         keyState1={key1}
