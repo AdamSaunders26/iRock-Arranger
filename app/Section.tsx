@@ -6,6 +6,7 @@ import NumberSelector from "./NumberSelector";
 import RhythmStave from "./RhythmStave";
 import ToolSelector from "./ToolSelector";
 import KeysNumberSelector from "./KeysNumberSelector";
+import ChordInput from "./ChordInput";
 
 export default function Section() {
   const [currentNum, setCurrentNum] = useState(1);
@@ -25,7 +26,8 @@ export default function Section() {
             currentNum={keysCurrentNum}
             setCurrentNum={setKeysCurrentNum}
           />
-          <p className="flex-1 px-2">Chords: F, Bb, Dm, C</p>
+          {/* <p className="flex-1 px-2">Chords: F, Bb, Dm, C</p> */}
+          <ChordInput />
         </div>
       </div>
       <div className="flex">
