@@ -1,3 +1,4 @@
+import RhythmBar from "./RhythmBar";
 import RhythmNumbers from "./RhythmNumbers";
 
 export default function RhythmStave() {
@@ -8,10 +9,12 @@ export default function RhythmStave() {
         <div>Keys</div>
         <div>Guitar</div>
       </div>
-      <div className="border-2 border-blue-500 flex-1">
-        <RhythmNumbers />
-        <div>crotchets</div>
-        <div>crotchets</div>
+      <div className="border-2 border-blue-500 flex-1 flex justify-evenly">
+        {/* <RhythmNumbers /> */}
+        <RhythmBar />
+        <RhythmBar />
+        <RhythmBar />
+        <RhythmBar />
       </div>
     </div>
   );
