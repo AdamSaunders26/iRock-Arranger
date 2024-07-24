@@ -5,7 +5,7 @@ import crotchet from "../app/symbols/crotchet.svg";
 import Image from "next/image";
 export default function BarSymbol() {
   return (
-    <div>
+    <div className="p-2">
       <Image src={crotchet} alt="Quaver" />
     </div>
   );
