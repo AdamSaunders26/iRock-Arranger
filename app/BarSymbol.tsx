@@ -1,7 +1,7 @@
-import quaver from "../app/symbols/8thNote.svg";
-import semibreve from "../app/symbols/semibreve.svg";
-import minim from "../app/symbols/minim.svg";
-import crotchet from "../app/symbols/crotchet.svg";
+import quaver from "../app/symbols/U+266B_d.svg";
+import semibreve from "../app/symbols/1-1_note_semibreve (1).svg";
+import minim from "../app/symbols/1-2_note_minim_(music).svg";
+import crotchet from "../app/symbols/1-4_note_crotchet_(music).svg";
 import Image from "next/image";
 import { useState } from "react";
 export default function BarSymbol({
@@ -16,9 +16,10 @@ export default function BarSymbol({
     minim: minim,
     crotchet: crotchet,
   };
+
   return (
     <div
-      className="p-2 border-2 border-grey-500"
+      className="p-2 border-2 border-grey-500 w-full flex items-center justify-center"
       onClick={() => {
         setCurrentSymbol(currentGlobalSymbol);
       }}

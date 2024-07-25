@@ -1,20 +1,26 @@
 import { useState } from "react";
-import quaver from "../app/symbols/8thNote.svg";
-import semibreve from "../app/symbols/semibreve.svg";
-import minim from "../app/symbols/minim.svg";
-import crotchet from "../app/symbols/crotchet.svg";
+import quaver from "../app/symbols/U+266B_d.svg";
+import semibreve from "../app/symbols/1-1_note_semibreve (1).svg";
+import minim from "../app/symbols/1-2_note_minim_(music).svg";
+import crotchet from "../app/symbols/1-4_note_crotchet_(music).svg";
 import Image from "next/image";
 import { GrPowerReset } from "react-icons/gr";
 
 export default function RhythmTools({
+  currentNote,
   setCurrentNote,
 }: {
+  currentNote: string;
   setCurrentNote: React.Dispatch<React.SetStateAction<string>>;
 }) {
+  const selected =
+    "border-2 border-red-500 bg-red-500 max-h-8 max-w-8 flex-1  p-1 flex items-center justify-center";
+  const unselected =
+    "border-2 border-red-500 flex-1 max-h-8 max-w-8 p-1 flex items-center justify-center";
   return (
     <div className="flex flex-col justify-between">
       <button
-        className="border-2 border-red-500 flex-1 max-w-8 p-1 flex"
+        className={currentNote === "quaver" ? selected : unselected}
         onClick={() => {
           setCurrentNote("quaver");
         }}
@@ -23,34 +29,34 @@ export default function RhythmTools({
         <Image src={quaver} alt="Quaver" />
       </button>
       <button
-        className="border-2 border-red-500 flex-1 max-w-8 p-1 flex justify-center"
+        className={currentNote === "crotchet" ? selected : unselected}
         onClick={() => {
           setCurrentNote("crotchet");
         }}
       >
         {" "}
-        <Image src={crotchet} alt="Crotchet" />
+        <Image className="p-1" src={crotchet} alt="Crotchet" />
       </button>
       <button
-        className="border-2 border-red-500 flex-1 max-w-8 p-1 flex justify-center"
+        className={currentNote === "minim" ? selected : unselected}
         onClick={() => {
           setCurrentNote("minim");
         }}
       >
         {" "}
-        <Image src={minim} alt="Minim" />
+        <Image className="p-1" src={minim} alt="Minim" />
       </button>
       <button
-        className="border-2 border-red-500 flex-1 max-w-8 p-1"
+        className={currentNote === "semibreve" ? selected : unselected}
         onClick={() => {
           setCurrentNote("semibreve");
         }}
       >
         {" "}
-        <Image src={semibreve} alt="Semibreve" />
+        <Image className="p-1" src={semibreve} alt="Semibreve" />
       </button>
       <button
-        className="border-2 border-red-500 flex-1 max-w-8 p-1"
+        className={currentNote === "blank" ? selected : unselected}
         onClick={() => {
           setCurrentNote("blank");
         }}

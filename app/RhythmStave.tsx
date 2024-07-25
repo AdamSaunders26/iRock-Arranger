@@ -7,8 +7,7 @@ export default function RhythmStave() {
 
   return (
     <div className="flex">
-      <div className="border-2 border-orange-500 flex flex-col justify-evenly">
-        <div>Beats</div>
+      <div className="border-2 border-orange-500 flex flex-col justify-evenly pt-4 px-2">
         <div>Keys</div>
         <div>Guitar</div>
       </div>
@@ -18,7 +17,7 @@ export default function RhythmStave() {
         <RhythmBar currentNote={currentNote} />
         <RhythmBar currentNote={currentNote} />
       </div>
-      <RhythmTools setCurrentNote={setCurrentNote} />
+      <RhythmTools currentNote={currentNote} setCurrentNote={setCurrentNote} />
     </div>
   );
 }
