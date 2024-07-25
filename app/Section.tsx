@@ -7,6 +7,7 @@ import RhythmStave from "./RhythmStave";
 import ToolSelector from "./ToolSelector";
 import KeysNumberSelector from "./KeysNumberSelector";
 import ChordInput from "./ChordInput";
+import SectionNameInput from "./SectionNameInput";
 
 export default function Section() {
   const [currentNum, setCurrentNum] = useState(1);
@@ -17,7 +18,9 @@ export default function Section() {
 
   return (
     <div className="border-2 border-purple-500 flex flex-col justify-end w-full">
-      <p className="w-full  border-yellow-500 border-2">Chorus:</p>
+      {/* <p className="w-full  border-yellow-500 border-2">Chorus:</p>
+       */}
+      <SectionNameInput />
       <RhythmStave />
       <div className="border-2 border-green-500 flex justify-end w-full ">
         <div className="flex flex-col border-2 border-orange-500 w-full  overflow-x-scroll">

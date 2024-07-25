@@ -4,7 +4,8 @@ import Section from "./Section";
 export default function Home() {
   return (
     <main className="flex min-h-dvh flex-col items-center justify-between w-screen border-2 border-blue-500">
-      <div className="border-2 border-red-500 w-full">The whole damn thing</div>
+      <Section />
+      <Section />
       <Section />
     </main>
   );
