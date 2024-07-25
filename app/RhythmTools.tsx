@@ -4,13 +4,13 @@ import semibreve from "../app/symbols/semibreve.svg";
 import minim from "../app/symbols/minim.svg";
 import crotchet from "../app/symbols/crotchet.svg";
 import Image from "next/image";
+import { GrPowerReset } from "react-icons/gr";
 
 export default function RhythmTools({
   setCurrentNote,
 }: {
   setCurrentNote: React.Dispatch<React.SetStateAction<string>>;
 }) {
-  //   const [currentNote, setCurrentNote] = useState("crotchet");
   return (
     <div className="flex flex-col justify-between">
       <button
@@ -48,6 +48,14 @@ export default function RhythmTools({
       >
         {" "}
         <Image src={semibreve} alt="Semibreve" />
+      </button>
+      <button
+        className="border-2 border-red-500 flex-1 max-w-8 p-1"
+        onClick={() => {
+          setCurrentNote("blank");
+        }}
+      >
+        <GrPowerReset />
       </button>
     </div>
   );

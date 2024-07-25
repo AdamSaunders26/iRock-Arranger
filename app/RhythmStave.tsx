@@ -13,10 +13,10 @@ export default function RhythmStave() {
         <div>Guitar</div>
       </div>
       <div className="border-2 border-blue-500 flex-1 flex justify-evenly">
-        <RhythmBar />
-        <RhythmBar />
-        <RhythmBar />
-        <RhythmBar />
+        <RhythmBar currentNote={currentNote} />
+        <RhythmBar currentNote={currentNote} />
+        <RhythmBar currentNote={currentNote} />
+        <RhythmBar currentNote={currentNote} />
       </div>
       <RhythmTools setCurrentNote={setCurrentNote} />
     </div>
