@@ -6,9 +6,10 @@ import NumberSelector from "./Drums Unit/DrumsNumberSelector";
 import RhythmStave from "./RhythmStave";
 import ToolSelector from "./Drums Unit/DrumsToolSelector";
 import KeysNumberSelector from "./KeysNumberSelector";
-import ChordInput from "./ChordInput";
+import ChordInput from "./Keys Pad/ChordInput";
 import SectionNameInput from "./SectionNameInput";
 import DrumsUnit from "./Drums Unit/DrumUnit";
+import KeysUnit from "./Keys Pad/KeysUnit";
 
 export default function Section() {
   const [currentNum, setCurrentNum] = useState(1);
@@ -22,17 +23,10 @@ export default function Section() {
       <SectionNameInput />
       <RhythmStave />
       <div className="border-2 border-green-500 flex justify-end w-full ">
-        <div className="flex flex-col border-2 border-orange-500 w-full  overflow-x-scroll">
-          <KeysPad currentNum={keysCurrentNum} />
-          <div className="flex justify-evenly">
-            <KeysNumberSelector
-              currentNum={keysCurrentNum}
-              setCurrentNum={setKeysCurrentNum}
-            />
-            <ChordInput />
-          </div>
-        </div>
-
+        <KeysUnit
+          keysCurrentNum={keysCurrentNum}
+          setKeysCurrentNum={setKeysCurrentNum}
+        />
         <DrumsUnit
           currentNum={currentNum}
           reset={reset}
