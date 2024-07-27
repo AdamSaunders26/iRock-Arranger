@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import DrumPad from "./DrumPad";
+import DrumPad from "./Drums Pad/DrumPad";
 import KeysPad from "./KeysPad";
 import NumberSelector from "./NumberSelector";
 import RhythmStave from "./RhythmStave";
@@ -30,7 +30,7 @@ export default function Section() {
               currentNum={keysCurrentNum}
               setCurrentNum={setKeysCurrentNum}
             />
-            {/* <p className="flex-1 px-2">Chords: F, Bb, Dm, C</p> */}
+
             <ChordInput />
           </div>
         </div>
