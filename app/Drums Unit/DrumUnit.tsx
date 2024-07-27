@@ -1,51 +1,49 @@
-import NumberButton from "./NumberButton";
+import DrumsNumberSelector from "./DrumsNumberSelector";
+import DrumsToolSelector from "./DrumsToolSelector";
+import DrumPad from "./DrumPad";
 
-export default function NumberSelector({
+export default function DrumsUnit({
   currentNum,
+  reset,
+  quaver,
+  and,
   setCurrentNum,
   setReset,
   setQuaver,
   setAnd,
 }: {
   currentNum: number;
+  reset: boolean;
+  quaver: boolean;
+  and: boolean;
   setCurrentNum: React.Dispatch<React.SetStateAction<number>>;
   setReset: React.Dispatch<React.SetStateAction<boolean>>;
   setQuaver: React.Dispatch<React.SetStateAction<boolean>>;
   setAnd: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   return (
-    <div className="flex flex-col w-10 text-center h-full">
-      <NumberButton
-        num={1}
+    <div className="flex">
+      <DrumPad
+        currentNum={currentNum}
+        reset={reset}
+        quaver={quaver}
+        and={and}
+      />
+      <DrumsNumberSelector
         currentNum={currentNum}
         setCurrentNum={setCurrentNum}
         setReset={setReset}
         setQuaver={setQuaver}
         setAnd={setAnd}
       />
-      <NumberButton
-        num={2}
-        currentNum={currentNum}
-        setCurrentNum={setCurrentNum}
+      <DrumsToolSelector
+        reset={reset}
         setReset={setReset}
+        quaver={quaver}
         setQuaver={setQuaver}
+        and={and}
         setAnd={setAnd}
-      />
-      <NumberButton
-        num={3}
-        currentNum={currentNum}
         setCurrentNum={setCurrentNum}
-        setReset={setReset}
-        setQuaver={setQuaver}
-        setAnd={setAnd}
-      />
-      <NumberButton
-        num={4}
-        currentNum={currentNum}
-        setCurrentNum={setCurrentNum}
-        setReset={setReset}
-        setQuaver={setQuaver}
-        setAnd={setAnd}
       />
     </div>
   );

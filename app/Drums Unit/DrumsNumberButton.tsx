@@ -1,8 +1,4 @@
-"use client";
-
-import { useState } from "react";
-
-export default function NumberButton({
+export default function DrumsNumberButton({
   num,
   currentNum,
   setCurrentNum,

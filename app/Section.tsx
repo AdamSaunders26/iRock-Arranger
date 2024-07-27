@@ -1,13 +1,14 @@
 "use client";
 import { useState } from "react";
-import DrumPad from "./Drums Pad/DrumPad";
+import DrumPad from "./Drums Unit/DrumPad";
 import KeysPad from "./KeysPad";
-import NumberSelector from "./NumberSelector";
+import NumberSelector from "./Drums Unit/DrumsNumberSelector";
 import RhythmStave from "./RhythmStave";
-import ToolSelector from "./ToolSelector";
+import ToolSelector from "./Drums Unit/DrumsToolSelector";
 import KeysNumberSelector from "./KeysNumberSelector";
 import ChordInput from "./ChordInput";
 import SectionNameInput from "./SectionNameInput";
+import DrumsUnit from "./Drums Unit/DrumUnit";
 
 export default function Section() {
   const [currentNum, setCurrentNum] = useState(1);
@@ -18,8 +19,6 @@ export default function Section() {
 
   return (
     <div className="border-2 border-purple-500 flex flex-col justify-end w-full">
-      {/* <p className="w-full  border-yellow-500 border-2">Chorus:</p>
-       */}
       <SectionNameInput />
       <RhythmStave />
       <div className="border-2 border-green-500 flex justify-end w-full ">
@@ -30,34 +29,20 @@ export default function Section() {
               currentNum={keysCurrentNum}
               setCurrentNum={setKeysCurrentNum}
             />
-
             <ChordInput />
           </div>
         </div>
-        <div className="flex">
-          <DrumPad
-            currentNum={currentNum}
-            reset={reset}
-            quaver={quaver}
-            and={and}
-          />
-          <NumberSelector
-            currentNum={currentNum}
-            setCurrentNum={setCurrentNum}
-            setReset={setReset}
-            setQuaver={setQuaver}
-            setAnd={setAnd}
-          />
-          <ToolSelector
-            reset={reset}
-            setReset={setReset}
-            quaver={quaver}
-            setQuaver={setQuaver}
-            and={and}
-            setAnd={setAnd}
-            setCurrentNum={setCurrentNum}
-          />
-        </div>
+
+        <DrumsUnit
+          currentNum={currentNum}
+          reset={reset}
+          quaver={quaver}
+          and={and}
+          setCurrentNum={setCurrentNum}
+          setReset={setReset}
+          setQuaver={setQuaver}
+          setAnd={setAnd}
+        />
       </div>
     </div>
   );
