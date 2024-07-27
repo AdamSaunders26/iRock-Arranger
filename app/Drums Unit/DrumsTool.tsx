@@ -32,9 +32,10 @@ export default function DrumsTool({
       break;
   }
 
-  const buttonClass = "border-2 border-red-500 h-full p-2 flex justify-center";
+  const buttonClass =
+    "border-2 border-red-500 h-full w-full p-2 flex justify-center items-center";
   const clickedButtonClass =
-    "border-2 border-red-500 h-full bg-red-500 text-white p-2 flex justify-center";
+    "border-2 border-red-500 h-full w-full bg-red-500 text-white p-2 flex justify-center items-center";
   return (
     <button
       className={state ? clickedButtonClass : buttonClass}

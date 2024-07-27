@@ -1,7 +1,3 @@
-import AndTool from "../AndTool";
-import QuaverTool from "../QuaverTool";
-import ResetTool from "../ResetTool";
-import ToolButton from "../ToolButton";
 import DrumsTool from "./DrumsTool";
 
 export default function DrumsToolSelector({
@@ -22,7 +18,7 @@ export default function DrumsToolSelector({
   setCurrentNum: React.Dispatch<React.SetStateAction<number>>;
 }) {
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center items-center ">
       <DrumsTool
         toolType="reset"
         state={reset}
