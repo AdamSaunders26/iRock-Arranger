@@ -18,7 +18,6 @@ export default function ChordInput() {
           }
         }}
         onChange={(e) => {
-          console.log(e.target.value);
           setChords(e.target.value);
         }}
       />

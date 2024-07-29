@@ -1,15 +1,10 @@
 "use client";
 import { useState } from "react";
-import DrumPad from "./Drums Unit/DrumPad";
-import KeysPad from "./KeysPad";
-import NumberSelector from "./Drums Unit/DrumsNumberSelector";
-import RhythmStave from "./RhythmStave";
-import ToolSelector from "./Drums Unit/DrumsToolSelector";
-import KeysNumberSelector from "./KeysNumberSelector";
-import ChordInput from "./Keys Pad/ChordInput";
+
+import RhythmStave from "./Rhythm Stave/RhythmStave";
 import SectionNameInput from "./SectionNameInput";
 import DrumsUnit from "./Drums Unit/DrumUnit";
-import KeysUnit from "./Keys Pad/KeysUnit";
+import KeysUnit from "./Keys Unit/KeysUnit";
 
 export default function Section() {
   const [currentNum, setCurrentNum] = useState(1);

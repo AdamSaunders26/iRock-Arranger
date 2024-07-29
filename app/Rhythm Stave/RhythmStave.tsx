@@ -1,9 +1,12 @@
 import { useState } from "react";
 import RhythmBar from "./RhythmBar";
 import RhythmTools from "./RhythmTools";
+import { SymbolKey } from "./BarSymbol";
 
 export default function RhythmStave() {
-  const [currentNote, setCurrentNote] = useState("crotchet");
+  const [currentNote, setCurrentNote] = useState<SymbolKey | "blank">(
+    "crotchet"
+  );
 
   return (
     <div className="flex">
