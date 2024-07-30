@@ -1,11 +1,11 @@
 "use client";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import PianoKey from "./PianoKey";
 import { iRockContext, iRockContextType } from "../Context";
 
 export default function KeysPad({ currentNum }: { currentNum: number }) {
   const { section } = useContext<iRockContextType>(iRockContext);
-  console.log(section.keys);
+
   const {
     key1,
     key2,
@@ -33,30 +33,6 @@ export default function KeysPad({ currentNum }: { currentNum: number }) {
     key24,
   } = section.keys;
 
-  // const [key1, setKey1] = useState("");
-  // const [key2, setKey2] = useState("");
-  // const [key3, setKey3] = useState("");
-  // const [key4, setKey4] = useState("");
-  // const [key5, setKey5] = useState("");
-  // const [key6, setKey6] = useState("");
-  // const [key7, setKey7] = useState("");
-  // const [key8, setKey8] = useState("");
-  // const [key9, setKey9] = useState("");
-  // const [key10, setKey10] = useState("");
-  // const [key11, setKey11] = useState("");
-  // const [key12, setKey12] = useState("");
-  // const [key13, setKey13] = useState("");
-  // const [key14, setKey14] = useState("");
-  // const [key15, setKey15] = useState("");
-  // const [key16, setKey16] = useState("");
-  // const [key17, setKey17] = useState("");
-  // const [key18, setKey18] = useState("");
-  // const [key19, setKey19] = useState("");
-  // const [key20, setKey20] = useState("");
-  // const [key21, setKey21] = useState("");
-  // const [key22, setKey22] = useState("");
-  // const [key23, setKey23] = useState("");
-  // const [key24, setKey24] = useState("");
   return (
     <div className="border-purple-500 border-2 h-full w-full justify-evenly flex text-xs">
       <PianoKey

@@ -9,12 +9,16 @@ export default function Drum({
   reset,
   quaver,
   and,
+  drumText,
+  setDrumText,
 }: {
   kind: string;
   currentNum: number;
   reset: boolean;
   quaver: boolean;
   and: boolean;
+  drumText: string;
+  setDrumText: React.Dispatch<React.SetStateAction<string>>;
 }) {
   const drum =
     "border-2 border-black bg-[#CABEBB] rounded-full w-12 h-12  flex justify-center items-center";
@@ -59,24 +63,22 @@ export default function Drum({
       break;
   }
 
-  const [text, setText] = useState<string | JSX.Element>("");
-
   function clickHandler() {
     if (reset) {
-      setText("");
+      setDrumText("");
     } else if (quaver) {
-      setText(<LuMusic2 />);
+      setDrumText(<LuMusic2 />);
     } else if (and) {
-      setText((curr) => {
+      setDrumText((curr) => {
         return curr + `+`;
       });
     } else {
-      if (typeof text == "object") {
-        setText(() => {
+      if (typeof drumText == "object") {
+        setDrumText(() => {
           return `${currentNum}`;
         });
       } else {
-        setText((curr) => {
+        setDrumText((curr) => {
           return curr + ` ${currentNum}`;
         });
       }
@@ -90,7 +92,7 @@ export default function Drum({
       }}
       className={divName}
     >
-      {text ? text : null}
+      {drumText ? drumText : null}
     </p>
   );
 }
