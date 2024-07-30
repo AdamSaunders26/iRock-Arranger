@@ -7,7 +7,7 @@ import DrumsUnit from "./Drums Unit/DrumUnit";
 import KeysUnit from "./Keys Unit/KeysUnit";
 
 export default function Section() {
-  const [currentNum, setCurrentNum] = useState(1);
+  // const [currentNum, setCurrentNum] = useState(1);
   const [keysCurrentNum, setKeysCurrentNum] = useState(1);
   const [reset, setReset] = useState(false);
   const [quaver, setQuaver] = useState(false);
@@ -23,14 +23,14 @@ export default function Section() {
           setKeysCurrentNum={setKeysCurrentNum}
         />
         <DrumsUnit
-          currentNum={currentNum}
-          reset={reset}
-          quaver={quaver}
-          and={and}
-          setCurrentNum={setCurrentNum}
-          setReset={setReset}
-          setQuaver={setQuaver}
-          setAnd={setAnd}
+        // currentNum={currentNum}
+        // reset={reset}
+        // quaver={quaver}
+        // and={and}
+        // setCurrentNum={setCurrentNum}
+        // setReset={setReset}
+        // setQuaver={setQuaver}
+        // setAnd={setAnd}
         />
       </div>
     </div>

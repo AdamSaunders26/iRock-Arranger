@@ -4,6 +4,15 @@ import { createContext, ReactNode, useState } from "react";
 import { blankDataStruct } from "./modelData";
 
 export interface iRockContextType {
+  tools: {
+    drums: {
+      drumsCurrentNum: [number, React.Dispatch<React.SetStateAction<number>>];
+      reset: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
+      quaver: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
+      and: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
+    };
+    keysCurrentNum: [number, React.Dispatch<React.SetStateAction<number>>];
+  };
   section: {
     sectionName: [string, React.Dispatch<React.SetStateAction<string>>];
     chords: [string, React.Dispatch<React.SetStateAction<string>>];
@@ -102,9 +111,23 @@ export function IRockContextProvider({ children }: { children: ReactNode }) {
   const [drum8, setDrum8] = useState("");
   const [drum9, setDrum9] = useState("");
 
+  const [drumsCurrentNum, setDrumsCurrentNum] = useState(1);
+  const [keysCurrentNum, setKeysCurrentNum] = useState(1);
+  const [reset, setReset] = useState(false);
+  const [quaver, setQuaver] = useState(false);
+  const [and, setAnd] = useState(false);
   return (
     <iRockContext.Provider
       value={{
+        tools: {
+          drums: {
+            drumsCurrentNum: [drumsCurrentNum, setDrumsCurrentNum],
+            reset: [reset, setReset],
+            quaver: [quaver, setQuaver],
+            and: [and, setAnd],
+          },
+          keysCurrentNum: [keysCurrentNum, setKeysCurrentNum],
+        },
         section: {
           sectionName: [sectionName, setSectionName],
           chords: [chords, setChords],

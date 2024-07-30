@@ -1,25 +1,29 @@
 "use client";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IconType } from "react-icons";
 import { LuMusic2 } from "react-icons/lu";
+import { iRockContext, iRockContextType } from "../Context";
 
 export default function Drum({
   kind,
-  currentNum,
-  reset,
-  quaver,
-  and,
+  // currentNum,
+  // reset,
+  // quaver,
+  // and,
   drumText,
   setDrumText,
 }: {
   kind: string;
-  currentNum: number;
-  reset: boolean;
-  quaver: boolean;
-  and: boolean;
+  // currentNum: number;
+  // reset: boolean;
+  // quaver: boolean;
+  // and: boolean;
   drumText: string;
   setDrumText: React.Dispatch<React.SetStateAction<string>>;
 }) {
+  const { tools } = useContext<iRockContextType>(iRockContext);
+  const { drumsCurrentNum, quaver, and, reset } = tools.drums;
+
   const drum =
     "border-2 border-black bg-[#CABEBB] rounded-full w-12 h-12  flex justify-center items-center";
   const drum1 =
@@ -64,22 +68,22 @@ export default function Drum({
   }
 
   function clickHandler() {
-    if (reset) {
+    if (reset[0]) {
       setDrumText("");
-    } else if (quaver) {
+    } else if (quaver[0]) {
       setDrumText(<LuMusic2 />);
-    } else if (and) {
+    } else if (and[0]) {
       setDrumText((curr) => {
         return curr + `+`;
       });
     } else {
       if (typeof drumText == "object") {
         setDrumText(() => {
-          return `${currentNum}`;
+          return `${drumsCurrentNum[0]}`;
         });
       } else {
         setDrumText((curr) => {
-          return curr + ` ${currentNum}`;
+          return curr + ` ${drumsCurrentNum[0]}`;
         });
       }
     }
