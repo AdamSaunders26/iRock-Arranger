@@ -3,9 +3,9 @@ import { useContext } from "react";
 import PianoKey from "./PianoKey";
 import { iRockContext, iRockContextType } from "../Context";
 
-export default function KeysPad({ currentNum }: { currentNum: number }) {
-  const { section } = useContext<iRockContextType>(iRockContext);
-
+export default function KeysPad() {
+  const { section, tools } = useContext<iRockContextType>(iRockContext);
+  const [currentNum, setCurrentNum] = tools.keysCurrentNum;
   const {
     key1,
     key2,
