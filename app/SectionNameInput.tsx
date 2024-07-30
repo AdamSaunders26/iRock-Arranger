@@ -1,22 +1,25 @@
 "use client";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { iRockContext, iRockContextType } from "./Context";
 
 export default function SectionNameInput() {
-  const [name, setName] = useState("Name?");
+  const { section } = useContext<iRockContextType>(iRockContext);
+  const [sectionName, setSectionName] = section.sectionName;
+
   return (
     <div>
       <label htmlFor="section">Section: </label>
       <input
-        className={name === "Name?" ? "text-neutral-500" : "text-black"}
+        className={sectionName === "Name?" ? "text-neutral-500" : "text-black"}
         id="section"
-        value={name}
+        value={sectionName}
         onFocus={() => {
-          if (name === "Name?") {
-            setName("");
+          if (sectionName === "Name?") {
+            setSectionName("");
           }
         }}
         onChange={(e) => {
-          setName(e.target.value);
+          setSectionName(e.target.value);
         }}
       />
     </div>

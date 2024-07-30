@@ -1,8 +1,11 @@
 "use client";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { iRockContext, iRockContextType } from "../Context";
 
 export default function ChordInput() {
-  const [chords, setChords] = useState("e.g. F, Bb, Dm, C");
+  const { section } = useContext<iRockContextType>(iRockContext);
+  const [chords, setChords] = section.chords;
+
   return (
     <div>
       <label htmlFor="chords">Chords: </label>

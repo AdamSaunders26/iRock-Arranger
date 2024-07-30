@@ -28,7 +28,8 @@ export interface iRockContextType {
   };
 }
 export const iRockContext = createContext<iRockContextType>(blankDataStruct);
-export function iRockContextProvider({ children }: { children: ReactNode }) {
+
+export function IRockContextProvider({ children }: { children: ReactNode }) {
   const [sectionName, setSectionName] = useState("Set section name");
   const [chords, setChords] = useState("Set chords");
 
@@ -100,6 +101,7 @@ export function iRockContextProvider({ children }: { children: ReactNode }) {
   const [drum7, setDrum7] = useState("");
   const [drum8, setDrum8] = useState("");
   const [drum9, setDrum9] = useState("");
+
   return (
     <iRockContext.Provider
       value={{

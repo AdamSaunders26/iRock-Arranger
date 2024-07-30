@@ -16,13 +16,15 @@ export type SymbolKey = keyof typeof symbolLib;
 
 export default function BarSymbol({
   currentGlobalSymbol,
+  keyState,
 }: {
   currentGlobalSymbol: SymbolKey | "blank";
+  keyState: [string, React.Dispatch<React.SetStateAction<string>>];
 }) {
-  const [currentSymbol, setCurrentSymbol] = useState<SymbolKey | "blank">(
-    "blank"
-  );
-
+  // const [currentSymbol, setCurrentSymbol] = useState<SymbolKey | "blank">(
+  //   "blank"
+  // );
+  const [currentSymbol, setCurrentSymbol] = keyState;
   return (
     <div
       className="p-2 border-2 border-grey-500 w-full flex items-center justify-center"
