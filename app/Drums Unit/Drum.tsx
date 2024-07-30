@@ -72,7 +72,6 @@ export default function Drum({
       });
     } else {
       if (typeof text == "object") {
-        console.log("noted");
         setText(() => {
           return `${currentNum}`;
         });

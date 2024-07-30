@@ -1,6 +1,6 @@
 import ChordInput from "./ChordInput";
 import KeysNumberSelector from "./KeysNumberSelector";
-import KeysPad from "../KeysPad";
+import KeysPad from "./KeysPad";
 
 export default function KeysUnit({
   keysCurrentNum,

@@ -20,9 +20,6 @@ export default function PianoKey({
   setPrevKeyState?: React.Dispatch<React.SetStateAction<string>>;
   currentNum: number;
 }) {
-  // const [key1Pressed, setKey1Pressed] = useState(false);
-  // const [key2Pressed, setKey2Pressed] = useState(false);
-
   const solid = "bg-black flex-1 text-white text-center";
   const emptyR = "bg-white border-r-2 border-black flex-1 text-center";
   const emptyL = "bg-white border-l-2 border-black flex-1 text-center";
