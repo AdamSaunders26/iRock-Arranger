@@ -71,7 +71,7 @@ export default function Drum({
     if (reset[0]) {
       setDrumText("");
     } else if (quaver[0]) {
-      setDrumText(<LuMusic2 />);
+      setDrumText("q");
     } else if (and[0]) {
       setDrumText((curr) => {
         return curr + `+`;
@@ -96,7 +96,7 @@ export default function Drum({
       }}
       className={divName}
     >
-      {drumText ? drumText : null}
+      {drumText ? drumText === "q" ? <LuMusic2 /> : drumText : null}
     </p>
   );
 }

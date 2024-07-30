@@ -4,6 +4,7 @@ import { createContext, ReactNode, useState } from "react";
 import { blankDataStruct } from "./modelData";
 
 export interface iRockContextType {
+  storageFunction: () => void;
   tools: {
     drums: {
       drumsCurrentNum: [number, React.Dispatch<React.SetStateAction<number>>];
@@ -116,9 +117,96 @@ export function IRockContextProvider({ children }: { children: ReactNode }) {
   const [reset, setReset] = useState(false);
   const [quaver, setQuaver] = useState(false);
   const [and, setAnd] = useState(false);
+
+  function storageFunction() {
+    const toBeStored = {
+      sectionName: sectionName,
+      chords: chords,
+      rhythm: {
+        keys: {
+          keySymbol1: keySymbol1,
+          keySymbol2: keySymbol2,
+          keySymbol3: keySymbol3,
+          keySymbol4: keySymbol4,
+          keySymbol5: keySymbol5,
+          keySymbol6: keySymbol6,
+          keySymbol7: keySymbol7,
+          keySymbol8: keySymbol8,
+          keySymbol9: keySymbol9,
+          keySymbol10: keySymbol10,
+          keySymbol11: keySymbol11,
+          keySymbol12: keySymbol12,
+          keySymbol13: keySymbol13,
+          keySymbol14: keySymbol14,
+          keySymbol15: keySymbol15,
+          keySymbol16: keySymbol16,
+        },
+        guitar: {
+          guitarSymbol1: guitarSymbol1,
+          guitarSymbol2: guitarSymbol2,
+          guitarSymbol3: guitarSymbol3,
+          guitarSymbol4: guitarSymbol4,
+          guitarSymbol5: guitarSymbol5,
+          guitarSymbol6: guitarSymbol6,
+          guitarSymbol7: guitarSymbol7,
+          guitarSymbol8: guitarSymbol8,
+          guitarSymbol9: guitarSymbol9,
+          guitarSymbol10: guitarSymbol10,
+          guitarSymbol11: guitarSymbol11,
+          guitarSymbol12: guitarSymbol12,
+          guitarSymbol13: guitarSymbol13,
+          guitarSymbol14: guitarSymbol14,
+          guitarSymbol15: guitarSymbol15,
+          guitarSymbol16: guitarSymbol16,
+        },
+      },
+      keys: {
+        key1: key1,
+        key2: key2,
+        key3: key3,
+        key4: key4,
+        key5: key5,
+        key6: key6,
+        key7: key7,
+        key8: key8,
+        key9: key9,
+        key10: key10,
+        key11: key11,
+        key12: key12,
+        key13: key13,
+        key14: key14,
+        key15: key15,
+        key16: key16,
+        key17: key17,
+        key19: key19,
+        key20: key20,
+        key21: key21,
+        key22: key22,
+        key23: key23,
+        key24: key24,
+      },
+      drums: {
+        drum1: drum1,
+        drum2: drum2,
+        drum3: drum3,
+        drum4: drum4,
+        drum5: drum5,
+        drum6: drum6,
+        drum7: drum7,
+        drum8: drum8,
+        drum9: drum9,
+      },
+    };
+
+    const storageReady = JSON.stringify(toBeStored);
+    console.log(storageReady);
+    localStorage.setItem("section", storageReady);
+  }
+
   return (
     <iRockContext.Provider
       value={{
+        storageFunction: storageFunction,
         tools: {
           drums: {
             drumsCurrentNum: [drumsCurrentNum, setDrumsCurrentNum],
