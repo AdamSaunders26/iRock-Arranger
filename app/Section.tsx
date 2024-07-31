@@ -4,7 +4,6 @@ import RhythmStave from "./Rhythm Stave/RhythmStave";
 import SectionNameInput from "./SectionNameInput";
 import DrumsUnit from "./Drums Unit/DrumUnit";
 import KeysUnit from "./Keys Unit/KeysUnit";
-// const localData = localStorage.getItem("section") || "Nothing stored";
 
 export default function Section() {
   return (

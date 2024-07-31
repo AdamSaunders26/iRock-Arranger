@@ -1,10 +1,13 @@
 import Section from "./Section";
-import { iRockContextProvider } from "./Context";
+
+import MenuOverview from "./Menu/MenuOverview";
 
 export default function Home() {
   return (
     <main className="flex min-h-dvh flex-col items-center justify-between w-screen border-2 border-blue-500">
-      <Section />
+      <MenuOverview>
+        <Section />
+      </MenuOverview>
     </main>
   );
 }
