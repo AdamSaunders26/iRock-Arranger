@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import { blankDataStruct } from "./modelData";
 
 export interface iRockContextType {
@@ -22,10 +22,7 @@ export interface iRockContextType {
         string,
         [string, React.Dispatch<React.SetStateAction<string>>]
       >;
-      guitar: Record<
-        string,
-        [string, React.Dispatch<React.SetStateAction<string>>]
-      >;
+      guitar: Record<string, string>;
     };
     keys: Record<
       string,
@@ -36,6 +33,17 @@ export interface iRockContextType {
       [string, React.Dispatch<React.SetStateAction<string>>]
     >;
   };
+}
+
+export interface iRockDataType {
+  sectionName: string;
+  chords: string;
+  rhythm: {
+    keys: Record<string, string>;
+    guitar: Record<string, string>;
+  };
+  keys: Record<string, string>;
+  drums: Record<string, string>;
 }
 export const iRockContext = createContext<iRockContextType>(blankDataStruct);
 
@@ -199,9 +207,92 @@ export function IRockContextProvider({ children }: { children: ReactNode }) {
     };
 
     const storageReady = JSON.stringify(toBeStored);
-    console.log(storageReady);
+    // console.log(storageReady);
     localStorage.setItem("section", storageReady);
   }
+
+  useEffect(() => {
+    if (localStorage) {
+      console.log("yep");
+      const storedData = localStorage.getItem("section");
+      if (!storedData) {
+        console.log("No Data");
+      } else {
+        const parsedData: iRockDataType = JSON.parse(storedData);
+        console.log(parsedData);
+        setSectionName(parsedData.sectionName);
+        setChords(parsedData.chords);
+        setKeySymbol1(parsedData.rhythm.keys.keySymbol1);
+        setKeySymbol2(parsedData.rhythm.keys.keySymbol2);
+        setKeySymbol3(parsedData.rhythm.keys.keySymbol3);
+        setKeySymbol4(parsedData.rhythm.keys.keySymbol4);
+        setKeySymbol5(parsedData.rhythm.keys.keySymbol5);
+        setKeySymbol6(parsedData.rhythm.keys.keySymbol6);
+        setKeySymbol7(parsedData.rhythm.keys.keySymbol7);
+        setKeySymbol8(parsedData.rhythm.keys.keySymbol8);
+        setKeySymbol9(parsedData.rhythm.keys.keySymbol9);
+        setKeySymbol10(parsedData.rhythm.keys.keySymbol10);
+        setKeySymbol11(parsedData.rhythm.keys.keySymbol11);
+        setKeySymbol12(parsedData.rhythm.keys.keySymbol12);
+        setKeySymbol13(parsedData.rhythm.keys.keySymbol13);
+        setKeySymbol14(parsedData.rhythm.keys.keySymbol14);
+        setKeySymbol15(parsedData.rhythm.keys.keySymbol15);
+        setKeySymbol16(parsedData.rhythm.keys.keySymbol16);
+
+        setGuitarSymbol1(parsedData.rhythm.guitar.guitarSymbol1);
+        setGuitarSymbol2(parsedData.rhythm.guitar.guitarSymbol2);
+        setGuitarSymbol3(parsedData.rhythm.guitar.guitarSymbol3);
+        setGuitarSymbol4(parsedData.rhythm.guitar.guitarSymbol4);
+        setGuitarSymbol5(parsedData.rhythm.guitar.guitarSymbol5);
+        setGuitarSymbol6(parsedData.rhythm.guitar.guitarSymbol6);
+        setGuitarSymbol7(parsedData.rhythm.guitar.guitarSymbol7);
+        setGuitarSymbol8(parsedData.rhythm.guitar.guitarSymbol8);
+        setGuitarSymbol9(parsedData.rhythm.guitar.guitarSymbol9);
+        setGuitarSymbol10(parsedData.rhythm.guitar.guitarSymbol10);
+        setGuitarSymbol11(parsedData.rhythm.guitar.guitarSymbol11);
+        setGuitarSymbol12(parsedData.rhythm.guitar.guitarSymbol12);
+        setGuitarSymbol13(parsedData.rhythm.guitar.guitarSymbol13);
+        setGuitarSymbol14(parsedData.rhythm.guitar.guitarSymbol14);
+        setGuitarSymbol15(parsedData.rhythm.guitar.guitarSymbol15);
+        setGuitarSymbol16(parsedData.rhythm.guitar.guitarSymbol16);
+
+        setKey1(parsedData.keys.key1);
+        setKey2(parsedData.keys.key2);
+        setKey3(parsedData.keys.key3);
+        setKey4(parsedData.keys.key4);
+        setKey5(parsedData.keys.key5);
+        setKey6(parsedData.keys.key6);
+        setKey7(parsedData.keys.key7);
+        setKey8(parsedData.keys.key8);
+        setKey9(parsedData.keys.key9);
+        setKey10(parsedData.keys.key10);
+        setKey11(parsedData.keys.key11);
+        setKey12(parsedData.keys.key12);
+        setKey13(parsedData.keys.key13);
+        setKey14(parsedData.keys.key14);
+        setKey15(parsedData.keys.key15);
+        setKey16(parsedData.keys.key16);
+        setKey17(parsedData.keys.key17);
+        setKey18(parsedData.keys.key18);
+        setKey19(parsedData.keys.key19);
+        setKey20(parsedData.keys.key20);
+        setKey21(parsedData.keys.key21);
+        setKey22(parsedData.keys.key22);
+        setKey23(parsedData.keys.key23);
+        setKey24(parsedData.keys.key24);
+
+        setDrum1(parsedData.drums.drum1);
+        setDrum2(parsedData.drums.drum2);
+        setDrum3(parsedData.drums.drum3);
+        setDrum4(parsedData.drums.drum4);
+        setDrum5(parsedData.drums.drum5);
+        setDrum6(parsedData.drums.drum6);
+        setDrum7(parsedData.drums.drum7);
+        setDrum8(parsedData.drums.drum8);
+        setDrum9(parsedData.drums.drum9);
+      }
+    }
+  }, []);
 
   return (
     <iRockContext.Provider
