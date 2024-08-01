@@ -9,9 +9,10 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
   const [songList, setSongList] = tools.songList;
 
   const toDisplay = Object.keys(Object.values(songList)[0]);
-  console.log(toDisplay);
+  //   console.log(toDisplay);
 
   useEffect(() => {
+    // localStorage.setItem("songList", JSON.stringify({ songList: {} }));
     if (localStorage.length === 0) {
       console.log("empty");
       const blankSongList = { songList: {} };

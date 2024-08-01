@@ -133,7 +133,7 @@ export function IRockContextProvider({ children }: { children: ReactNode }) {
   const [currentSong, setCurrentSong] = useState<null | number>(null);
   const [songList, setSongList] = useState({ songList: {} });
 
-  function storageFunction() {
+  function storageFunction({ sectionNumber }: { sectionNumber: number }) {
     const toBeStored = {
       sectionName: sectionName,
       chords: chords,
@@ -217,7 +217,7 @@ export function IRockContextProvider({ children }: { children: ReactNode }) {
     // console.log(storageReady);
     const songList = localStorage.getItem("songList");
 
-    localStorage.setItem("section", storageReady);
+    // localStorage.setItem("section", storageReady);
   }
 
   useEffect(() => {
@@ -227,8 +227,8 @@ export function IRockContextProvider({ children }: { children: ReactNode }) {
       if (!storedData) {
         console.log("No Data");
       } else {
-        const parsedData: iRockDataType = JSON.parse(storedData);
-        console.log(parsedData);
+        // const parsedData: iRockDataType = JSON.parse(storedData);
+        // console.log(parsedData);
         // setSectionName(parsedData.sectionName);
         // setChords(parsedData.chords);
         // setKeySymbol1(parsedData.rhythm.keys.keySymbol1);
@@ -247,7 +247,6 @@ export function IRockContextProvider({ children }: { children: ReactNode }) {
         // setKeySymbol14(parsedData.rhythm.keys.keySymbol14);
         // setKeySymbol15(parsedData.rhythm.keys.keySymbol15);
         // setKeySymbol16(parsedData.rhythm.keys.keySymbol16);
-
         // setGuitarSymbol1(parsedData.rhythm.guitar.guitarSymbol1);
         // setGuitarSymbol2(parsedData.rhythm.guitar.guitarSymbol2);
         // setGuitarSymbol3(parsedData.rhythm.guitar.guitarSymbol3);
@@ -264,7 +263,6 @@ export function IRockContextProvider({ children }: { children: ReactNode }) {
         // setGuitarSymbol14(parsedData.rhythm.guitar.guitarSymbol14);
         // setGuitarSymbol15(parsedData.rhythm.guitar.guitarSymbol15);
         // setGuitarSymbol16(parsedData.rhythm.guitar.guitarSymbol16);
-
         // setKey1(parsedData.keys.key1);
         // setKey2(parsedData.keys.key2);
         // setKey3(parsedData.keys.key3);
@@ -289,7 +287,6 @@ export function IRockContextProvider({ children }: { children: ReactNode }) {
         // setKey22(parsedData.keys.key22);
         // setKey23(parsedData.keys.key23);
         // setKey24(parsedData.keys.key24);
-
         // setDrum1(parsedData.drums.drum1);
         // setDrum2(parsedData.drums.drum2);
         // setDrum3(parsedData.drums.drum3);

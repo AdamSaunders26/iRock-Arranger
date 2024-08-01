@@ -1,11 +1,22 @@
 "use client";
 import { useContext, useState } from "react";
-import { iRockContext, iRockContextType } from "./Context";
+import { iRockContext, iRockContextType, iRockDataType } from "./Context";
+import { saveSectionName } from "./utils";
 
-export default function SectionNameInput() {
-  const { section, storageFunction } =
+export default function SectionNameInput({
+  sectionData,
+  sectionNumber,
+}: {
+  sectionData: iRockDataType;
+  sectionNumber: number;
+}) {
+  const { section, storageFunction, tools } =
     useContext<iRockContextType>(iRockContext);
-  const [sectionName, setSectionName] = section.sectionName;
+  const sectionName = sectionData.sectionName;
+  const [tempSectionName, setTempSectionName] = useState(sectionName);
+  const [songList, setSongList] = tools.songList;
+  const currentSong = tools.currentSong[0];
+  // console.log(sectionName);
 
   return (
     <div className="flex justify-between">
@@ -16,21 +27,22 @@ export default function SectionNameInput() {
             sectionName === "Name?" ? "text-neutral-500" : "text-black"
           }
           id="section"
-          value={sectionName}
+          value={tempSectionName}
           onFocus={() => {
             if (sectionName === "Name?") {
-              setSectionName("");
+              // setSectionName("");
             }
           }}
           onChange={(e) => {
-            setSectionName(e.target.value);
+            setTempSectionName(e.target.value);
+            console.log(tempSectionName);
           }}
         />
       </div>
       <button
         className="border-2 border-neutral-500 rounded-lg m-1 p-1 active:bg-red-300"
         onClick={() => {
-          const stored = localStorage.getItem("section");
+          const stored = localStorage.getItem("songList");
           console.log(stored);
         }}
       >
@@ -40,7 +52,15 @@ export default function SectionNameInput() {
         className="border-2 border-neutral-500 rounded-lg m-1 p-1 active:bg-red-300"
         onClick={() => {
           console.log("saved");
-          storageFunction();
+          // storageFunction();
+          setSongList(
+            saveSectionName(
+              tempSectionName,
+              sectionNumber,
+              songList,
+              currentSong
+            )
+          );
         }}
       >
         Save

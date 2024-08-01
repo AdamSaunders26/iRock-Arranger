@@ -18,7 +18,7 @@ export default function Song() {
   }
 
   const currSects = Object.keys(songList.songList[currentSong]);
-  console.log(currSects);
+  //   console.log(currSects);
   return (
     <div className="flex flex-col">
       <div>Current Song: {currentSong}</div>
@@ -58,6 +58,7 @@ export default function Song() {
           <Section
             key={i}
             sectionData={songList.songList[currentSong][value]}
+            sectionNumber={Number(value)}
           />
         );
       })}

@@ -9,15 +9,21 @@ import { iRockContext, iRockContextType, iRockDataType } from "./Context";
 
 export default function Section({
   sectionData,
+  sectionNumber,
 }: {
   sectionData: iRockDataType;
+  sectionNumber: number;
 }) {
   // const { section, tools } = useContext<iRockContextType>(iRockContext);
   // const currentSong = tools.currentSong[0]
-  console.log(sectionData);
+  // console.log(sectionData);
+  // console.log(sectionNumber);
   return (
     <div className="border-2 border-purple-500 flex flex-col justify-end w-full">
-      <SectionNameInput />
+      <SectionNameInput
+        sectionData={sectionData}
+        sectionNumber={sectionNumber}
+      />
       <RhythmStave />
       <div className="border-2 border-green-500 flex justify-end w-full ">
         <KeysUnit />
