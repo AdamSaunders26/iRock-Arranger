@@ -27,7 +27,7 @@ export default function Section({
       <RhythmStave sectionData={sectionData} sectionNumber={sectionNumber} />
       <div className="border-2 border-green-500 flex justify-end w-full ">
         <KeysUnit sectionData={sectionData} sectionNumber={sectionNumber} />
-        <DrumsUnit />
+        <DrumsUnit sectionData={sectionData} sectionNumber={sectionNumber} />
       </div>
     </div>
   );

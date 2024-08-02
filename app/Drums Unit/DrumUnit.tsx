@@ -1,11 +1,18 @@
 import DrumsNumberSelector from "./DrumsNumberSelector";
 import DrumsToolSelector from "./DrumsToolSelector";
 import DrumPad from "./DrumPad";
+import { iRockDataType } from "../Context";
 
-export default function DrumsUnit() {
+export default function DrumsUnit({
+  sectionData,
+  sectionNumber,
+}: {
+  sectionData: iRockDataType;
+  sectionNumber: number;
+}) {
   return (
     <div className="flex">
-      <DrumPad />
+      <DrumPad sectionData={sectionData} sectionNumber={sectionNumber} />
       <DrumsNumberSelector />
       <DrumsToolSelector />
     </div>

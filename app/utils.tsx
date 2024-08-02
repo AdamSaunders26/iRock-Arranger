@@ -46,9 +46,19 @@ export function saveKeyPadData(
   songList: any,
   currentSong: number
 ) {
-  console.log(updatedKeys);
   const songListCopy = objectCopier(songList);
   songListCopy.songList[currentSong][sectionNumber].keys = updatedKeys;
+  return songListCopy;
+}
+export function saveDrumPadData(
+  updatedDrums: Record<string, string>,
+  sectionNumber: number,
+  songList: any,
+  currentSong: number
+) {
+  const songListCopy = objectCopier(songList);
+  songListCopy.songList[currentSong][sectionNumber].drums = updatedDrums;
+  console.log(songListCopy);
   return songListCopy;
 }
 
