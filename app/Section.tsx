@@ -16,7 +16,7 @@ export default function Section({
 }) {
   // const { section, tools } = useContext<iRockContextType>(iRockContext);
   // const currentSong = tools.currentSong[0]
-  // console.log(sectionData);
+  console.log(sectionData);
   // console.log(sectionNumber);
   return (
     <div className="border-2 border-purple-500 flex flex-col justify-end w-full">
@@ -24,7 +24,7 @@ export default function Section({
         sectionData={sectionData}
         sectionNumber={sectionNumber}
       />
-      <RhythmStave />
+      <RhythmStave sectionData={sectionData} sectionNumber={sectionNumber} />
       <div className="border-2 border-green-500 flex justify-end w-full ">
         <KeysUnit />
         <DrumsUnit />

@@ -4,7 +4,7 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 import { blankDataStruct } from "./modelData";
 
 export interface iRockContextType {
-  storageFunction: () => void;
+  // storageFunction: () => void;
   tools: {
     drums: {
       drumsCurrentNum: [number, React.Dispatch<React.SetStateAction<number>>];
@@ -20,7 +20,7 @@ export interface iRockContextType {
     songList: [any, React.Dispatch<React.SetStateAction<any>>];
   };
   section: {
-    sectionName: [string, React.Dispatch<React.SetStateAction<string>>];
+    // sectionName: [string, React.Dispatch<React.SetStateAction<string>>];
     chords: [string, React.Dispatch<React.SetStateAction<string>>];
     rhythm: {
       keys: Record<
@@ -53,7 +53,7 @@ export interface iRockDataType {
 export const iRockContext = createContext<iRockContextType>(blankDataStruct);
 
 export function IRockContextProvider({ children }: { children: ReactNode }) {
-  const [sectionName, setSectionName] = useState("Set section name");
+  // const [sectionName, setSectionName] = useState("Set section name");
   const [chords, setChords] = useState("Set chords");
 
   const [keySymbol1, setKeySymbol1] = useState("blank");
@@ -135,7 +135,7 @@ export function IRockContextProvider({ children }: { children: ReactNode }) {
 
   function storageFunction({ sectionNumber }: { sectionNumber: number }) {
     const toBeStored = {
-      sectionName: sectionName,
+      // sectionName: sectionName,
       chords: chords,
       rhythm: {
         keys: {
@@ -303,7 +303,7 @@ export function IRockContextProvider({ children }: { children: ReactNode }) {
   return (
     <iRockContext.Provider
       value={{
-        storageFunction: storageFunction,
+        // storageFunction: storageFunction,
         tools: {
           drums: {
             drumsCurrentNum: [drumsCurrentNum, setDrumsCurrentNum],
@@ -316,7 +316,7 @@ export function IRockContextProvider({ children }: { children: ReactNode }) {
           songList: [songList, setSongList],
         },
         section: {
-          sectionName: [sectionName, setSectionName],
+          // sectionName: [sectionName, setSectionName],
           chords: [chords, setChords],
           rhythm: {
             keys: {

@@ -6,14 +6,24 @@ export function saveSectionName(
   songList: any,
   currentSong: number
 ) {
-  console.log(songList);
-  console.log(currentSong);
   const songListCopy = objectCopier(songList);
   songListCopy.songList[currentSong][sectionNumber].sectionName = sectionName;
-  console.log(songListCopy);
 
   localStorage.setItem("songList", JSON.stringify(songListCopy));
   return songListCopy;
+}
+
+export function saveRhythmNote(
+  updatedNotes: {
+    keys: Record<string, string>;
+    guitar: Record<string, string>;
+  },
+  sectionNumber: number,
+  songList: any,
+  currentSong: number
+) {
+  const songListCopy = objectCopier(songList);
+  console.log(songListCopy);
 }
 
 export function objectCopier(object: any) {

@@ -5,6 +5,7 @@ import crotchet from "../symbols/1-4_note_crotchet_(music).svg";
 import Image from "next/image";
 
 import { useState } from "react";
+import { iRockDataType } from "../Context";
 
 export const symbolLib = {
   quaver: quaver,
@@ -17,9 +18,13 @@ export type SymbolKey = keyof typeof symbolLib;
 export default function BarSymbol({
   currentGlobalSymbol,
   keyState,
+  sectionData,
+  sectionNumber,
 }: {
   currentGlobalSymbol: SymbolKey | "blank";
   keyState: [string, React.Dispatch<React.SetStateAction<string>>];
+  sectionData: iRockDataType;
+  sectionNumber: number;
 }) {
   // const [currentSymbol, setCurrentSymbol] = useState<SymbolKey | "blank">(
   //   "blank"
