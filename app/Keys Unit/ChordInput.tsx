@@ -10,7 +10,7 @@ export default function ChordInput({
   sectionData: iRockDataType;
   sectionNumber: number;
 }) {
-  const { section, tools } = useContext<iRockContextType>(iRockContext);
+  const { tools } = useContext<iRockContextType>(iRockContext);
   const [tempChords, setTempChords] = useState(sectionData.chords);
   const [songList, setSongList] = tools.songList;
   const currentSong = tools.currentSong[0];
@@ -31,9 +31,11 @@ export default function ChordInput({
         }}
         onChange={(e) => {
           setTempChords(e.target.value);
-          setSongList(
-            saveChords(e.target.value, sectionNumber, songList, currentSong)
-          );
+          if (currentSong) {
+            setSongList(
+              saveChords(e.target.value, sectionNumber, songList, currentSong)
+            );
+          }
         }}
       />
     </div>

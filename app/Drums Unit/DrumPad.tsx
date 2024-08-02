@@ -10,7 +10,7 @@ export default function DrumPad({
   sectionData: iRockDataType;
   sectionNumber: number;
 }) {
-  const { section, tools } = useContext<iRockContextType>(iRockContext);
+  const { tools } = useContext<iRockContextType>(iRockContext);
   const { drum1, drum2, drum3, drum4, drum5, drum6, drum7, drum8, drum9 } =
     sectionData.drums;
   const [songList, setSongList] = tools.songList;
@@ -38,9 +38,11 @@ export default function DrumPad({
       drum8: tempDrum8,
       drum9: tempDrum9,
     };
-    setSongList(
-      saveDrumPadData(toBeStored, sectionNumber, songList, currentSong)
-    );
+    if (currentSong) {
+      setSongList(
+        saveDrumPadData(toBeStored, sectionNumber, songList, currentSong)
+      );
+    }
   }, [
     tempDrum1,
     tempDrum2,

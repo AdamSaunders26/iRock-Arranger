@@ -11,8 +11,7 @@ export default function KeysPad({
   sectionData: iRockDataType;
   sectionNumber: number;
 }) {
-  console.log(sectionNumber);
-  const { section, tools } = useContext<iRockContextType>(iRockContext);
+  const { tools } = useContext<iRockContextType>(iRockContext);
   const [currentNum, setCurrentNum] = tools.keysCurrentNum;
   const [songList, setSongList] = tools.songList;
   const currentSong = tools.currentSong[0];
@@ -95,10 +94,11 @@ export default function KeysPad({
       key23: tempKey23,
       key24: tempKey24,
     };
-
-    setSongList(
-      saveKeyPadData(toBeStored, sectionNumber, songList, currentSong)
-    );
+    if (currentSong) {
+      setSongList(
+        saveKeyPadData(toBeStored, sectionNumber, songList, currentSong)
+      );
+    }
   }, [
     tempKey1,
     tempKey2,
