@@ -1,27 +1,39 @@
 "use client";
 import { useContext, useState } from "react";
-import { iRockContext, iRockContextType } from "../Context";
+import { iRockContext, iRockContextType, iRockDataType } from "../Context";
+import { saveChords } from "../utils";
 
-export default function ChordInput() {
-  const { section } = useContext<iRockContextType>(iRockContext);
-  const [chords, setChords] = section.chords;
+export default function ChordInput({
+  sectionData,
+  sectionNumber,
+}: {
+  sectionData: iRockDataType;
+  sectionNumber: number;
+}) {
+  const { section, tools } = useContext<iRockContextType>(iRockContext);
+  const [tempChords, setTempChords] = useState(sectionData.chords);
+  const [songList, setSongList] = tools.songList;
+  const currentSong = tools.currentSong[0];
 
   return (
     <div>
       <label htmlFor="chords">Chords: </label>
       <input
         className={
-          chords === "e.g. F, Bb, Dm, C" ? "text-neutral-500" : "text-black"
+          tempChords === "e.g. F, Bb, Dm, C" ? "text-neutral-500" : "text-black"
         }
         id="chords"
-        value={chords}
+        value={tempChords}
         onFocus={() => {
-          if (chords === "e.g. F, Bb, Dm, C") {
-            setChords("");
+          if (tempChords === "e.g. F, Bb, Dm, C") {
+            setTempChords("");
           }
         }}
         onChange={(e) => {
-          setChords(e.target.value);
+          setTempChords(e.target.value);
+          setSongList(
+            saveChords(e.target.value, sectionNumber, songList, currentSong)
+          );
         }}
       />
     </div>

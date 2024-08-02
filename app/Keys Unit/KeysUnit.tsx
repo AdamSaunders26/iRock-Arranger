@@ -19,7 +19,7 @@ export default function KeysUnit({
       <KeysPad sectionData={sectionData} sectionNumber={sectionNumber} />
       <div className="flex justify-evenly">
         <KeysNumberSelector />
-        <ChordInput />
+        <ChordInput sectionData={sectionData} sectionNumber={sectionNumber} />
       </div>
     </div>
   );
