@@ -17,7 +17,10 @@ export interface iRockContextType {
       number | null,
       React.Dispatch<React.SetStateAction<number | null>>
     ];
-    songList: [any, React.Dispatch<React.SetStateAction<any>>];
+    songList: [
+      iRockSongListObjectType,
+      React.Dispatch<React.SetStateAction<iRockSongListObjectType>>
+    ];
   };
 }
 
@@ -30,6 +33,18 @@ export interface iRockDataType {
   };
   keys: Record<string, string>;
   drums: Record<string, string>;
+}
+
+export interface iRockSongType {
+  [section: string]: iRockDataType;
+}
+
+export interface iRockSongListType {
+  [song: string]: iRockSongType;
+}
+
+export interface iRockSongListObjectType {
+  songList: iRockSongListType;
 }
 export const iRockContext = createContext<iRockContextType>(blankDataStruct);
 
