@@ -23,7 +23,9 @@ export function saveRhythmNote(
   currentSong: number
 ) {
   const songListCopy = objectCopier(songList);
-  console.log(songListCopy);
+  songListCopy.songList[currentSong][sectionNumber].rhythm = updatedNotes;
+  localStorage.setItem("songList", JSON.stringify(songListCopy));
+  return songListCopy;
 }
 
 export function objectCopier(object: any) {

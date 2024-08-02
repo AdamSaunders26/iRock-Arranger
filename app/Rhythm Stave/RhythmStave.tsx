@@ -190,8 +190,10 @@ export default function RhythmStave({
         guitarSymbol16: tempGuitarSymbol16,
       },
     };
-    console.log(toBeStored);
-    saveRhythmNote(toBeStored, sectionNumber, songList, currentSong);
+    // console.log(toBeStored);
+    setSongList(
+      saveRhythmNote(toBeStored, sectionNumber, songList, currentSong)
+    );
   }, [
     tempKeySymbol1,
     tempKeySymbol2,
