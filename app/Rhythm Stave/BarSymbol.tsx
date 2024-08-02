@@ -1,3 +1,4 @@
+"use client";
 import quaver from "../symbols/U+266B_d.svg";
 import semibreve from "../symbols/1-1_note_semibreve (1).svg";
 import minim from "../symbols/1-2_note_minim_(music).svg";

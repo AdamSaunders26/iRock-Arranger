@@ -28,6 +28,18 @@ export function saveRhythmNote(
   return songListCopy;
 }
 
+export function saveKeyPadData(
+  updatedKeys: Record<string, string>,
+  sectionNumber: number,
+  songList: any,
+  currentSong: number
+) {
+  console.log(updatedKeys);
+  const songListCopy = objectCopier(songList);
+  songListCopy.songList[currentSong][sectionNumber].keys = updatedKeys;
+  return songListCopy;
+}
+
 export function objectCopier(object: any) {
   return JSON.parse(JSON.stringify(object));
 }
