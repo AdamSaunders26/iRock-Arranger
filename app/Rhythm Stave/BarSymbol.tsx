@@ -8,29 +8,33 @@ import Image from "next/image";
 import { useState } from "react";
 import { iRockDataType } from "../Context";
 
+// export const symbolLib = {
+//   quaver: quaver,
+//   semibreve: semibreve,
+//   minim: minim,
+//   crotchet: crotchet,
+// };
+
 export const symbolLib = {
-  quaver: quaver,
-  semibreve: semibreve,
-  minim: minim,
-  crotchet: crotchet,
+  quaver,
+  semibreve,
+  minim,
+  crotchet,
 };
 export type SymbolKey = keyof typeof symbolLib;
 
 export default function BarSymbol({
   currentGlobalSymbol,
   keyState,
-  sectionData,
-  sectionNumber,
 }: {
   currentGlobalSymbol: SymbolKey | "blank";
   keyState: [string, React.Dispatch<React.SetStateAction<string>>];
-  sectionData: iRockDataType;
-  sectionNumber: number;
 }) {
-  // const [currentSymbol, setCurrentSymbol] = useState<SymbolKey | "blank">(
-  //   "blank"
-  // );
   const [currentSymbol, setCurrentSymbol] = keyState;
+  const imageSrc =
+    currentSymbol !== "blank"
+      ? symbolLib[currentSymbol as SymbolKey]
+      : undefined;
   return (
     <div
       className="p-2 border-2 border-grey-500 w-full flex items-center justify-center"
@@ -41,7 +45,7 @@ export default function BarSymbol({
       {currentSymbol === "blank" ? (
         <div></div>
       ) : (
-        <Image src={symbolLib[currentSymbol]} alt="Quaver" />
+        <Image src={imageSrc} alt="Quaver" />
       )}
     </div>
   );

@@ -10,8 +10,7 @@ export default function SectionNameInput({
   sectionData: iRockDataType;
   sectionNumber: number;
 }) {
-  const { section, storageFunction, tools } =
-    useContext<iRockContextType>(iRockContext);
+  const { tools } = useContext<iRockContextType>(iRockContext);
   const sectionName = sectionData.sectionName;
   const [tempSectionName, setTempSectionName] = useState(sectionName);
   const [songList, setSongList] = tools.songList;
@@ -19,9 +18,11 @@ export default function SectionNameInput({
   // console.log(sectionName);
 
   useEffect(() => {
-    setSongList(
-      saveSectionName(tempSectionName, sectionNumber, songList, currentSong)
-    );
+    if (currentSong) {
+      setSongList(
+        saveSectionName(tempSectionName, sectionNumber, songList, currentSong)
+      );
+    }
   }, [tempSectionName]);
 
   return (

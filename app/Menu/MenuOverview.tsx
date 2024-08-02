@@ -21,7 +21,9 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
       console.log("not empty");
       const storedSongList = localStorage.getItem("songList");
       //   console.log(storedSongList);
-      setSongList(JSON.parse(storedSongList));
+      if (storedSongList) {
+        setSongList(JSON.parse(storedSongList));
+      }
     }
   }, []);
 

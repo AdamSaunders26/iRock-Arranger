@@ -15,7 +15,7 @@ export default function RhythmStave({
   const [currentNote, setCurrentNote] = useState<SymbolKey | "blank">(
     "crotchet"
   );
-  const { section, tools } = useContext<iRockContextType>(iRockContext);
+  const { tools } = useContext<iRockContextType>(iRockContext);
   const [songList, setSongList] = tools.songList;
   const currentSong = tools.currentSong[0];
   const {
@@ -90,7 +90,12 @@ export default function RhythmStave({
   const [tempGuitarSymbol15, setTempGuitarSymbol15] = useState(guitarSymbol15);
   const [tempGuitarSymbol16, setTempGuitarSymbol16] = useState(guitarSymbol16);
 
-  const bar1 = {
+  type BarType = {
+    keys: [string, React.Dispatch<React.SetStateAction<string>>][];
+    guitar: [string, React.Dispatch<React.SetStateAction<string>>][];
+  };
+
+  const bar1: BarType = {
     keys: [
       [tempKeySymbol1, setTempKeySymbol1],
       [tempKeySymbol2, setTempKeySymbol2],
@@ -105,7 +110,7 @@ export default function RhythmStave({
     ],
   };
 
-  const bar2 = {
+  const bar2: BarType = {
     keys: [
       [tempKeySymbol5, setTempKeySymbol5],
       [tempKeySymbol6, setTempKeySymbol6],
@@ -120,7 +125,7 @@ export default function RhythmStave({
     ],
   };
 
-  const bar3 = {
+  const bar3: BarType = {
     keys: [
       [tempKeySymbol9, setTempKeySymbol9],
       [tempKeySymbol10, setTempKeySymbol10],
@@ -135,7 +140,7 @@ export default function RhythmStave({
     ],
   };
 
-  const bar4 = {
+  const bar4: BarType = {
     keys: [
       [tempKeySymbol13, setTempKeySymbol13],
       [tempKeySymbol14, setTempKeySymbol14],
@@ -151,7 +156,6 @@ export default function RhythmStave({
   };
 
   useEffect(() => {
-    console.log("It's happeneing!");
     const toBeStored = {
       keys: {
         keySymbol1: tempKeySymbol1,
@@ -190,10 +194,11 @@ export default function RhythmStave({
         guitarSymbol16: tempGuitarSymbol16,
       },
     };
-    // console.log(toBeStored);
-    setSongList(
-      saveRhythmNote(toBeStored, sectionNumber, songList, currentSong)
-    );
+    if (currentSong) {
+      setSongList(
+        saveRhythmNote(toBeStored, sectionNumber, songList, currentSong)
+      );
+    }
   }, [
     tempKeySymbol1,
     tempKeySymbol2,
