@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { iRockContext, iRockContextType, iRockDataType } from "./Context";
 import { saveSectionName } from "./utils";
 
@@ -17,6 +17,12 @@ export default function SectionNameInput({
   const [songList, setSongList] = tools.songList;
   const currentSong = tools.currentSong[0];
   // console.log(sectionName);
+
+  useEffect(() => {
+    setSongList(
+      saveSectionName(tempSectionName, sectionNumber, songList, currentSong)
+    );
+  }, [tempSectionName]);
 
   return (
     <div className="flex justify-between">
@@ -39,7 +45,7 @@ export default function SectionNameInput({
           }}
         />
       </div>
-      <button
+      {/* <button
         className="border-2 border-neutral-500 rounded-lg m-1 p-1 active:bg-red-300"
         onClick={() => {
           const stored = localStorage.getItem("songList");
@@ -64,7 +70,7 @@ export default function SectionNameInput({
         }}
       >
         Save
-      </button>
+      </button> */}
     </div>
   );
 }
