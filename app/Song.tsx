@@ -9,13 +9,15 @@ import {
 } from "./Context";
 import { blankSectionStruct } from "./modelData";
 import Section from "./Section";
+import SongNameInput from "./SongNameInput";
 
 export default function Song() {
   const { tools } = useContext<iRockContextType>(iRockContext);
   const currentSong = tools.currentSong[0];
   const [songList, setSongList] = tools.songList;
-  const [currentSections, setCurrentSections] = useState(null);
-  const [currentSectionNumber, setCurrentSectionNumber] = useState(null);
+  // const [currentSections, setCurrentSections] = useState(null);
+  // const [currentSectionNumber, setCurrentSectionNumber] = useState(null);
+  const [songName, setSongName] = useState("Enter song name");
 
   let currentSongData: iRockSongType;
   let currSects: string[] = [];
@@ -27,7 +29,7 @@ export default function Song() {
   //   console.log(currSects);
   return (
     <div className="flex flex-col">
-      <div>Current Song: {currentSong}</div>
+      <SongNameInput songName={songName} setSongName={setSongName} />
       <button
         className="bg-pink-400 mx-auto rounded-lg m-1 p-1"
         onClick={() => {
