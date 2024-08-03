@@ -2,12 +2,13 @@
 import { ReactNode, useContext, useEffect, useState } from "react";
 import BackButton from "./BackButton";
 import { iRockContext, iRockContextType } from "../Context";
+import SongNameInput from "../SongNameInput";
 
 export default function MenuOverview({ children }: { children: ReactNode }) {
   const { tools } = useContext<iRockContextType>(iRockContext);
   const [currentSong, setCurrentSong] = tools.currentSong;
   const [songList, setSongList] = tools.songList;
-
+  const [songName, setSongName] = useState("Enter song name");
   const toDisplay = Object.keys(Object.values(songList)[0]);
   //   console.log(toDisplay);
 
@@ -32,6 +33,7 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
       {currentSong ? null : (
         <div>
           Select Song.
+          <SongNameInput songName={songName} setSongName={setSongName} />
           <div className="flex justify-between">
             <button
               className="bg-green-600 mx-auto p-1"

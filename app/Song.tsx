@@ -17,7 +17,6 @@ export default function Song() {
   const [songList, setSongList] = tools.songList;
   // const [currentSections, setCurrentSections] = useState(null);
   // const [currentSectionNumber, setCurrentSectionNumber] = useState(null);
-  const [songName, setSongName] = useState("Enter song name");
 
   let currentSongData: iRockSongType;
   let currSects: string[] = [];
@@ -29,7 +28,6 @@ export default function Song() {
   //   console.log(currSects);
   return (
     <div className="flex flex-col">
-      <SongNameInput songName={songName} setSongName={setSongName} />
       <button
         className="bg-pink-400 mx-auto rounded-lg m-1 p-1"
         onClick={() => {
