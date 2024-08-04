@@ -4,7 +4,7 @@ export function saveSectionName(
   sectionName: string,
   sectionNumber: number,
   songList: any,
-  currentSong: number
+  currentSong: string
 ) {
   const songListCopy = objectCopier(songList);
   songListCopy.songList[currentSong][sectionNumber].sectionName = sectionName;
@@ -16,7 +16,7 @@ export function saveChords(
   chords: string,
   sectionNumber: number,
   songList: any,
-  currentSong: number
+  currentSong: string
 ) {
   const songListCopy = objectCopier(songList);
   songListCopy.songList[currentSong][sectionNumber].chords = chords;
@@ -32,7 +32,7 @@ export function saveRhythmNote(
   },
   sectionNumber: number,
   songList: any,
-  currentSong: number
+  currentSong: string
 ) {
   const songListCopy = objectCopier(songList);
   songListCopy.songList[currentSong][sectionNumber].rhythm = updatedNotes;
@@ -44,7 +44,7 @@ export function saveKeyPadData(
   updatedKeys: Record<string, string>,
   sectionNumber: number,
   songList: any,
-  currentSong: number
+  currentSong: string
 ) {
   const songListCopy = objectCopier(songList);
   songListCopy.songList[currentSong][sectionNumber].keys = updatedKeys;
@@ -55,7 +55,7 @@ export function saveDrumPadData(
   updatedDrums: Record<string, string>,
   sectionNumber: number,
   songList: any,
-  currentSong: number
+  currentSong: string
 ) {
   const songListCopy = objectCopier(songList);
   songListCopy.songList[currentSong][sectionNumber].drums = updatedDrums;
