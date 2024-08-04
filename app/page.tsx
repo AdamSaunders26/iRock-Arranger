@@ -5,7 +5,7 @@ import Song from "./Song/Song";
 
 export default function Home() {
   return (
-    <main className="flex min-h-dvh flex-col items-center justify-between w-dvh border-2 border-blue-500">
+    <main className="flex min-h-dvh flex-col items-center justify-between w-dvh ">
       <MenuOverview>
         <Song />
       </MenuOverview>

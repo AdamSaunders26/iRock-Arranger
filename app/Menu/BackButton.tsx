@@ -1,3 +1,4 @@
+import { IoMdArrowRoundBack } from "react-icons/io";
 export default function BackButton({
   setCurrentSong,
 }: {
@@ -5,12 +6,13 @@ export default function BackButton({
 }) {
   return (
     <button
-      className="bg-blue-400   rounded-lg m-1 p-1 "
+      className="  text-2xl m-1 p-1 flex items-center bg-white rounded-lg shadow-lg "
       onClick={() => {
         setCurrentSong(null);
       }}
     >
-      Back to song list
+      <IoMdArrowRoundBack />
+      <p className="text-lg">Songs</p>
     </button>
   );
 }

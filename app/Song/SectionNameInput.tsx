@@ -15,7 +15,6 @@ export default function SectionNameInput({
   const [tempSectionName, setTempSectionName] = useState(sectionName);
   const [songList, setSongList] = tools.songList;
   const currentSong = tools.currentSong[0];
-  // console.log(sectionName);
 
   useEffect(() => {
     if (currentSong) {
@@ -27,22 +26,22 @@ export default function SectionNameInput({
 
   return (
     <div className="flex justify-between">
-      <div className="flex items-center">
-        <label htmlFor="section">Section: </label>
+      <div className="flex items-center px-1">
         <input
           className={
-            sectionName === "Name?" ? "text-neutral-500" : "text-black"
+            sectionName === "Enter section name"
+              ? "bg-neutral-200 text-neutral-500  rounded-md p-1"
+              : "bg-neutral-200 text-black rounded-md p-1"
           }
           id="section"
           value={tempSectionName}
           onFocus={() => {
-            if (sectionName === "Name?") {
-              // setSectionName("");
+            if (tempSectionName === "Enter section name") {
+              setTempSectionName("");
             }
           }}
           onChange={(e) => {
             setTempSectionName(e.target.value);
-            console.log(tempSectionName);
           }}
         />
       </div>

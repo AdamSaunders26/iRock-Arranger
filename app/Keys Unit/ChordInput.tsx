@@ -20,7 +20,9 @@ export default function ChordInput({
       <label htmlFor="chords">Chords: </label>
       <input
         className={
-          tempChords === "e.g. F, Bb, Dm, C" ? "text-neutral-500" : "text-black"
+          tempChords === "e.g. F, Bb, Dm, C"
+            ? "text-neutral-500 rounded-lg p-1 bg-rose-50"
+            : "text-black rounded-lg p-1 bg-rose-50"
         }
         id="chords"
         value={tempChords}

@@ -15,16 +15,11 @@ export default function Section({
   sectionData: iRockDataType;
   sectionNumber: number;
 }) {
-  // const { section, tools } = useContext<iRockContextType>(iRockContext);
-  // const currentSong = tools.currentSong[0]
-  console.log(sectionData);
-  // console.log(sectionNumber);
   return (
-    <div className="border-2 border-purple-500 flex flex-col justify-end w-full">
+    <div className="bg-white rounded-lg flex flex-col justify-end w-full my-2">
       <SectionHeader sectionData={sectionData} sectionNumber={sectionNumber} />
-
       <RhythmStave sectionData={sectionData} sectionNumber={sectionNumber} />
-      <div className="border-2 border-green-500 flex justify-end w-full ">
+      <div className=" flex justify-end w-full ">
         <KeysUnit sectionData={sectionData} sectionNumber={sectionNumber} />
         <DrumsUnit sectionData={sectionData} sectionNumber={sectionNumber} />
       </div>

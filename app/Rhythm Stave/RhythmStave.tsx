@@ -235,12 +235,12 @@ export default function RhythmStave({
   ]);
 
   return (
-    <div className="flex">
-      <div className="border-2 border-orange-500 flex flex-col justify-evenly pt-4 px-2">
+    <div className="flex bg-emerald-50">
+      <div className=" flex flex-col justify-evenly pt-4 px-2">
         <div>Keys</div>
         <div>Guitar</div>
       </div>
-      <div className="border-2 border-blue-500 flex-1 flex justify-evenly">
+      <div className=" flex-1 flex justify-evenly">
         <RhythmBar
           currentNote={currentNote}
           barState={bar1}

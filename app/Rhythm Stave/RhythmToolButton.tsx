@@ -16,9 +16,8 @@ export default function RhythmToolButton({
   toolType: SymbolKey | "blank";
 }) {
   const selected =
-    "border-2 border-red-500 bg-red-500 max-h-8 max-w-8 flex-1  p-2 flex items-center justify-center";
-  const unselected =
-    "border-2 border-red-500 flex-1 max-h-8 max-w-8 p-2 flex items-center justify-center";
+    " rounded-full bg-emerald-500 h-8 w-8   p-2 flex items-center justify-center";
+  const unselected = "  h-8 w-8 p-2 flex  items-center justify-center";
   const symbolLib = {
     quaver: quaver,
     semibreve: semibreve,

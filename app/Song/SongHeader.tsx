@@ -12,10 +12,11 @@ export default function SongHeader({
   const { tools } = useContext<iRockContextType>(iRockContext);
   const [currentSong, setCurrentSong] = tools.currentSong;
   return (
-    <h1 className="flex justify-between px-2 py-1">
-      <BackButton setCurrentSong={setCurrentSong} />
-      <p className="p-2 text-xl ">{currentSong}</p>
+    <h1 className="flex flex-col items-center justify-between px-2 w-full">
+      <p className="p-2 text-3xl ">{currentSong}</p>
+
       <div className="flex justify-between gap-2 ">
+        <BackButton setCurrentSong={setCurrentSong} />
         <NewSectionButton currentSongData={currentSongData} />
         <DeleteSongButton />
       </div>

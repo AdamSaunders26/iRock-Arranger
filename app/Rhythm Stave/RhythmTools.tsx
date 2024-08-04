@@ -23,7 +23,7 @@ export default function RhythmTools({
     "blank",
   ];
   return (
-    <div className="flex flex-col justify-between">
+    <div className="flex flex-col justify-between m-2">
       {tools.map((tool, i) => {
         return (
           <RhythmToolButton

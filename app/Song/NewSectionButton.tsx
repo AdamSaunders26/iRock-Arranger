@@ -12,7 +12,7 @@ export default function NewSectionButton({
   const [songList, setSongList] = tools.songList;
   return (
     <button
-      className="bg-pink-400 mx-auto rounded-lg m-1 p-1"
+      className="shadow-lg bg-primary text-white  rounded-lg m-1 p-1"
       onClick={() => {
         const songListCopy = JSON.parse(JSON.stringify(songList));
         if (Object.keys(currentSongData).length === 0 && currentSong) {

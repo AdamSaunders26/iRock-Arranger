@@ -12,9 +12,9 @@ export default function KeysUnit({
   sectionNumber: number;
 }) {
   return (
-    <div className="flex flex-col border-2 border-orange-500 w-full  overflow-x-scroll">
+    <div className="flex flex-col bg-rose-100 w-full  overflow-x-scroll">
       <KeysPad sectionData={sectionData} sectionNumber={sectionNumber} />
-      <div className="flex justify-evenly">
+      <div className="flex justify-evenly mb-2 mx-2">
         <KeysNumberSelector />
         <ChordInput sectionData={sectionData} sectionNumber={sectionNumber} />
       </div>

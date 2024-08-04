@@ -22,7 +22,15 @@ export default function PianoKey({
 }) {
   const solid = "bg-black flex-1 text-white text-center";
   const emptyR = "bg-white border-r-2 border-black flex-1 text-center";
+  const emptyRLastTop =
+    "bg-white  border-black rounded-tr-lg flex-1 text-center";
+  const emptyRLastBottom =
+    "bg-white  border-black rounded-br-lg flex-1 text-center";
   const emptyL = "bg-white border-l-2 border-black flex-1 text-center";
+  const emptyLFirstTop =
+    "bg-white border-black rounded-tl-lg flex-1 text-center";
+  const emptyLFirstBottom =
+    "bg-white border-black rounded-bl-lg flex-1 text-center";
   const bothR =
     "bg-black border-r-2 border-white flex-1 text-white text-center";
   const bothL =
@@ -52,7 +60,18 @@ export default function PianoKey({
       blClass = emptyL;
       brClass = emptyR;
       break;
-
+    case "first":
+      tlClass = emptyLFirstTop;
+      trClass = solid;
+      blClass = emptyLFirstBottom;
+      brClass = emptyR;
+      break;
+    case "last":
+      tlClass = solid;
+      trClass = emptyRLastTop;
+      blClass = emptyL;
+      brClass = emptyRLastBottom;
+      break;
     default:
       break;
   }
@@ -100,6 +119,12 @@ export default function PianoKey({
               case "left":
                 PKS();
                 break;
+              case "first":
+                KS1();
+                break;
+              case "last":
+                PKS();
+                break;
               default:
                 break;
             }
@@ -118,12 +143,18 @@ export default function PianoKey({
               case "left":
                 KS1();
                 break;
+              case "first":
+                KS2();
+                break;
+              case "last":
+                KS1();
+                break;
               default:
                 break;
             }
           }}
         >
-          {kind !== "left" ? keyState2 : null}
+          {kind !== "left" && kind !== "last" ? keyState2 : null}
         </div>
       </div>
       <div className=" flex w-full min-h-16">
@@ -138,6 +169,12 @@ export default function PianoKey({
                 KS1();
                 break;
               case "left":
+                KS1();
+                break;
+              case "first":
+                KS1();
+                break;
+              case "last":
                 KS1();
                 break;
               default:
@@ -159,6 +196,12 @@ export default function PianoKey({
                 break;
               case "left":
                 KS1();
+                break;
+              case "first":
+                KS1();
+                break;
+              case "last":
+                KS2();
                 break;
               default:
                 break;

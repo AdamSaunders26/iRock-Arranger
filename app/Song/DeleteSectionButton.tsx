@@ -28,7 +28,7 @@ export default function DeleteSectionButton({
   return (
     <div>
       <button
-        className="bg-red-500 rounded-lg m-1 p-1"
+        className="bg-red-500 shadow-lg rounded-md m-1 p-1 px-2"
         onClick={() => {
           setModalIsOpen(true);
         }}

@@ -37,7 +37,7 @@ export default function BarSymbol({
       : undefined;
   return (
     <div
-      className="p-2 border-2 border-grey-500 w-full flex items-center justify-center"
+      className="p-2 border-2 border-emerald-100 w-full flex items-center justify-center"
       onClick={() => {
         setCurrentSymbol(currentGlobalSymbol);
       }}

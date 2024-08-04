@@ -126,9 +126,9 @@ export default function KeysPad({
     tempKey24,
   ]);
   return (
-    <div className="border-purple-500 border-2 h-full w-full justify-evenly flex text-xs">
+    <div className=" rounded-lg h-full w-full justify-evenly flex text-xs p-2">
       <PianoKey
-        kind="right"
+        kind="first"
         keyState1={tempKey1}
         setKeyState1={setTempKey1}
         keyState2={tempKey2}
@@ -251,7 +251,7 @@ export default function KeysPad({
         currentNum={currentNum}
       />
       <PianoKey
-        kind="left"
+        kind="last"
         keyState1={tempKey24}
         setKeyState1={setTempKey24}
         keyState2="none"
