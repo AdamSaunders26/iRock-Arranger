@@ -5,7 +5,7 @@ export default function BackButton({
 }) {
   return (
     <button
-      className="bg-blue-400 mx-auto rounded-lg m-1 p-1"
+      className="bg-blue-400   rounded-lg m-1 p-1 "
       onClick={() => {
         setCurrentSong(null);
       }}
