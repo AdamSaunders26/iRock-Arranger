@@ -66,8 +66,12 @@ export function saveDrumPadData(
 
 export function saveSongName(songName: string, songList: any) {
   const songListCopy = objectCopier(songList);
-  songListCopy.songList[songName] = {};
-  console.log(songListCopy);
+  // console.log(Object.keys(songListCopy.songList).includes(songName));
+  const existingName = Object.keys(songListCopy.songList).includes(songName);
+  if (!existingName) {
+    songListCopy.songList[songName] = {};
+  }
+
   localStorage.setItem("songList", JSON.stringify(songListCopy));
   return songListCopy;
 }
