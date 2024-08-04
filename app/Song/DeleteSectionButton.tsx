@@ -1,15 +1,20 @@
 import { useContext, useState } from "react";
-import { iRockContext, iRockContextType } from "../Context";
+import { iRockContext, iRockContextType, iRockDataType } from "../Context";
 import { objectCopier } from "../utils";
 import Modal from "react-modal";
 
-export function DeleteSongButton() {
+export default function DeleteSectionButton({
+  sectionData,
+  sectionNumber,
+}: {
+  sectionData: iRockDataType;
+  sectionNumber: number;
+}) {
   const { tools } = useContext<iRockContextType>(iRockContext);
   const [songList, setSongList] = tools.songList;
   const [currentSong, setCurrentSong] = tools.currentSong;
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
   const customStyles = {
     content: {
       top: "50%",
@@ -23,12 +28,12 @@ export function DeleteSongButton() {
   return (
     <div>
       <button
-        className="bg-red-500 mx-auto rounded-lg m-1 p-1"
+        className="bg-red-500 rounded-lg m-1 p-1"
         onClick={() => {
           setModalIsOpen(true);
         }}
       >
-        Delete Song
+        Delete Section
       </button>
       <Modal
         isOpen={modalIsOpen}
@@ -40,7 +45,7 @@ export function DeleteSongButton() {
       >
         <div className="flex flex-col">
           <p className="text-xl p-6">
-            Are you sure you want to delete {currentSong}?
+            Are you sure you want to delete {sectionData.sectionName}?
           </p>
           <div className="flex justify-between">
             <button
@@ -49,17 +54,17 @@ export function DeleteSongButton() {
                 setModalIsOpen(false);
                 const songListCopy = objectCopier(songList);
                 if (currentSong) {
-                  delete songListCopy.songList[currentSong];
+                  delete songListCopy.songList[currentSong][sectionNumber];
                   setSongList(songListCopy);
                   localStorage.setItem(
                     "songList",
                     JSON.stringify(songListCopy)
                   );
-                  setCurrentSong(null);
+                  //   setCurrentSong(null);
                 }
               }}
             >
-              Delete {currentSong}
+              Delete {sectionData.sectionName}
             </button>
             <button
               className="bg-white border-2 border-black p-1 rounded-lg"
