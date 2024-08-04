@@ -60,13 +60,11 @@ export function saveDrumPadData(
   const songListCopy = objectCopier(songList);
   songListCopy.songList[currentSong][sectionNumber].drums = updatedDrums;
   localStorage.setItem("songList", JSON.stringify(songListCopy));
-  // console.log(songListCopy);
   return songListCopy;
 }
 
 export function saveSongName(songName: string, songList: any) {
   const songListCopy = objectCopier(songList);
-  // console.log(Object.keys(songListCopy.songList).includes(songName));
   const existingName = Object.keys(songListCopy.songList).includes(songName);
   if (!existingName) {
     songListCopy.songList[songName] = {};

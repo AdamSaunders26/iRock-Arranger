@@ -2,7 +2,7 @@
 import { ReactNode, useContext, useEffect, useState } from "react";
 import BackButton from "./BackButton";
 import { iRockContext, iRockContextType } from "../Context";
-import SongNameInput from "../SongNameInput";
+import SongNameInput from "./SongNameInput";
 import { saveSongName } from "../utils";
 
 export default function MenuOverview({ children }: { children: ReactNode }) {

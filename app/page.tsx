@@ -1,7 +1,7 @@
-import Section from "./Section";
+import Section from "./Song/Section";
 
 import MenuOverview from "./Menu/MenuOverview";
-import Song from "./Song";
+import Song from "./Song/Song";
 
 export default function Home() {
   return (

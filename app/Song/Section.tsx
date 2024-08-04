@@ -1,11 +1,11 @@
 "use client";
 
-import RhythmStave from "./Rhythm Stave/RhythmStave";
+import RhythmStave from "../Rhythm Stave/RhythmStave";
 import SectionNameInput from "./SectionNameInput";
-import DrumsUnit from "./Drums Unit/DrumUnit";
-import KeysUnit from "./Keys Unit/KeysUnit";
+import DrumsUnit from "../Drums Unit/DrumUnit";
+import KeysUnit from "../Keys Unit/KeysUnit";
 import { useContext } from "react";
-import { iRockContext, iRockContextType, iRockDataType } from "./Context";
+import { iRockContext, iRockContextType, iRockDataType } from "../Context";
 
 export default function Section({
   sectionData,

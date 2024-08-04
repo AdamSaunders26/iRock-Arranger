@@ -1,7 +1,7 @@
 "use client";
 import { useContext, useEffect, useState } from "react";
-import { iRockContext, iRockContextType, iRockDataType } from "./Context";
-import { saveSectionName } from "./utils";
+import { iRockContext, iRockContextType, iRockDataType } from "../Context";
+import { saveSectionName } from "../utils";
 
 export default function SectionNameInput({
   sectionData,
