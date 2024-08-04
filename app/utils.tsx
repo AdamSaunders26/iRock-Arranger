@@ -48,6 +48,7 @@ export function saveKeyPadData(
 ) {
   const songListCopy = objectCopier(songList);
   songListCopy.songList[currentSong][sectionNumber].keys = updatedKeys;
+  localStorage.setItem("songList", JSON.stringify(songListCopy));
   return songListCopy;
 }
 export function saveDrumPadData(
@@ -58,7 +59,16 @@ export function saveDrumPadData(
 ) {
   const songListCopy = objectCopier(songList);
   songListCopy.songList[currentSong][sectionNumber].drums = updatedDrums;
+  localStorage.setItem("songList", JSON.stringify(songListCopy));
+  // console.log(songListCopy);
+  return songListCopy;
+}
+
+export function saveSongName(songName: string, songList: any) {
+  const songListCopy = objectCopier(songList);
+  songListCopy.songList[songName] = {};
   console.log(songListCopy);
+  localStorage.setItem("songList", JSON.stringify(songListCopy));
   return songListCopy;
 }
 

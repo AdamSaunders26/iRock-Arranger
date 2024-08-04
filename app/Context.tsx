@@ -14,8 +14,8 @@ export interface iRockContextType {
     };
     keysCurrentNum: [number, React.Dispatch<React.SetStateAction<number>>];
     currentSong: [
-      number | null,
-      React.Dispatch<React.SetStateAction<number | null>>
+      string | null,
+      React.Dispatch<React.SetStateAction<string | null>>
     ];
     songList: [
       iRockSongListObjectType,
@@ -54,7 +54,7 @@ export function IRockContextProvider({ children }: { children: ReactNode }) {
   const [reset, setReset] = useState(false);
   const [quaver, setQuaver] = useState(false);
   const [and, setAnd] = useState(false);
-  const [currentSong, setCurrentSong] = useState<null | number>(null);
+  const [currentSong, setCurrentSong] = useState<null | string>(null);
   const [songList, setSongList] = useState({ songList: {} });
 
   return (

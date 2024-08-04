@@ -46,32 +46,6 @@ export default function SectionNameInput({
           }}
         />
       </div>
-      {/* <button
-        className="border-2 border-neutral-500 rounded-lg m-1 p-1 active:bg-red-300"
-        onClick={() => {
-          const stored = localStorage.getItem("songList");
-          console.log(stored);
-        }}
-      >
-        Check
-      </button>
-      <button
-        className="border-2 border-neutral-500 rounded-lg m-1 p-1 active:bg-red-300"
-        onClick={() => {
-          console.log("saved");
-          // storageFunction();
-          setSongList(
-            saveSectionName(
-              tempSectionName,
-              sectionNumber,
-              songList,
-              currentSong
-            )
-          );
-        }}
-      >
-        Save
-      </button> */}
     </div>
   );
 }

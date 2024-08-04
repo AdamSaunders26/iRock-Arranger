@@ -3,6 +3,7 @@ import { ReactNode, useContext, useEffect, useState } from "react";
 import BackButton from "./BackButton";
 import { iRockContext, iRockContextType } from "../Context";
 import SongNameInput from "../SongNameInput";
+import { saveSongName } from "../utils";
 
 export default function MenuOverview({ children }: { children: ReactNode }) {
   const { tools } = useContext<iRockContextType>(iRockContext);
@@ -10,7 +11,7 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
   const [songList, setSongList] = tools.songList;
   const [songName, setSongName] = useState("Enter song name");
   const toDisplay = Object.keys(Object.values(songList)[0]);
-  //   console.log(toDisplay);
+  // console.log(songList);
 
   useEffect(() => {
     // localStorage.setItem("songList", JSON.stringify({ songList: {} }));
@@ -32,35 +33,23 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
     <div className="flex flex-col w-full">
       {currentSong ? null : (
         <div>
-          Select Song.
-          <SongNameInput songName={songName} setSongName={setSongName} />
-          <div className="flex justify-between">
+          <div className="flex p-2">
+            <SongNameInput songName={songName} setSongName={setSongName} />
             <button
-              className="bg-green-600 mx-auto p-1"
+              className={
+                songName === "Enter song name"
+                  ? "bg-green-800 mx-auto p-2"
+                  : "bg-green-600 mx-auto p-1"
+              }
+              disabled={songName === "Enter song name"}
               onClick={() => {
-                if (!Object.keys(songList.songList).length) {
-                  const songListCopy = JSON.parse(JSON.stringify(songList));
-                  songListCopy.songList[1] = {};
-                  setSongList(songListCopy);
-                  localStorage.setItem(
-                    "songList",
-                    JSON.stringify(songListCopy)
-                  );
-                } else {
-                  const songListCopy = JSON.parse(JSON.stringify(songList));
-                  const currentSongs = Object.keys(songListCopy.songList);
-                  const nextSong = currentSongs[currentSongs.length - 1];
-                  songListCopy.songList[Number(nextSong) + 1] = {};
-                  setSongList(songListCopy);
-                  localStorage.setItem(
-                    "songList",
-                    JSON.stringify(songListCopy)
-                  );
-                }
+                setSongList(saveSongName(songName, songList));
               }}
             >
               New Song
             </button>
+          </div>
+          <div className="flex justify-between">
             <button
               className="bg-red-600 mx-auto p-1"
               onClick={() => {
@@ -70,15 +59,16 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
               Clear storage
             </button>
           </div>
-          <div className="flex flex-col">
-            <p>Current song: {currentSong}</p>
+          <div className="flex flex-col items-center gap-2 p-2">
             {toDisplay.map((value, i) => {
+              console.log(value);
               return (
                 <button
                   key={i}
+                  className="bg-blue-400 rounded-lg p-1 w-fit"
                   onClick={() => {
                     console.log(typeof value);
-                    setCurrentSong(Number(value));
+                    setCurrentSong(value);
                   }}
                 >
                   Song: {value}
