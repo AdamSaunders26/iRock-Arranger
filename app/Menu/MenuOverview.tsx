@@ -81,7 +81,7 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
       <div>
         {currentSong ? (
           <div className="flex flex-col">
-            <BackButton setCurrentSong={setCurrentSong} />
+            {/* <BackButton setCurrentSong={setCurrentSong} /> */}
             {children}
           </div>
         ) : null}

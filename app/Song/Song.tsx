@@ -5,6 +5,7 @@ import { iRockContext, iRockContextType, iRockSongType } from "../Context";
 import { blankSectionStruct } from "../modelData";
 import Section from "./Section";
 import NewSectionButton from "./NewSectionButton";
+import SongHeader from "./SongHeader";
 
 export default function Song() {
   const { tools } = useContext<iRockContextType>(iRockContext);
@@ -20,7 +21,7 @@ export default function Song() {
 
   return (
     <div className="flex flex-col">
-      <NewSectionButton currentSongData={currentSongData} />
+      <SongHeader currentSongData={currentSongData} />
       {currentSong
         ? currSects.map((value, i) => {
             return (
