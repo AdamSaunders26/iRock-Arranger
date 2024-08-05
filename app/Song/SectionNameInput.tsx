@@ -26,7 +26,7 @@ export default function SectionNameInput({
 
   return (
     <div className="flex justify-between">
-      <div className="flex items-center px-1">
+      <div className="flex items-center ">
         <input
           className={
             sectionName === "Enter section name"

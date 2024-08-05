@@ -103,6 +103,8 @@ export default function PianoKey({
           });
     }
   }
+
+  console.log(keyState1);
   return (
     <div className=" h-full flex flex-col flex-1 justify-center items-center ">
       <div className=" flex flex-1 w-full min-h-16 ">

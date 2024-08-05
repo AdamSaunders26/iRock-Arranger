@@ -126,7 +126,7 @@ export default function KeysPad({
     tempKey24,
   ]);
   return (
-    <div className=" rounded-lg h-full w-full justify-evenly flex text-xs p-2">
+    <div className=" rounded-lg h-full w-full justify-evenly flex text-s p-2">
       <PianoKey
         kind="first"
         keyState1={tempKey1}

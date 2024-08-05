@@ -10,7 +10,7 @@ export default function SectionHeader({
   sectionNumber: number;
 }) {
   return (
-    <div className="flex justify-between p-1">
+    <div className="flex justify-between p-1 ">
       <SectionNameInput
         sectionData={sectionData}
         sectionNumber={sectionNumber}
