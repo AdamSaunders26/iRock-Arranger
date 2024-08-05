@@ -16,10 +16,10 @@ export default function Section({
   sectionNumber: number;
 }) {
   return (
-    <div className="bg-white rounded-lg flex flex-col justify-end w-full my-2">
+    <div className="bg-white rounded-lg shadow-lg flex flex-col justify-end w-full my-2">
       <SectionHeader sectionData={sectionData} sectionNumber={sectionNumber} />
       <RhythmStave sectionData={sectionData} sectionNumber={sectionNumber} />
-      <div className=" flex justify-end w-full ">
+      <div className=" flex  w-full ">
         <KeysUnit sectionData={sectionData} sectionNumber={sectionNumber} />
         <DrumsUnit sectionData={sectionData} sectionNumber={sectionNumber} />
       </div>

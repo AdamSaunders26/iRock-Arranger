@@ -11,7 +11,7 @@ export default function DrumsUnit({
   sectionNumber: number;
 }) {
   return (
-    <div className="flex">
+    <div className="flex bg-cyan-100 rounded-br-lg">
       <DrumPad sectionData={sectionData} sectionNumber={sectionNumber} />
       <DrumsNumberSelector />
       <DrumsToolSelector />

@@ -6,7 +6,7 @@ export default function DrumsToolSelector() {
   const { tools } = useContext<iRockContextType>(iRockContext);
   const { drumsCurrentNum, quaver, and, reset } = tools.drums;
   return (
-    <div className="flex flex-col justify-center items-center ">
+    <div className="flex flex-col justify-center gap-2 m-2 items-center ">
       <DrumsTool
         toolType="reset"
         state={reset[0]}

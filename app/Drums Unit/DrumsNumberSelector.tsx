@@ -8,7 +8,7 @@ export default function DrumsNumberSelector() {
   const { tools } = useContext<iRockContextType>(iRockContext);
   const { drumsCurrentNum, quaver, and, reset } = tools.drums;
   return (
-    <div className="flex flex-col w-10 text-center h-full">
+    <div className="flex flex-col w-10 text-center justify-center ml-2 h-full">
       {numbers.map((number, i) => {
         return (
           <DrumsNumberButton

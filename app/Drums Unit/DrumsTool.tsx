@@ -1,5 +1,6 @@
 import { GrPowerReset } from "react-icons/gr";
 import { LuMusic2 } from "react-icons/lu";
+import { FaPlus } from "react-icons/fa";
 
 export default function DrumsTool({
   toolType,
@@ -26,16 +27,15 @@ export default function DrumsTool({
       icon = <LuMusic2 />;
       break;
     case "and":
-      icon = "+";
+      icon = <FaPlus />;
       break;
     default:
       break;
   }
 
-  const buttonClass =
-    "border-2 border-red-500 h-full w-full p-2 flex justify-center items-center";
+  const buttonClass = "  w-full p-2 flex justify-center items-center";
   const clickedButtonClass =
-    "border-2 border-red-500 h-full w-full bg-red-500 text-white p-2 flex justify-center items-center";
+    "  w-full bg-cyan-500 rounded-full text-white p-2 flex justify-center items-center";
   return (
     <button
       className={state ? clickedButtonClass : buttonClass}

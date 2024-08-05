@@ -13,9 +13,8 @@ export default function DrumsNumberButton({
   setQuaver: React.Dispatch<React.SetStateAction<boolean>>;
   setAnd: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  const buttonClass = "border-2 border-red-500 h-full";
-  const clickedButtonClass =
-    "border-2 border-red-500 h-full bg-red-500 text-white";
+  const buttonClass = "p-2 ";
+  const clickedButtonClass = " p-2 rounded-full bg-cyan-500 text-white";
 
   return (
     <button
