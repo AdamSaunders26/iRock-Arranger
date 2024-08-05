@@ -30,14 +30,14 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
         <div className="flex flex-col items-center gap-4 w-full text-xl">
           <SongNameInput songName={songName} setSongName={setSongName} />
 
-          {/* <button
+          <button
             className="bg-red-600 mx-auto p-1"
             onClick={() => {
               localStorage.clear();
             }}
           >
             Clear storage (Do not click!)
-          </button> */}
+          </button>
 
           <div className="flex flex-wrap items-center gap-2 px-2">
             {toDisplay.map((value, i) => {

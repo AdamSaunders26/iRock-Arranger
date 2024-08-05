@@ -126,14 +126,14 @@ export default function KeysPad({
     tempKey24,
   ]);
   return (
-    <div className=" rounded-lg h-full w-full justify-evenly flex text-s p-2">
+    <div className=" rounded-lg h-full w-full justify-evenly flex text-xs p-2">
       <PianoKey
         kind="first"
         keyState1={tempKey1}
         setKeyState1={setTempKey1}
         keyState2={tempKey2}
         setKeyState2={setTempKey2}
-        prevKeyState="none"
+        prevKeyState={[]}
         currentNum={currentNum}
       />
       <PianoKey
@@ -150,7 +150,7 @@ export default function KeysPad({
         kind="left"
         keyState1={tempKey5}
         setKeyState1={setTempKey5}
-        keyState2="none"
+        keyState2={[]}
         prevKeyState={tempKey4}
         setPrevKeyState={setTempKey4}
         currentNum={currentNum}
@@ -161,7 +161,7 @@ export default function KeysPad({
         setKeyState1={setTempKey6}
         keyState2={tempKey7}
         setKeyState2={setTempKey7}
-        prevKeyState="none"
+        prevKeyState={[]}
         currentNum={currentNum}
       />
       <PianoKey
@@ -188,7 +188,7 @@ export default function KeysPad({
         kind="left"
         keyState1={tempKey12}
         setKeyState1={setTempKey12}
-        keyState2="none"
+        keyState2={[]}
         prevKeyState={tempKey11}
         setPrevKeyState={setTempKey11}
         currentNum={currentNum}
@@ -199,7 +199,7 @@ export default function KeysPad({
         setKeyState1={setTempKey13}
         keyState2={tempKey14}
         setKeyState2={setTempKey14}
-        prevKeyState="none"
+        prevKeyState={[]}
         currentNum={currentNum}
       />
       <PianoKey
@@ -216,7 +216,7 @@ export default function KeysPad({
         kind="left"
         keyState1={tempKey17}
         setKeyState1={setTempKey17}
-        keyState2="none"
+        keyState2={[]}
         prevKeyState={tempKey16}
         setPrevKeyState={setTempKey16}
         currentNum={currentNum}
@@ -227,7 +227,7 @@ export default function KeysPad({
         setKeyState1={setTempKey18}
         keyState2={tempKey19}
         setKeyState2={setTempKey19}
-        prevKeyState="none"
+        prevKeyState={[]}
         currentNum={currentNum}
       />
       <PianoKey
@@ -254,7 +254,7 @@ export default function KeysPad({
         kind="last"
         keyState1={tempKey24}
         setKeyState1={setTempKey24}
-        keyState2="none"
+        keyState2={[]}
         prevKeyState={tempKey23}
         setPrevKeyState={setTempKey23}
         currentNum={currentNum}

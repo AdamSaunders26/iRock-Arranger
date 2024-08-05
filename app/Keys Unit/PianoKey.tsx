@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import KeyDot from "./KeyDot";
 
 export default function PianoKey({
   kind,
@@ -12,29 +13,31 @@ export default function PianoKey({
   currentNum,
 }: {
   kind: string;
-  keyState1: string;
-  setKeyState1: React.Dispatch<React.SetStateAction<string>>;
-  keyState2: string;
-  setKeyState2?: React.Dispatch<React.SetStateAction<string>>;
-  prevKeyState: string;
-  setPrevKeyState?: React.Dispatch<React.SetStateAction<string>>;
+  keyState1: string[];
+  setKeyState1: React.Dispatch<React.SetStateAction<string[]>>;
+  keyState2: string[];
+  setKeyState2?: React.Dispatch<React.SetStateAction<string[]>>;
+  prevKeyState: string[];
+  setPrevKeyState?: React.Dispatch<React.SetStateAction<string[]>>;
   currentNum: number;
 }) {
-  const solid = "bg-black flex-1 text-white text-center";
-  const emptyR = "bg-white border-r-2 border-black flex-1 text-center";
+  const solid = "bg-black flex-1 text-center flex flex-col justify-center ";
+  const emptyR =
+    "bg-white border-r-2 border-black flex-1 text-center flex flex-col justify-center ";
   const emptyRLastTop =
-    "bg-white  border-black rounded-tr-lg flex-1 text-center";
+    "bg-white  border-black rounded-tr-lg flex-1 text-center flex flex-col justify-center ";
   const emptyRLastBottom =
-    "bg-white  border-black rounded-br-lg flex-1 text-center";
-  const emptyL = "bg-white border-l-2 border-black flex-1 text-center";
+    "bg-white  border-black rounded-br-lg flex-1 text-center flex flex-col justify-center ";
+  const emptyL =
+    "bg-white border-l-2 border-black flex-1 text-center flex flex-col justify-center ";
   const emptyLFirstTop =
-    "bg-white border-black rounded-tl-lg flex-1 text-center";
+    "bg-white border-black rounded-tl-lg flex-1 text-center flex flex-col justify-center ";
   const emptyLFirstBottom =
-    "bg-white border-black rounded-bl-lg flex-1 text-center";
+    "bg-white border-black rounded-bl-lg flex-1 text-center flex flex-col justify-center ";
   const bothR =
-    "bg-black border-r-2 border-white flex-1 text-white text-center";
+    "bg-black border-r-2 border-white flex-1  text-center flex flex-col justify-center ";
   const bothL =
-    "bg-black border-l-2 border-white flex-1 text-white text-center";
+    "bg-black border-l-2 border-white flex-1  text-center flex flex-col justify-center ";
 
   let tlClass = "";
   let trClass = "";
@@ -78,18 +81,22 @@ export default function PianoKey({
 
   function KS1() {
     currentNum === 5
-      ? setKeyState1("")
+      ? setKeyState1([])
       : setKeyState1((curr) => {
-          return curr + ` ${currentNum}`;
+          const copy = [...curr];
+          copy.push(`${currentNum}`);
+          return copy;
         });
   }
 
   function KS2() {
     if (setKeyState2) {
       currentNum === 5
-        ? setKeyState2("")
+        ? setKeyState2([])
         : setKeyState2((curr) => {
-            return curr + ` ${currentNum}`;
+            const copy = [...curr];
+            copy.push(`${currentNum}`);
+            return copy;
           });
     }
   }
@@ -97,14 +104,15 @@ export default function PianoKey({
   function PKS() {
     if (setPrevKeyState) {
       currentNum === 5
-        ? setPrevKeyState("")
+        ? setPrevKeyState([])
         : setPrevKeyState((curr) => {
-            return curr + ` ${currentNum}`;
+            const copy = [...curr];
+            copy.push(`${currentNum}`);
+            return copy;
           });
     }
   }
 
-  console.log(keyState1);
   return (
     <div className=" h-full flex flex-col flex-1 justify-center items-center ">
       <div className=" flex flex-1 w-full min-h-16 ">
@@ -156,7 +164,11 @@ export default function PianoKey({
             }
           }}
         >
-          {kind !== "left" && kind !== "last" ? keyState2 : null}
+          {kind !== "left" && kind !== "last"
+            ? keyState2.map((val, i) => {
+                return <KeyDot key={i} number={val} />;
+              })
+            : null}
         </div>
       </div>
       <div className=" flex w-full min-h-16">
@@ -184,7 +196,9 @@ export default function PianoKey({
             }
           }}
         >
-          {keyState1}
+          {keyState1.map((val, i) => {
+            return <KeyDot key={i} number={val} />;
+          })}
         </div>
         <div
           className={brClass}

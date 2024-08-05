@@ -18,6 +18,7 @@ export function DeleteSongButton() {
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
+      border: "0.2rem solid #0173EB",
     },
   };
   return (
@@ -37,13 +38,13 @@ export function DeleteSongButton() {
           setModalIsOpen(false);
         }}
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col ">
           <p className="text-xl p-6">
             Are you sure you want to delete {currentSong}?
           </p>
           <div className="flex justify-between">
             <button
-              className="bg-red-500 p-1 rounded-lg"
+              className="bg-red-600 text-white p-1 rounded-lg"
               onClick={() => {
                 setModalIsOpen(false);
                 const songListCopy = objectCopier(songList);
@@ -61,7 +62,7 @@ export function DeleteSongButton() {
               Delete {currentSong}
             </button>
             <button
-              className="bg-white border-2 border-black p-1 rounded-lg"
+              className="bg-white border-2 border-primary p-1 rounded-lg"
               onClick={() => {
                 setModalIsOpen(false);
               }}

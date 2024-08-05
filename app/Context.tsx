@@ -31,7 +31,7 @@ export interface iRockDataType {
     keys: Record<string, string>;
     guitar: Record<string, string>;
   };
-  keys: Record<string, string>;
+  keys: Record<string, string[]>;
   drums: Record<string, string>;
 }
 
