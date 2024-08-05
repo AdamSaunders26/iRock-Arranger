@@ -41,7 +41,7 @@ export function saveRhythmNote(
 }
 
 export function saveKeyPadData(
-  updatedKeys: Record<string, string>,
+  updatedKeys: Record<string, string[]>,
   sectionNumber: number,
   songList: any,
   currentSong: string
