@@ -21,7 +21,7 @@ export function DeleteSongButton() {
     },
   };
   return (
-    <div className="bg-red-500 shadow-lg rounded-lg m-1 p-1 flex">
+    <div className="bg-red-600 text-white shadow-lg rounded-lg m-1 p-1 flex">
       <button
         onClick={() => {
           setModalIsOpen(true);

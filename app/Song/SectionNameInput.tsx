@@ -30,8 +30,8 @@ export default function SectionNameInput({
         <input
           className={
             sectionName === "Enter section name"
-              ? "bg-neutral-200 text-neutral-500  rounded-md p-1"
-              : "bg-neutral-200 text-black rounded-md p-1"
+              ? "bg-white text-neutral-500  rounded-md p-1"
+              : "bg-white text-black rounded-md p-1"
           }
           id="section"
           value={tempSectionName}

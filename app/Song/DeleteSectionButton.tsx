@@ -28,7 +28,7 @@ export default function DeleteSectionButton({
   return (
     <div>
       <button
-        className="bg-red-500 shadow-lg rounded-md m-1 p-1 px-2"
+        className="bg-red-600 text-white shadow-lg rounded-md m-1 p-1 px-2"
         onClick={() => {
           setModalIsOpen(true);
         }}
@@ -49,7 +49,7 @@ export default function DeleteSectionButton({
           </p>
           <div className="flex justify-between">
             <button
-              className="bg-red-500 p-1 rounded-lg"
+              className="bg-red-600 p-1 rounded-lg"
               onClick={() => {
                 setModalIsOpen(false);
                 const songListCopy = objectCopier(songList);
