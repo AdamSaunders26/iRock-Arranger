@@ -37,7 +37,7 @@ export default function SongNameInput({
         className={
           songName === "Enter song name"
             ? "bg-neutral-400 mx-auto p-1 rounded-lg shadow-lg"
-            : "bg-primary mx-auto p-1 rounded-lg shadow-lg"
+            : "bg-primary mx-auto p-1 text-white rounded-lg shadow-lg"
         }
         disabled={songName === "Enter song name"}
         onClick={() => {
