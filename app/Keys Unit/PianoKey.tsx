@@ -21,23 +21,24 @@ export default function PianoKey({
   setPrevKeyState?: React.Dispatch<React.SetStateAction<string[]>>;
   currentNum: number;
 }) {
-  const solid = "bg-black flex-1 text-center flex flex-col justify-center ";
+  const solid =
+    "bg-black flex-1 text-center flex flex-col justify-center gap-1";
   const emptyR =
-    "bg-white border-r-2 border-black flex-1 text-center flex flex-col justify-center ";
+    "bg-white border-r-2 border-black flex-1 text-center flex flex-col justify-center gap-1";
   const emptyRLastTop =
-    "bg-white  border-black rounded-tr-lg flex-1 text-center flex flex-col justify-center ";
+    "bg-white  border-black rounded-tr-lg flex-1 text-center flex flex-col justify-center gap-1 ";
   const emptyRLastBottom =
-    "bg-white  border-black rounded-br-lg flex-1 text-center flex flex-col justify-center ";
+    "bg-white  border-black rounded-br-lg flex-1 text-center flex flex-col justify-center gap-1";
   const emptyL =
-    "bg-white border-l-2 border-black flex-1 text-center flex flex-col justify-center ";
+    "bg-white border-l-2 border-black flex-1 text-center flex flex-col justify-center gap-1";
   const emptyLFirstTop =
-    "bg-white border-black rounded-tl-lg flex-1 text-center flex flex-col justify-center ";
+    "bg-white border-black rounded-tl-lg flex-1 text-center flex flex-col justify-center gap-1";
   const emptyLFirstBottom =
-    "bg-white border-black rounded-bl-lg flex-1 text-center flex flex-col justify-center ";
+    "bg-white border-black rounded-bl-lg flex-1 text-center flex flex-col justify-center gap-1";
   const bothR =
-    "bg-black border-r-2 border-white flex-1  text-center flex flex-col justify-center ";
+    "bg-black border-r-2 border-white flex-1  text-center flex flex-col justify-center gap-1";
   const bothL =
-    "bg-black border-l-2 border-white flex-1  text-center flex flex-col justify-center ";
+    "bg-black border-l-2 border-white flex-1  text-center flex flex-col justify-center gap-1";
 
   let tlClass = "";
   let trClass = "";
