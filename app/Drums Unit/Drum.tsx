@@ -1,8 +1,10 @@
 "use client";
 import { useContext, useState } from "react";
 import { IconType } from "react-icons";
+import quaverIcon from "../symbols/U+266B_d.svg";
 import { LuMusic2 } from "react-icons/lu";
 import { iRockContext, iRockContextType } from "../Context";
+import Image from "next/image";
 
 export default function Drum({
   kind,
@@ -96,7 +98,13 @@ export default function Drum({
       }}
       className={divName}
     >
-      {drumText ? drumText === "q" ? <LuMusic2 /> : drumText : null}
+      {drumText ? (
+        drumText === "q" ? (
+          <Image src={quaverIcon} alt="quaver" className="max-h-4 max-w-4" />
+        ) : (
+          drumText
+        )
+      ) : null}
     </p>
   );
 }

@@ -238,7 +238,7 @@ export default function RhythmStave({
     <div className="flex bg-emerald-50 rounded-t-lg">
       <div className=" flex flex-col justify-evenly pt-4 px-2">
         <div>Keys</div>
-        <div>Guitar</div>
+        <div>Guitars</div>
       </div>
       <div className=" flex-1 flex justify-evenly">
         <RhythmBar
