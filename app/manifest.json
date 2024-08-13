@@ -1,0 +1,17 @@
+{
+  "name": "Band Coach Arrangement Tool",
+  "short_name": "BCAT",
+  "icons": [
+    {
+      "src": "./favicon.ico",
+      "sizes": "192x192",
+      "type": "image/ico",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#0173EB",
+  "background_color": "#0173EB",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}
