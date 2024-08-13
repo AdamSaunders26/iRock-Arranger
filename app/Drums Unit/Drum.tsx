@@ -73,11 +73,15 @@ export default function Drum({
       setDrumText("q");
     } else if (and) {
       setDrumText((curr) => {
-        return curr + `+`;
+        return curr === "q" ? "+" : curr + `+`;
       });
     } else {
       if (typeof drumText == "object") {
         setDrumText(() => {
+          return `${currentNum}`;
+        });
+      } else if (drumText === "q") {
+        setDrumText((curr) => {
           return `${currentNum}`;
         });
       } else {
