@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Inter, Ubuntu, Raleway } from "next/font/google";
 import { IRockContextProvider } from "./Context";
 import "./globals.css";
+import Head from "next/head";
 
 const APP_NAME = "Band Coach Arrangement Tool";
 const APP_DEFAULT_TITLE = "An Arrangement Tool for Band Coaches";
@@ -57,6 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <IRockContextProvider>
+        <head />
         <body className={raleway.className}>{children}</body>
       </IRockContextProvider>
     </html>
