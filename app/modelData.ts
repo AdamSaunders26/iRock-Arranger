@@ -2,13 +2,6 @@ import { iRockContextType, iRockDataType } from "./Context";
 
 export const blankDataStruct: iRockContextType = {
   tools: {
-    drums: {
-      drumsCurrentNum: [1, () => null],
-      reset: [false, () => null],
-      quaver: [false, () => null],
-      and: [false, () => null],
-    },
-    keysCurrentNum: [1, () => null],
     currentSong: [null, () => {}],
     songList: [{ songList: {} }, () => {}],
   },
