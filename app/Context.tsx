@@ -12,7 +12,7 @@ export interface iRockContextType {
       quaver: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
       and: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
     };
-    keysCurrentNum: [number, React.Dispatch<React.SetStateAction<number>>];
+
     currentSong: [
       string | null,
       React.Dispatch<React.SetStateAction<string | null>>
@@ -50,7 +50,7 @@ export const iRockContext = createContext<iRockContextType>(blankDataStruct);
 
 export function IRockContextProvider({ children }: { children: ReactNode }) {
   const [drumsCurrentNum, setDrumsCurrentNum] = useState(1);
-  const [keysCurrentNum, setKeysCurrentNum] = useState(1);
+
   const [reset, setReset] = useState(false);
   const [quaver, setQuaver] = useState(false);
   const [and, setAnd] = useState(false);
@@ -68,7 +68,7 @@ export function IRockContextProvider({ children }: { children: ReactNode }) {
             quaver: [quaver, setQuaver],
             and: [and, setAnd],
           },
-          keysCurrentNum: [keysCurrentNum, setKeysCurrentNum],
+
           currentSong: [currentSong, setCurrentSong],
           songList: [songList, setSongList],
         },

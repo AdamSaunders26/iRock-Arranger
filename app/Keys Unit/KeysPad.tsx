@@ -7,13 +7,16 @@ import { saveKeyPadData } from "../utils";
 export default function KeysPad({
   sectionData,
   sectionNumber,
+  currentNum,
 }: {
   sectionData: iRockDataType;
   sectionNumber: number;
+  currentNum: number;
 }) {
   const { tools } = useContext<iRockContextType>(iRockContext);
-  const [currentNum, setCurrentNum] = tools.keysCurrentNum;
+  // const [currentNum, setCurrentNum] = tools.keysCurrentNum;
   const [songList, setSongList] = tools.songList;
+
   const currentSong = tools.currentSong[0];
   const {
     key1,
