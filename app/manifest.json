@@ -19,7 +19,7 @@
       "type": "image/png"
     },
     {
-      "src": "/app/apple-touch-icon.png",
+      "src": "/icons/apple-touch-icon.png",
       "sizes": "500x500",
       "type": "image/png"
     }
