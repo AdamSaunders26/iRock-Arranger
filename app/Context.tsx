@@ -6,13 +6,6 @@ import { blankDataStruct } from "./modelData";
 export interface iRockContextType {
   // storageFunction: () => void;
   tools: {
-    drums: {
-      drumsCurrentNum: [number, React.Dispatch<React.SetStateAction<number>>];
-      reset: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
-      quaver: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
-      and: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
-    };
-
     currentSong: [
       string | null,
       React.Dispatch<React.SetStateAction<string | null>>
@@ -49,11 +42,6 @@ export interface iRockSongListObjectType {
 export const iRockContext = createContext<iRockContextType>(blankDataStruct);
 
 export function IRockContextProvider({ children }: { children: ReactNode }) {
-  const [drumsCurrentNum, setDrumsCurrentNum] = useState(1);
-
-  const [reset, setReset] = useState(false);
-  const [quaver, setQuaver] = useState(false);
-  const [and, setAnd] = useState(false);
   const [currentSong, setCurrentSong] = useState<null | string>(null);
   const [songList, setSongList] = useState({ songList: {} });
 
@@ -62,13 +50,6 @@ export function IRockContextProvider({ children }: { children: ReactNode }) {
       value={{
         // storageFunction: storageFunction,
         tools: {
-          drums: {
-            drumsCurrentNum: [drumsCurrentNum, setDrumsCurrentNum],
-            reset: [reset, setReset],
-            quaver: [quaver, setQuaver],
-            and: [and, setAnd],
-          },
-
           currentSong: [currentSong, setCurrentSong],
           songList: [songList, setSongList],
         },

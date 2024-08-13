@@ -6,9 +6,17 @@ import { saveDrumPadData } from "../utils";
 export default function DrumPad({
   sectionData,
   sectionNumber,
+  currentNum,
+  reset,
+  quaver,
+  and,
 }: {
   sectionData: iRockDataType;
   sectionNumber: number;
+  currentNum: number;
+  reset: boolean;
+  quaver: boolean;
+  and: boolean;
 }) {
   const { tools } = useContext<iRockContextType>(iRockContext);
   const { drum1, drum2, drum3, drum4, drum5, drum6, drum7, drum8, drum9 } =
@@ -62,25 +70,89 @@ export default function DrumPad({
           kind={"cymbal1"}
           drumText={tempDrum1}
           setDrumText={setTempDrum1}
+          currentNum={currentNum}
+          and={and}
+          reset={reset}
+          quaver={quaver}
         />
-        <Drum kind={"cymbal"} drumText={tempDrum2} setDrumText={setTempDrum2} />
-        <Drum kind={"pedal1"} drumText={tempDrum3} setDrumText={setTempDrum3} />
+        <Drum
+          kind={"cymbal"}
+          drumText={tempDrum2}
+          setDrumText={setTempDrum2}
+          currentNum={currentNum}
+          and={and}
+          reset={reset}
+          quaver={quaver}
+        />
+        <Drum
+          kind={"pedal1"}
+          drumText={tempDrum3}
+          setDrumText={setTempDrum3}
+          currentNum={currentNum}
+          and={and}
+          reset={reset}
+          quaver={quaver}
+        />
       </div>
       <div className="flex flex-col justify-evenly">
-        <Drum kind={"drum1"} drumText={tempDrum4} setDrumText={setTempDrum4} />
-        <Drum kind={"drum"} drumText={tempDrum5} setDrumText={setTempDrum5} />
+        <Drum
+          kind={"drum1"}
+          drumText={tempDrum4}
+          setDrumText={setTempDrum4}
+          currentNum={currentNum}
+          and={and}
+          reset={reset}
+          quaver={quaver}
+        />
+        <Drum
+          kind={"drum"}
+          drumText={tempDrum5}
+          setDrumText={setTempDrum5}
+          currentNum={currentNum}
+          and={and}
+          reset={reset}
+          quaver={quaver}
+        />
       </div>
       <div className="flex flex-col justify-evenly">
-        <Drum kind={"drum"} drumText={tempDrum6} setDrumText={setTempDrum6} />
-        <Drum kind={"pedal"} drumText={tempDrum7} setDrumText={setTempDrum7} />
+        <Drum
+          kind={"drum"}
+          drumText={tempDrum6}
+          setDrumText={setTempDrum6}
+          currentNum={currentNum}
+          and={and}
+          reset={reset}
+          quaver={quaver}
+        />
+        <Drum
+          kind={"pedal"}
+          drumText={tempDrum7}
+          setDrumText={setTempDrum7}
+          currentNum={currentNum}
+          and={and}
+          reset={reset}
+          quaver={quaver}
+        />
       </div>
       <div className="flex flex-col justify-between py-2">
         <Drum
           kind={"cymbal2"}
           drumText={tempDrum8}
           setDrumText={setTempDrum8}
+          currentNum={currentNum}
+          and={and}
+          reset={reset}
+          quaver={quaver}
         />
-        <Drum kind={"drum"} drumText={tempDrum9} setDrumText={setTempDrum9} />
+        <Drum
+          kind={"drum"}
+          drumText={tempDrum9}
+          setDrumText={setTempDrum9}
+          currentNum={currentNum}
+          and={and}
+          reset={reset}
+          quaver={quaver}
+        />
       </div>
     </div>
   );

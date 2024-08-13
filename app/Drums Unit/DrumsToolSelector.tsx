@@ -1,35 +1,47 @@
-import { useContext } from "react";
 import DrumsTool from "./DrumsTool";
-import { iRockContext, iRockContextType } from "../Context";
 
-export default function DrumsToolSelector() {
-  const { tools } = useContext<iRockContextType>(iRockContext);
-  const { drumsCurrentNum, quaver, and, reset } = tools.drums;
+export default function DrumsToolSelector({
+  setCurrentNum,
+  reset,
+  and,
+  quaver,
+  setReset,
+  setAnd,
+  setQuaver,
+}: {
+  setCurrentNum: React.Dispatch<React.SetStateAction<number>>;
+  reset: boolean;
+  and: boolean;
+  quaver: boolean;
+  setReset: React.Dispatch<React.SetStateAction<boolean>>;
+  setAnd: React.Dispatch<React.SetStateAction<boolean>>;
+  setQuaver: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   return (
     <div className="flex flex-col justify-center gap-2 m-2 items-center ">
       <DrumsTool
         toolType="reset"
-        state={reset[0]}
-        setMainState={reset[1]}
-        setState1={quaver[1]}
-        setState2={and[1]}
-        setCurrentNum={drumsCurrentNum[1]}
+        state={reset}
+        setMainState={setReset}
+        setState1={setQuaver}
+        setState2={setAnd}
+        setCurrentNum={setCurrentNum}
       />
       <DrumsTool
         toolType="quaver"
-        state={quaver[0]}
-        setMainState={quaver[1]}
-        setState1={reset[1]}
-        setState2={and[1]}
-        setCurrentNum={drumsCurrentNum[1]}
+        state={quaver}
+        setMainState={setQuaver}
+        setState1={setReset}
+        setState2={setAnd}
+        setCurrentNum={setCurrentNum}
       />
       <DrumsTool
         toolType="and"
-        state={and[0]}
-        setMainState={and[1]}
-        setState1={reset[1]}
-        setState2={quaver[1]}
-        setCurrentNum={drumsCurrentNum[1]}
+        state={and}
+        setMainState={setAnd}
+        setState1={setReset}
+        setState2={setQuaver}
+        setCurrentNum={setCurrentNum}
       />
     </div>
   );

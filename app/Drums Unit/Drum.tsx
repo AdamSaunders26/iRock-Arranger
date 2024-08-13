@@ -8,24 +8,21 @@ import Image from "next/image";
 
 export default function Drum({
   kind,
-  // currentNum,
-  // reset,
-  // quaver,
-  // and,
+  currentNum,
+  reset,
+  quaver,
+  and,
   drumText,
   setDrumText,
 }: {
   kind: string;
-  // currentNum: number;
-  // reset: boolean;
-  // quaver: boolean;
-  // and: boolean;
+  currentNum: number;
+  reset: boolean;
+  quaver: boolean;
+  and: boolean;
   drumText: string;
   setDrumText: React.Dispatch<React.SetStateAction<string>>;
 }) {
-  const { tools } = useContext<iRockContextType>(iRockContext);
-  const { drumsCurrentNum, quaver, and, reset } = tools.drums;
-
   const drum =
     "border-2 border-black bg-[#CABEBB] rounded-full w-12 h-12  flex justify-center items-center";
   const drum1 =
@@ -70,22 +67,22 @@ export default function Drum({
   }
 
   function clickHandler() {
-    if (reset[0]) {
+    if (reset) {
       setDrumText("");
-    } else if (quaver[0]) {
+    } else if (quaver) {
       setDrumText("q");
-    } else if (and[0]) {
+    } else if (and) {
       setDrumText((curr) => {
         return curr + `+`;
       });
     } else {
       if (typeof drumText == "object") {
         setDrumText(() => {
-          return `${drumsCurrentNum[0]}`;
+          return `${currentNum}`;
         });
       } else {
         setDrumText((curr) => {
-          return curr + ` ${drumsCurrentNum[0]}`;
+          return curr + ` ${currentNum}`;
         });
       }
     }
