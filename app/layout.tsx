@@ -44,6 +44,10 @@ export const metadata: Metadata = {
     },
     description: APP_DESCRIPTION,
   },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
 };
 
 export const viewport: Viewport = {
@@ -58,20 +62,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <IRockContextProvider>
-        <Head>
-          <link rel="manifest" href="/manifest.json" />
-          <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/icons/apple-touch-icon.png"
-          />
-          <meta name="theme-color" content="#000000" />
-          <meta name="apple-mobile-web-app-capable" content="yes" />
-          <meta
-            name="apple-mobile-web-app-status-bar-style"
-            content="black-translucent"
-          />
-        </Head>
         <body className={raleway.className}>{children}</body>
       </IRockContextProvider>
     </html>
