@@ -1,0 +1,36 @@
+{
+  "name": "Band Coach Arrangement Tool",
+  "short_name": "BCAT",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "192x192",
+      "type": "image/ico"
+    },
+    {
+      "src": "./favicon.ico",
+      "sizes": "192x192",
+      "type": "image/ico"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "500x500",
+      "type": "image/png"
+    },
+    {
+      "src": "./apple-touch-icon.png",
+      "sizes": "500x500",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/apple-touch-icon.png",
+      "sizes": "500x500",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0173EB",
+  "background_color": "#0173EB",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}
