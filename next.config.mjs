@@ -9,4 +9,4 @@ const withSerwist = withSerwistInit({
 });
 // withPWA = require("@ducanh2912/next-pwa").default({ dest: "public" });
 // module.exports = withPWA({ nextConfig });
-export default withSerwist({ nextConfig });
+export default withSerwist({});
