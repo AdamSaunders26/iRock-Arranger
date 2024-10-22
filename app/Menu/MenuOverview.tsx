@@ -39,7 +39,7 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
             Clear storage (Do not click!)
           </button> */}
 
-          <div className="flex flex-wrap items-center gap-2 px-2">
+          <div className="flex flex-wrap items-center justify-center gap-2 px-2">
             {toDisplay.map((value, i) => {
               return (
                 <button
