@@ -77,3 +77,7 @@ export function saveSongName(songName: string, songList: any) {
 export function objectCopier(object: any) {
   return JSON.parse(JSON.stringify(object));
 }
+
+export function structureUpdater(object: any) {
+  return objectCopier(object);
+}
