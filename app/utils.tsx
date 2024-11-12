@@ -78,6 +78,15 @@ export function objectCopier(object: any) {
   return JSON.parse(JSON.stringify(object));
 }
 
-export function structureUpdater(object: any) {
-  return objectCopier(object);
+export function structureUpdater(object: any, modelObject: any) {
+  const modelProps = Object.keys(modelObject);
+  const props = Object.keys(object);
+  // let missingProps = [];
+  const returnObject = objectCopier(object);
+  modelProps.forEach((prop) => {
+    if (!props.includes(prop)) {
+      returnObject[prop] = modelObject[prop];
+    }
+  });
+  return returnObject;
 }
