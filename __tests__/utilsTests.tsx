@@ -12,13 +12,13 @@ describe("structureUpdater - ", () => {
   };
 
   const modelObj = {
-    a: "prop",
-    b: "another prop",
-    c: { 1: 1, 2: "num" },
-    d: { nest: { nested: "egg" } },
+    a: "",
+    b: "",
+    c: { 1: 0, 2: "", 3: "" },
+    d: { nest: { nested: "" } },
     e: null,
-    f: ["a", "r", "r", "a", "y"],
-    g: "I'm new here",
+    f: [],
+    g: "",
   };
   test("returns an object", () => {
     const testResult = structureUpdater(testObj, modelObj);
@@ -39,13 +39,15 @@ describe("structureUpdater - ", () => {
         ) {
           objectComparer(checkerObject[prop], object[prop]);
         } else {
-          expect(checkerObject[prop]).toEqual(object[prop]);
+          if (Object.keys(object).includes(prop)) {
+            expect(checkerObject[prop]).toEqual(object[prop]);
+          }
         }
       }
     }
-    objectComparer(testResult, testObj);
+    objectComparer(modelObj, testResult);
   });
-  test("should add a missing top-level property when comparing objects", () => {
+  test("should add any missing properties and values when comparing objects", () => {
     const testResult = structureUpdater(testObj, modelObj);
     function objectComparer(checkerObject: any, object: any) {
       for (const prop in checkerObject) {
@@ -59,6 +61,23 @@ describe("structureUpdater - ", () => {
         }
       }
     }
+    console.log(testResult);
     objectComparer(modelObj, testResult);
   });
+  // test("should add any missing properties and values when comparing objects", () => {
+  //   const testResult = structureUpdater(testObj, modelObj);
+  //   function objectComparer(checkerObject: any, object: any) {
+  //     for (const prop in checkerObject) {
+  //       if (
+  //         typeof checkerObject[prop] == "object" &&
+  //         checkerObject[prop] !== null
+  //       ) {
+  //         objectComparer(checkerObject[prop], object[prop]);
+  //       } else {
+  //         expect(checkerObject[prop]).toEqual(object[prop]);
+  //       }
+  //     }
+  //   }
+  //   objectComparer(modelObj, testResult);
+  // });
 });

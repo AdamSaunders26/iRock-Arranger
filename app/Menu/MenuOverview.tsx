@@ -2,6 +2,7 @@
 import { ReactNode, useContext, useEffect, useState } from "react";
 import { iRockContext, iRockContextType } from "../Context";
 import SongNameInput from "./SongNameInput";
+import { blankSectionStruct } from "../modelData";
 
 export default function MenuOverview({ children }: { children: ReactNode }) {
   const { tools } = useContext<iRockContextType>(iRockContext);

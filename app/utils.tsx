@@ -79,14 +79,19 @@ export function objectCopier(object: any) {
 }
 
 export function structureUpdater(object: any, modelObject: any) {
-  const modelProps = Object.keys(modelObject);
-  const props = Object.keys(object);
-  // let missingProps = [];
-  const returnObject = objectCopier(object);
-  modelProps.forEach((prop) => {
-    if (!props.includes(prop)) {
-      returnObject[prop] = modelObject[prop];
+  let returnObject = objectCopier(object);
+
+  function propertyAdder(object: any, modelObject: any) {
+    for (const prop in modelObject) {
+      if (typeof modelObject[prop] == "object" && modelObject[prop] !== null) {
+        propertyAdder(object[prop], modelObject[prop]);
+      } else {
+        object[prop] = modelObject[prop];
+        // console.log(object[prop]);
+      }
     }
-  });
+  }
+  propertyAdder(returnObject, modelObject);
+
   return returnObject;
 }
