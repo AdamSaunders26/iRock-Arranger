@@ -86,12 +86,12 @@ export function structureUpdater(object: any, modelObject: any) {
       if (typeof modelObject[prop] == "object" && modelObject[prop] !== null) {
         propertyAdder(object[prop], modelObject[prop]);
       } else {
-        object[prop] = modelObject[prop];
+        if (!object[prop]) object[prop] = modelObject[prop];
         // console.log(object[prop]);
       }
     }
   }
   propertyAdder(returnObject, modelObject);
-
+  // console.log({ returnObject });
   return returnObject;
 }

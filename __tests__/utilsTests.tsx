@@ -20,6 +20,17 @@ describe("structureUpdater - ", () => {
     f: [],
     g: "",
   };
+
+  const expectedObj = {
+    a: "prop",
+    b: "another prop",
+    c: { 1: 1, 2: "num", 3: "" },
+    d: { nest: { nested: "egg" } },
+    e: null,
+    f: ["a", "r", "r", "a", "y"],
+    g: "",
+  };
+
   test("returns an object", () => {
     const testResult = structureUpdater(testObj, modelObj);
     expect(typeof testResult).toBe("object");
@@ -45,7 +56,7 @@ describe("structureUpdater - ", () => {
         }
       }
     }
-    objectComparer(modelObj, testResult);
+    objectComparer(expectedObj, testResult);
   });
   test("should add any missing properties and values when comparing objects", () => {
     const testResult = structureUpdater(testObj, modelObj);
@@ -62,7 +73,7 @@ describe("structureUpdater - ", () => {
       }
     }
     console.log(testResult);
-    objectComparer(modelObj, testResult);
+    objectComparer(expectedObj, testResult);
   });
   // test("should add any missing properties and values when comparing objects", () => {
   //   const testResult = structureUpdater(testObj, modelObj);
