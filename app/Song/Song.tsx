@@ -21,20 +21,19 @@ export default function Song() {
   }
 
   useEffect(() => {
-    console.log({ blankSectionStruct });
-    console.log({ currentSongData });
-    // for (const section in currentSongData) {
-    //   console.log("og:", currentSongData[section]);
-    //   console.log("new struct:", blankSectionStruct);
-    //   //update the section
-    //   const updatedSection = structureUpdater(
-    //     currentSongData[section],
-    //     blankSectionStruct
-    //   );
-    //   console.log("result:", updatedSection);
-    //attach section to songData
-    //save new songData
-    // }
+    for (const section in currentSongData) {
+      console.log("og:", currentSongData[section]);
+      console.log("new struct:", blankSectionStruct);
+      //update the section
+      const updatedSection = structureUpdater(
+        currentSongData[section],
+        blankSectionStruct
+      );
+      console.log("result:", updatedSection);
+      // attach section to songData
+
+      // save new songData
+    }
   }, []);
 
   return (
