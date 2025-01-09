@@ -20,7 +20,7 @@ export interface iRockContextType {
 export interface iRockDataType {
   sectionName: string;
   chords: string;
-  number: string;
+  number: number;
   rhythm: {
     keys: Record<string, string>;
     guitar: Record<string, string>;

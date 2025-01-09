@@ -12,6 +12,18 @@ export function saveSectionName(
   localStorage.setItem("songList", JSON.stringify(songListCopy));
   return songListCopy;
 }
+
+export function saveSongData(
+  newSongData: object,
+  songList: any,
+  currentSong: string
+) {
+  const songListCopy = objectCopier(songList);
+  songListCopy.songList[currentSong] = newSongData;
+  localStorage.setItem("songList", JSON.stringify(songListCopy));
+  return songListCopy;
+}
+
 export function saveChords(
   chords: string,
   sectionNumber: number,

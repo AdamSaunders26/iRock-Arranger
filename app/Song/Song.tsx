@@ -6,7 +6,7 @@ import { blankSectionStruct } from "../modelData";
 import Section from "./Section";
 import NewSectionButton from "./NewSectionButton";
 import SongHeader from "./SongHeader";
-import { structureUpdater } from "../utils";
+import { objectCopier, saveSongData, structureUpdater } from "../utils";
 
 export default function Song() {
   const { tools } = useContext<iRockContextType>(iRockContext);
@@ -21,18 +21,18 @@ export default function Song() {
   }
 
   useEffect(() => {
-    for (const section in currentSongData) {
-      console.log("og:", currentSongData[section]);
-      console.log("new struct:", blankSectionStruct);
-      //update the section
+    const songDataCopy = objectCopier(currentSongData);
+    console.log({ songList });
+    console.log({ currentSong });
+    for (const section in songDataCopy) {
       const updatedSection = structureUpdater(
         currentSongData[section],
         blankSectionStruct
       );
-      console.log("result:", updatedSection);
-      // attach section to songData
-
-      // save new songData
+      songDataCopy[section] = updatedSection;
+    }
+    if (currentSong) {
+      setSongList(saveSongData(songDataCopy, songList, currentSong));
     }
   }, []);
 
