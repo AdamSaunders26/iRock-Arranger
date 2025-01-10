@@ -10,7 +10,6 @@ export const blankDataStruct: iRockContextType = {
 export const blankSectionStruct: iRockDataType = {
   sectionName: "Enter section name",
   chords: "e.g. F, Bb, Dm, C",
-  number: 0,
   rhythm: {
     keys: {
       keySymbol1: "blank",
