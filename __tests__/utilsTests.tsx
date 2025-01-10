@@ -75,20 +75,4 @@ describe("structureUpdater - ", () => {
     console.log(testResult);
     objectComparer(expectedObj, testResult);
   });
-  // test("should add any missing properties and values when comparing objects", () => {
-  //   const testResult = structureUpdater(testObj, modelObj);
-  //   function objectComparer(checkerObject: any, object: any) {
-  //     for (const prop in checkerObject) {
-  //       if (
-  //         typeof checkerObject[prop] == "object" &&
-  //         checkerObject[prop] !== null
-  //       ) {
-  //         objectComparer(checkerObject[prop], object[prop]);
-  //       } else {
-  //         expect(checkerObject[prop]).toEqual(object[prop]);
-  //       }
-  //     }
-  //   }
-  //   objectComparer(modelObj, testResult);
-  // });
 });

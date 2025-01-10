@@ -3,6 +3,7 @@ import { iRockContext, iRockContextType, iRockDataType } from "../Context";
 import ChordInput from "./ChordInput";
 import KeysNumberSelector from "./KeysNumberSelector";
 import KeysPad from "./KeysPad";
+import VoiceInput from "./VoiceInput";
 
 export default function KeysUnit({
   sectionData,
@@ -20,12 +21,15 @@ export default function KeysUnit({
         sectionNumber={sectionNumber}
         currentNum={currentNum}
       />
-      <div className="flex justify-evenly mb-2 mx-2 ">
-        <KeysNumberSelector
-          currentNum={currentNum}
-          setCurrentNum={setCurrentNum}
-        />
-        <ChordInput sectionData={sectionData} sectionNumber={sectionNumber} />
+      <div className="flex flex-col mb-2 mx-2 gap-2 align-end">
+        <div className="flex justify-evenly ">
+          <KeysNumberSelector
+            currentNum={currentNum}
+            setCurrentNum={setCurrentNum}
+          />
+          <ChordInput sectionData={sectionData} sectionNumber={sectionNumber} />
+        </div>
+        <VoiceInput sectionData={sectionData} sectionNumber={sectionNumber} />
       </div>
     </div>
   );
