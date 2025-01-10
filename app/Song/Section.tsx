@@ -7,6 +7,7 @@ import KeysUnit from "../Keys Unit/KeysUnit";
 import { useContext } from "react";
 import { iRockContext, iRockContextType, iRockDataType } from "../Context";
 import SectionHeader from "./SectionHeader";
+import GuitarUnit from "../Guitar Unit/GuitarUnit";
 
 export default function Section({
   sectionData,
@@ -18,6 +19,7 @@ export default function Section({
   return (
     <div className="bg-primary border-4 border-primary rounded-lg shadow-lg flex flex-col justify-end w-full my-2">
       <SectionHeader sectionData={sectionData} sectionNumber={sectionNumber} />
+      <GuitarUnit sectionData={sectionData} sectionNumber={sectionNumber} />
       <RhythmStave sectionData={sectionData} sectionNumber={sectionNumber} />
       <div className=" flex  w-full ">
         <KeysUnit sectionData={sectionData} sectionNumber={sectionNumber} />
