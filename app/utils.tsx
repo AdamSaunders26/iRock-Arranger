@@ -37,6 +37,19 @@ export function saveChords(
   return songListCopy;
 }
 
+export function saveVoice(
+  voice: string,
+  sectionNumber: number,
+  songList: any,
+  currentSong: string
+) {
+  const songListCopy = objectCopier(songList);
+  songListCopy.songList[currentSong][sectionNumber].voice = voice;
+
+  localStorage.setItem("songList", JSON.stringify(songListCopy));
+  return songListCopy;
+}
+
 export function saveRhythmNote(
   updatedNotes: {
     keys: Record<string, string>;
