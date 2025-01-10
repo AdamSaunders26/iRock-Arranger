@@ -73,6 +73,7 @@ export const blankSectionStruct: iRockDataType = {
     key22: [],
     key23: [],
     key24: [],
+    patch: [],
   },
   drums: {
     drum1: "",

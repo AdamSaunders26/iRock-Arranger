@@ -2,6 +2,7 @@
 import { ReactNode, useContext, useEffect, useState } from "react";
 import { iRockContext, iRockContextType } from "../Context";
 import SongNameInput from "./SongNameInput";
+import { blankSectionStruct } from "../modelData";
 
 export default function MenuOverview({ children }: { children: ReactNode }) {
   const { tools } = useContext<iRockContextType>(iRockContext);
@@ -37,6 +38,15 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
             }}
           >
             Clear storage (Do not click!)
+          </button> */}
+          {/* <button
+            className="bg-red-600 mx-auto p-1"
+            onClick={() => {
+              let songs = localStorage.getItem("songList");
+              console.log(JSON.parse(songs));
+            }}
+          >
+            localStorage logger
           </button> */}
 
           <div className="flex flex-wrap items-center justify-center gap-2 px-2">

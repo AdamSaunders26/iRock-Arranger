@@ -12,6 +12,18 @@ export function saveSectionName(
   localStorage.setItem("songList", JSON.stringify(songListCopy));
   return songListCopy;
 }
+
+export function saveSongData(
+  newSongData: object,
+  songList: any,
+  currentSong: string
+) {
+  const songListCopy = objectCopier(songList);
+  songListCopy.songList[currentSong] = newSongData;
+  localStorage.setItem("songList", JSON.stringify(songListCopy));
+  return songListCopy;
+}
+
 export function saveChords(
   chords: string,
   sectionNumber: number,
@@ -76,4 +88,22 @@ export function saveSongName(songName: string, songList: any) {
 
 export function objectCopier(object: any) {
   return JSON.parse(JSON.stringify(object));
+}
+
+export function structureUpdater(object: any, modelObject: any) {
+  let returnObject = objectCopier(object);
+
+  function propertyAdder(object: any, modelObject: any) {
+    for (const prop in modelObject) {
+      if (typeof modelObject[prop] == "object" && modelObject[prop] !== null) {
+        propertyAdder(object[prop], modelObject[prop]);
+      } else {
+        if (!object[prop]) object[prop] = modelObject[prop];
+        // console.log(object[prop]);
+      }
+    }
+  }
+  propertyAdder(returnObject, modelObject);
+  // console.log({ returnObject });
+  return returnObject;
 }
