@@ -103,20 +103,27 @@ export function objectCopier(object: any) {
   return JSON.parse(JSON.stringify(object));
 }
 
-export function structureUpdater(object: any, modelObject: any) {
-  let returnObject = objectCopier(object);
-
-  function propertyAdder(object: any, modelObject: any) {
+export function structureUpdater(targetObject: any, modelObject: any) {
+  let returnObject = objectCopier(targetObject);
+  console.log(returnObject);
+  console.log(modelObject);
+  function propertyAdder(targetObject: any, modelObject: any) {
     for (const prop in modelObject) {
       if (typeof modelObject[prop] == "object" && modelObject[prop] !== null) {
-        propertyAdder(object[prop], modelObject[prop]);
+        if (
+          typeof targetObject[prop] !== "object" ||
+          targetObject[prop] === null
+        ) {
+          targetObject[prop] = {};
+        }
+        propertyAdder(targetObject[prop], modelObject[prop]);
       } else {
-        if (!object[prop]) object[prop] = modelObject[prop];
+        if (!targetObject[prop]) targetObject[prop] = modelObject[prop];
         // console.log(object[prop]);
       }
     }
   }
   propertyAdder(returnObject, modelObject);
-  // console.log({ returnObject });
+
   return returnObject;
 }

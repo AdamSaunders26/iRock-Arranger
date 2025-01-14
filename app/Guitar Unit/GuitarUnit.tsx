@@ -10,7 +10,7 @@ export default function GuitarUnit({
 }) {
   return (
     <div className="flex flex-col bg-yellow-100 rounded-t-lg">
-      <FretBoard />
+      <FretBoard sectionData={sectionData} sectionNumber={sectionNumber} />
     </div>
   );
 }
