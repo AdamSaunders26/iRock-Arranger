@@ -16,7 +16,7 @@ export default function FretBoard({
   const currentSong = tools.currentSong[0];
 
   return (
-    <div className="border-red-500 border-2 m-2 flex">
+    <div className="border-2 border-slate-500 rounded-md m-2 flex">
       <Fret />
       <Fret />
       <Fret marker={0} />
