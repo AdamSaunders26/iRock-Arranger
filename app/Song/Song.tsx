@@ -22,7 +22,7 @@ export default function Song() {
 
   useEffect(() => {
     const songDataCopy = objectCopier(currentSongData);
-    console.log({ songList });
+    // console.log({ songList });
     // console.log({ currentSong });
 
     for (const section in songDataCopy) {
@@ -30,7 +30,7 @@ export default function Song() {
         currentSongData[section],
         blankSectionStruct
       );
-      console.log(updatedSection);
+      // console.log(updatedSection);
       songDataCopy[section] = updatedSection;
     }
     if (currentSong) {

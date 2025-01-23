@@ -9,7 +9,7 @@ export default function GuitarNumberSelector({
 }) {
   const numbers = [1, 2, 3, 4, 5];
   return (
-    <div className="flex flex-1 items-center mr-2 ">
+    <div className="flex flex-1 items-center mr-2 max-w-[35%]">
       {numbers.map((number, i) => {
         return (
           <GuitarNumberButton

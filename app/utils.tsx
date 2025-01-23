@@ -105,8 +105,7 @@ export function objectCopier(object: any) {
 
 export function structureUpdater(targetObject: any, modelObject: any) {
   let returnObject = objectCopier(targetObject);
-  console.log(returnObject);
-  console.log(modelObject);
+
   function propertyAdder(targetObject: any, modelObject: any) {
     for (const prop in modelObject) {
       if (typeof modelObject[prop] == "object" && modelObject[prop] !== null) {
