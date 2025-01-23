@@ -1,9 +1,16 @@
+import { SetStateAction } from "react";
+import FretNumbers from "./FretNumbers";
+
 export default function Fret({
   marker,
   currentNum,
+  fretState,
+  setFretState,
 }: {
   marker?: number;
   currentNum: number;
+  fretState: string[];
+  setFretState: React.Dispatch<SetStateAction<string[]>>;
 }) {
   let fretClass = "border-r-2 border-slate-600 w-full flex flex-col py-2";
   if (marker == 0) {
@@ -11,10 +18,31 @@ export default function Fret({
   } else if (marker == 1) {
     fretClass += " bg-yellow-400";
   }
+
   return (
-    <div className={fretClass}>
-      <div className="border-b-2 border-black"></div>
-      <div></div>
+    <div
+      className={fretClass}
+      onClick={() => {
+        console.log(currentNum);
+        setFretState((curr) => {
+          const copy = [...curr];
+          copy.push(`${currentNum}`);
+          return copy;
+        });
+      }}
+    >
+      {fretState ? (
+        <div>
+          {fretState.map((val, i) => {
+            return <FretNumbers key={i} number={val} />;
+          })}
+        </div>
+      ) : (
+        <div>
+          <div className="border-b-2 border-black"></div>
+          <div></div>
+        </div>
+      )}
     </div>
   );
 }

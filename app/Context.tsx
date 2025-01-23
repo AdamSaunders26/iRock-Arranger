@@ -18,7 +18,7 @@ export interface iRockContextType {
 }
 
 export interface GuitarFretboard {
-  [fret: `fret${number}`]: string;
+  [fret: `fret${number}`]: string[];
 }
 
 export interface Guitar {
