@@ -12,7 +12,7 @@ export default function Fret({
   fretState: string[];
   setFretState: React.Dispatch<SetStateAction<string[]>>;
 }) {
-  let fretClass = "border-r-2 border-slate-600 w-full flex flex-col py-2";
+  let fretClass = "border-r-2 border-slate-600 w-full flex flex-col ";
   if (marker == 0) {
     fretClass += " bg-yellow-200";
   } else if (marker == 1) {
@@ -23,7 +23,6 @@ export default function Fret({
     <div
       className={fretClass}
       onClick={() => {
-        console.log(currentNum);
         setFretState((curr) => {
           const copy = [...curr];
           copy.push(`${currentNum}`);
@@ -31,14 +30,14 @@ export default function Fret({
         });
       }}
     >
-      {fretState ? (
-        <div>
+      {fretState.length ? (
+        <div className="flex justify-between">
           {fretState.map((val, i) => {
             return <FretNumbers key={i} number={val} />;
           })}
         </div>
       ) : (
-        <div>
+        <div className="py-2">
           <div className="border-b-2 border-black"></div>
           <div></div>
         </div>

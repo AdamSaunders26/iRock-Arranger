@@ -22,12 +22,42 @@ export default function FretBoard({
 
   return (
     <div className="border-2 border-slate-500 rounded-md m-2 flex flex-col">
-      <GuitarString currentNum={currentNum} stringStates={string1} />
-      <GuitarString currentNum={currentNum} stringStates={string2} />
-      <GuitarString currentNum={currentNum} stringStates={string3} />
-      <GuitarString currentNum={currentNum} stringStates={string4} />
-      <GuitarString currentNum={currentNum} stringStates={string5} />
-      <GuitarString currentNum={currentNum} stringStates={string6} />
+      <GuitarString
+        currentNum={currentNum}
+        stringStates={string1}
+        stringNumber={"string1"}
+        sectionNumber={sectionNumber}
+      />
+      <GuitarString
+        currentNum={currentNum}
+        stringStates={string2}
+        stringNumber={"string3"}
+        sectionNumber={sectionNumber}
+      />
+      <GuitarString
+        currentNum={currentNum}
+        stringStates={string3}
+        stringNumber={"string3"}
+        sectionNumber={sectionNumber}
+      />
+      <GuitarString
+        currentNum={currentNum}
+        stringStates={string4}
+        stringNumber={"string4"}
+        sectionNumber={sectionNumber}
+      />
+      <GuitarString
+        currentNum={currentNum}
+        stringStates={string5}
+        stringNumber={"string5"}
+        sectionNumber={sectionNumber}
+      />
+      <GuitarString
+        currentNum={currentNum}
+        stringStates={string6}
+        stringNumber={"string6"}
+        sectionNumber={sectionNumber}
+      />
     </div>
   );
 }

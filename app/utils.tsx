@@ -1,5 +1,7 @@
 "use client";
 
+import { GuitarFretboard } from "./Context";
+
 export function saveSectionName(
   sectionName: string,
   sectionNumber: number,
@@ -72,10 +74,26 @@ export function saveKeyPadData(
   currentSong: string
 ) {
   const songListCopy = objectCopier(songList);
+
   songListCopy.songList[currentSong][sectionNumber].keys = updatedKeys;
   localStorage.setItem("songList", JSON.stringify(songListCopy));
   return songListCopy;
 }
+
+export function saveGuitarNoteData(
+  updatedFretboard: GuitarFretboard,
+  stringNumber: string,
+  sectionNumber: number,
+  songList: any,
+  currentSong: string
+) {
+  const songListCopy = objectCopier(songList);
+  songListCopy.songList[currentSong][sectionNumber].guitar[stringNumber] =
+    updatedFretboard;
+  localStorage.setItem("songList", JSON.stringify(songListCopy));
+  return songListCopy;
+}
+
 export function saveDrumPadData(
   updatedDrums: Record<string, string>,
   sectionNumber: number,

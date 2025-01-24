@@ -1,14 +1,24 @@
-import { useState } from "react";
-import { GuitarFretboard } from "../Context";
+import { useContext, useEffect, useState } from "react";
+import { GuitarFretboard, iRockContext, iRockContextType } from "../Context";
 import Fret from "./Fret";
+import { saveGuitarNoteData } from "../utils";
 
 export default function GuitarString({
   currentNum,
   stringStates,
+  stringNumber,
+  sectionNumber,
 }: {
   currentNum: number;
   stringStates: GuitarFretboard;
+  stringNumber: string;
+  sectionNumber: number;
 }) {
+  const { tools } = useContext<iRockContextType>(iRockContext);
+  const [songList, setSongList] = tools.songList;
+
+  const currentSong = tools.currentSong[0];
+
   const {
     fret1,
     fret2,
@@ -56,6 +66,63 @@ export default function GuitarString({
   const [tempFret18, setTempFret18] = useState(fret18);
   const [tempFret19, setTempFret19] = useState(fret19);
   const [tempFret20, setTempFret20] = useState(fret20);
+
+  useEffect(() => {
+    const toBeStored = {
+      fret1: tempFret1,
+      fret2: tempFret2,
+      fret3: tempFret3,
+      fret4: tempFret4,
+      fret5: tempFret5,
+      fret6: tempFret6,
+      fret7: tempFret7,
+      fret8: tempFret8,
+      fret9: tempFret9,
+      fret10: tempFret10,
+      fret11: tempFret11,
+      fret12: tempFret12,
+      fret13: tempFret13,
+      fret14: tempFret14,
+      fret15: tempFret15,
+      fret16: tempFret16,
+      fret17: tempFret17,
+      fret18: tempFret18,
+      fret19: tempFret19,
+      fret20: tempFret20,
+    };
+    if (currentSong) {
+      setSongList(
+        saveGuitarNoteData(
+          toBeStored,
+          stringNumber,
+          sectionNumber,
+          songList,
+          currentSong
+        )
+      );
+    }
+  }, [
+    tempFret1,
+    tempFret2,
+    tempFret3,
+    tempFret4,
+    tempFret5,
+    tempFret6,
+    tempFret7,
+    tempFret8,
+    tempFret9,
+    tempFret10,
+    tempFret11,
+    tempFret12,
+    tempFret13,
+    tempFret14,
+    tempFret15,
+    tempFret16,
+    tempFret17,
+    tempFret18,
+    tempFret19,
+    tempFret20,
+  ]);
 
   return (
     <div className="flex">
