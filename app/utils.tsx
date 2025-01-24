@@ -121,6 +121,7 @@ export function objectCopier(object: any) {
   return JSON.parse(JSON.stringify(object));
 }
 
+//xoezn't work with arrays...
 export function structureUpdater(targetObject: any, modelObject: any) {
   let returnObject = objectCopier(targetObject);
 
@@ -131,8 +132,9 @@ export function structureUpdater(targetObject: any, modelObject: any) {
           typeof targetObject[prop] !== "object" ||
           targetObject[prop] === null
         ) {
-          targetObject[prop] = {};
+          targetObject[prop] = Array.isArray(modelObject[prop]) ? [] : {};
         }
+
         propertyAdder(targetObject[prop], modelObject[prop]);
       } else {
         if (!targetObject[prop]) targetObject[prop] = modelObject[prop];
