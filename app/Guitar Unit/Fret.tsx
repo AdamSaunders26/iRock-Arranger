@@ -16,7 +16,7 @@ export default function Fret({
   if (marker == 0) {
     fretClass += " bg-yellow-200";
   } else if (marker == 1) {
-    fretClass += " bg-yellow-400";
+    fretClass += " bg-neutral-200";
   }
 
   return (
@@ -31,7 +31,7 @@ export default function Fret({
       }}
     >
       {fretState.length ? (
-        <div className="flex justify-between">
+        <div className="flex justify-between ">
           {fretState.map((val, i) => {
             return <FretNumbers key={i} number={val} />;
           })}

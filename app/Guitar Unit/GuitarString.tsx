@@ -124,8 +124,34 @@ export default function GuitarString({
     tempFret20,
   ]);
 
+  let stringNote = "";
+
+  switch (stringNumber) {
+    case "string1":
+      stringNote = "e";
+      break;
+    case "string2":
+      stringNote = "B";
+      break;
+    case "string3":
+      stringNote = "G";
+      break;
+    case "string4":
+      stringNote = "D";
+      break;
+    case "string5":
+      stringNote = "A";
+      break;
+    case "string6":
+      stringNote = "E";
+      break;
+  }
+
   return (
     <div className="flex">
+      <p className="flex pl-2 min-w-8 border-r-2 border-slate-600">
+        {stringNote}
+      </p>
       <Fret
         currentNum={currentNum}
         fretState={tempFret1}

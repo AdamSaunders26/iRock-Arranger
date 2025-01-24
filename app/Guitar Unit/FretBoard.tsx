@@ -31,7 +31,7 @@ export default function FretBoard({
       <GuitarString
         currentNum={currentNum}
         stringStates={string2}
-        stringNumber={"string3"}
+        stringNumber={"string2"}
         sectionNumber={sectionNumber}
       />
       <GuitarString
