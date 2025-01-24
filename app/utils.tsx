@@ -134,7 +134,7 @@ export function structureUpdater(targetObject: any, modelObject: any) {
         ) {
           targetObject[prop] = Array.isArray(modelObject[prop]) ? [] : {};
         }
-        g;
+
         propertyAdder(targetObject[prop], modelObject[prop]);
       } else {
         if (!targetObject[prop]) targetObject[prop] = modelObject[prop];
