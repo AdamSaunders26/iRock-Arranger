@@ -17,7 +17,6 @@ export default function NameInput({
   studentNumber: number;
 }) {
   const { tools } = useContext<iRockContextType>(iRockContext);
-  console.log(sectionData.guitar.students);
 
   const [songList, setSongList] = tools.songList;
   const currentSong = tools.currentSong[0];

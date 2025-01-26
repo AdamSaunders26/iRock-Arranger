@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { iRockDataType } from "../Context";
 import NameInput from "./NameInput";
+import CycleButton from "./CycleButton";
 
 export default function GuitarStudents({
   sectionData,
@@ -41,6 +42,15 @@ export default function GuitarStudents({
         tempName={student3}
         setTempName={setStudent3}
         studentNumber={3}
+      />
+      <CycleButton
+        student1={student1}
+        student2={student2}
+        student3={student3}
+        setStudent1={setStudent1}
+        setStudent2={setStudent2}
+        setStudent3={setStudent3}
+        sectionNumber={sectionNumber}
       />
     </div>
   );

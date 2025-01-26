@@ -63,7 +63,23 @@ export function saveStudentName(
   songListCopy.songList[currentSong][sectionNumber].guitar.students[
     `student${studentNumber}`
   ] = name;
-  console.log(songListCopy);
+
+  localStorage.setItem("songList", JSON.stringify(songListCopy));
+  return songListCopy;
+}
+
+export function saveMultipleStudentNames(
+  names: string[],
+  sectionNumber: number,
+  songList: any,
+  currentSong: string
+) {
+  const songListCopy = objectCopier(songList);
+  songListCopy.songList[currentSong][sectionNumber].guitar.students = {
+    student1: names[0],
+    student2: names[1],
+    student3: names[2],
+  };
   localStorage.setItem("songList", JSON.stringify(songListCopy));
   return songListCopy;
 }
