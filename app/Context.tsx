@@ -22,6 +22,7 @@ export interface GuitarFretboard {
 }
 
 export interface Guitar {
+  students: Record<string, string>;
   [string: `string${number}`]: GuitarFretboard;
 }
 

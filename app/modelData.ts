@@ -88,6 +88,11 @@ export const blankSectionStruct: iRockDataType = {
     drum9: "",
   },
   guitar: {
+    students: {
+      student1: "Enter name",
+      student2: "Enter name",
+      student3: "Enter name",
+    },
     string1: {
       fret1: [],
       fret2: [],

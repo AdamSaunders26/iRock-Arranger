@@ -13,7 +13,7 @@ export default function GuitarNumberButton({
 }) {
   const buttonClass = " h-full flex-1 flex justify-center items-center";
   const clickedButtonClass =
-    "rounded-full h-full bg-rose-500 text-white flex-1 flex justify-center items-center";
+    "rounded-full h-full bg-amber-500 text-white flex-1 flex justify-center items-center";
 
   return (
     <button

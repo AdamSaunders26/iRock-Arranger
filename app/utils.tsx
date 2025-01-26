@@ -52,6 +52,22 @@ export function saveVoice(
   return songListCopy;
 }
 
+export function saveStudentName(
+  name: string,
+  sectionNumber: number,
+  songList: any,
+  currentSong: string,
+  studentNumber: number
+) {
+  const songListCopy = objectCopier(songList);
+  songListCopy.songList[currentSong][sectionNumber].guitar.students[
+    `student${studentNumber}`
+  ] = name;
+  console.log(songListCopy);
+  localStorage.setItem("songList", JSON.stringify(songListCopy));
+  return songListCopy;
+}
+
 export function saveRhythmNote(
   updatedNotes: {
     keys: Record<string, string>;

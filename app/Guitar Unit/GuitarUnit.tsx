@@ -12,13 +12,18 @@ export default function GuitarUnit({
 }) {
   const [currentNum, setCurrentNum] = useState(1);
   return (
-    <div className="flex flex-col bg-yellow-100 rounded-t-lg">
+    <div className="flex flex-col bg-yellow-100 ">
       <FretBoard
         sectionData={sectionData}
         sectionNumber={sectionNumber}
         currentNum={currentNum}
       />
-      <GuitarTools currentNum={currentNum} setCurrentNum={setCurrentNum} />
+      <GuitarTools
+        currentNum={currentNum}
+        setCurrentNum={setCurrentNum}
+        sectionData={sectionData}
+        sectionNumber={sectionNumber}
+      />
     </div>
   );
 }
