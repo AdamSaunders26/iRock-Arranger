@@ -62,7 +62,7 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
             className="bg-red-600 mx-auto p-1"
             onClick={() => {
               let songs = localStorage.getItem("songList");
-              console.log(JSON.parse(songs));
+              console.log(JSON.parse(songs as string));
             }}
           >
             localStorage logger
@@ -70,7 +70,9 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
           <button
             className="bg-pink-600 mx-auto p-1"
             onClick={() => {
-              const songlist = JSON.parse(localStorage.getItem("songList"));
+              const songList = JSON.parse(
+                localStorage.getItem("songList") as string
+              );
               // console.log(songList.songList);
               // console.log(testObject.songList.songList.Shotgun);
               songList.songList.mockSong = testObject.songList.songList.Shotgun;

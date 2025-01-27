@@ -28,8 +28,8 @@ export default function DrumCycleButton({
   const currentStudentOrder = [student1, student2];
 
   function rotateStudents() {
-    setStudent1(student2);
-    setStudent2(student1);
+    setStudent1(currentStudentOrder[1]);
+    setStudent2(currentStudentOrder[2]);
 
     if (currentSong) {
       setSongList(

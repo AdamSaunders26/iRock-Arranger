@@ -11,9 +11,13 @@ export default function DrumStudents({
   sectionData: iRockDataType;
   sectionNumber: number;
 }) {
-  const [student1, setStudent1] = useState(sectionData.drums.students.student1);
-  const [student2, setStudent2] = useState(sectionData.drums.students.student2);
-  //   console.log(sectionData);
+  const [student1, setStudent1] = useState(
+    sectionData.guitar.students.student1
+  );
+  const [student2, setStudent2] = useState(
+    sectionData.guitar.students.student2
+  );
+
   //   if (sectionData.drums.students) {
   //     setStudent1(sectionData.drums.students.student1);
   //     setStudent2(sectionData.drums.students.student2);
