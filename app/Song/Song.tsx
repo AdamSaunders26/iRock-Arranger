@@ -20,23 +20,21 @@ export default function Song() {
     currSects = Object.keys(songList.songList[currentSong]);
   }
 
-  useEffect(() => {
-    const songDataCopy = objectCopier(currentSongData);
-    // console.log({ songList });
-    // console.log({ currentSong });
+  // useEffect(() => {
+  //   const songDataCopy = objectCopier(currentSongData);
 
-    for (const section in songDataCopy) {
-      const updatedSection = structureUpdater(
-        currentSongData[section],
-        blankSectionStruct
-      );
-      // console.log(updatedSection);
-      songDataCopy[section] = updatedSection;
-    }
-    if (currentSong) {
-      setSongList(saveSongData(songDataCopy, songList, currentSong));
-    }
-  }, []);
+  //   for (const section in songDataCopy) {
+  //     const updatedSection = structureUpdater(
+  //       currentSongData[section],
+  //       blankSectionStruct
+  //     );
+  //     // console.log(updatedSection);
+  //     songDataCopy[section] = updatedSection;
+  //   }
+  //   if (currentSong) {
+  //     setSongList(saveSongData(songDataCopy, songList, currentSong));
+  //   }
+  // }, []);
 
   return (
     <div className="flex flex-col w-full p-2  ">

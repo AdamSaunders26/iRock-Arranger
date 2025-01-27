@@ -77,6 +77,7 @@ export const blankSectionStruct: iRockDataType = {
     patch: [],
   },
   drums: {
+    students: { student1: "Enter name", student2: "Enter name" },
     drum1: "",
     drum2: "",
     drum3: "",

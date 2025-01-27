@@ -84,6 +84,37 @@ export function saveMultipleStudentNames(
   return songListCopy;
 }
 
+export function saveDrumStudentName(
+  name: string,
+  sectionNumber: number,
+  songList: any,
+  currentSong: string,
+  studentNumber: number
+) {
+  const songListCopy = objectCopier(songList);
+  songListCopy.songList[currentSong][sectionNumber].drums.students[
+    `student${studentNumber}`
+  ] = name;
+  localStorage.setItem("songList", JSON.stringify(songListCopy));
+  return songListCopy;
+}
+
+export function saveMultipleDrumStudentNames(
+  names: string[],
+  sectionNumber: number,
+  songList: any,
+  currentSong: string
+) {
+  const songListCopy = objectCopier(songList);
+  songListCopy.songList[currentSong][sectionNumber].drums.students = {
+    student1: names[0],
+    student2: names[1],
+  };
+  // console.log(songListCopy);
+  localStorage.setItem("songList", JSON.stringify(songListCopy));
+  return songListCopy;
+}
+
 export function saveRhythmNote(
   updatedNotes: {
     keys: Record<string, string>;
