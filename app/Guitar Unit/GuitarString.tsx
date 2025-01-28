@@ -20,6 +20,7 @@ export default function GuitarString({
   const currentSong = tools.currentSong[0];
 
   const {
+    fret0,
     fret1,
     fret2,
     fret3,
@@ -40,12 +41,9 @@ export default function GuitarString({
     fret18,
     fret19,
     fret20,
-    fret21,
-    fret22,
-    fret23,
-    fret24,
   } = stringStates;
 
+  const [tempFret0, setTempFret0] = useState(fret0);
   const [tempFret1, setTempFret1] = useState(fret1);
   const [tempFret2, setTempFret2] = useState(fret2);
   const [tempFret3, setTempFret3] = useState(fret3);
@@ -69,6 +67,7 @@ export default function GuitarString({
 
   useEffect(() => {
     const toBeStored = {
+      fret0: tempFret0,
       fret1: tempFret1,
       fret2: tempFret2,
       fret3: tempFret3,
@@ -102,6 +101,7 @@ export default function GuitarString({
       );
     }
   }, [
+    tempFret0,
     tempFret1,
     tempFret2,
     tempFret3,
@@ -152,6 +152,12 @@ export default function GuitarString({
       <p className="flex pl-2 min-w-8 border-r-2 border-slate-600">
         {stringNote}
       </p>
+      <Fret
+        marker={1}
+        currentNum={currentNum}
+        fretState={tempFret0}
+        setFretState={setTempFret0}
+      />
       <Fret
         currentNum={currentNum}
         fretState={tempFret1}

@@ -16,7 +16,7 @@ export default function Fret({
   if (marker == 0) {
     fretClass += " bg-yellow-200";
   } else if (marker == 1) {
-    fretClass += " bg-neutral-200git ";
+    fretClass += " bg-neutral-200";
   }
 
   return (
