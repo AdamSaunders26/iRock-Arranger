@@ -95,6 +95,7 @@ export const blankSectionStruct: iRockDataType = {
       student3: "Enter name",
     },
     string1: {
+      fret0: [],
       fret1: [],
       fret2: [],
       fret3: [],
@@ -117,6 +118,7 @@ export const blankSectionStruct: iRockDataType = {
       fret20: [],
     },
     string2: {
+      fret0: [],
       fret1: [],
       fret2: [],
       fret3: [],
@@ -139,6 +141,7 @@ export const blankSectionStruct: iRockDataType = {
       fret20: [],
     },
     string3: {
+      fret0: [],
       fret1: [],
       fret2: [],
       fret3: [],
@@ -161,6 +164,7 @@ export const blankSectionStruct: iRockDataType = {
       fret20: [],
     },
     string4: {
+      fret0: [],
       fret1: [],
       fret2: [],
       fret3: [],
@@ -183,6 +187,7 @@ export const blankSectionStruct: iRockDataType = {
       fret20: [],
     },
     string5: {
+      fret0: [],
       fret1: [],
       fret2: [],
       fret3: [],
@@ -205,6 +210,7 @@ export const blankSectionStruct: iRockDataType = {
       fret20: [],
     },
     string6: {
+      fret0: [],
       fret1: [],
       fret2: [],
       fret3: [],
