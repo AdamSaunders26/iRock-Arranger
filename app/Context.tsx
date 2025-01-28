@@ -36,7 +36,7 @@ export interface iRockDataType {
   };
   keys: Record<string, string[]>;
   drums: {
-    students: Record<string, string>;
+    students: { student1: string; student2: string };
     drum1: string;
     drum2: string;
     drum3: string;

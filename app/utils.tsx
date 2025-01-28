@@ -163,8 +163,18 @@ export function saveDrumPadData(
   songList: any,
   currentSong: string
 ) {
+  const { drum1, drum2, drum3, drum4, drum5, drum6, drum7, drum8, drum9 } =
+    updatedDrums;
   const songListCopy = objectCopier(songList);
-  songListCopy.songList[currentSong][sectionNumber].drums = updatedDrums;
+  songListCopy.songList[currentSong][sectionNumber].drums.drum1 = drum1;
+  songListCopy.songList[currentSong][sectionNumber].drums.drum2 = drum2;
+  songListCopy.songList[currentSong][sectionNumber].drums.drum3 = drum3;
+  songListCopy.songList[currentSong][sectionNumber].drums.drum4 = drum4;
+  songListCopy.songList[currentSong][sectionNumber].drums.drum5 = drum5;
+  songListCopy.songList[currentSong][sectionNumber].drums.drum6 = drum6;
+  songListCopy.songList[currentSong][sectionNumber].drums.drum7 = drum7;
+  songListCopy.songList[currentSong][sectionNumber].drums.drum8 = drum8;
+  songListCopy.songList[currentSong][sectionNumber].drums.drum9 = drum9;
   localStorage.setItem("songList", JSON.stringify(songListCopy));
   return songListCopy;
 }
