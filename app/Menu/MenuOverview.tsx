@@ -50,15 +50,15 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
         <div className="flex flex-col items-center gap-4 w-full text-xl">
           <SongNameInput songName={songName} setSongName={setSongName} />
 
-          <button
+          {/* <button
             className="bg-red-600 mx-auto p-1"
             onClick={() => {
               localStorage.clear();
             }}
           >
             Clear storage (Do not click!)
-          </button>
-          <button
+          </button> */}
+          {/* <button
             className="bg-red-600 mx-auto p-1"
             onClick={() => {
               let songs = localStorage.getItem("songList");
@@ -66,8 +66,8 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
             }}
           >
             localStorage logger
-          </button>
-          <button
+          </button> */}
+          {/* <button
             className="bg-pink-600 mx-auto p-1"
             onClick={() => {
               const songList = JSON.parse(
@@ -81,7 +81,7 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
             }}
           >
             Add test song
-          </button>
+          </button> */}
 
           <div className="flex flex-wrap items-center justify-center gap-2 px-2">
             {toDisplay.map((value, i) => {
