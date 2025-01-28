@@ -26,7 +26,7 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
     }
     if (storedSongList) {
       const songListCopy = objectCopier(JSON.parse(storedSongList));
-      console.log(songListCopy);
+      // console.log(songListCopy);
       for (const song in songListCopy.songList) {
         for (const section in songListCopy.songList[song]) {
           const updatedSection = structureUpdater(
