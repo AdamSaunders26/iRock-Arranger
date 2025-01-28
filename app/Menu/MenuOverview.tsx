@@ -12,6 +12,17 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
   const [songList, setSongList] = tools.songList;
   const [songName, setSongName] = useState("Enter song name");
   const toDisplay = Object.keys(Object.values(songList)[0]);
+  const sortedToDisplay = toDisplay.toSorted((a, b) => {
+    const nameA = a.toUpperCase();
+    const nameB = b.toUpperCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+  });
 
   useEffect(() => {
     // localStorage.setItem("songList", JSON.stringify({ songList: {} }));
@@ -84,7 +95,7 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
           </button> */}
 
           <div className="flex flex-wrap items-center justify-center gap-2 px-2">
-            {toDisplay.map((value, i) => {
+            {sortedToDisplay.map((value, i) => {
               return (
                 <button
                   key={i}

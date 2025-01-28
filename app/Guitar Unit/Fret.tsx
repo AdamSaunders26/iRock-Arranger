@@ -23,11 +23,13 @@ export default function Fret({
     <div
       className={fretClass}
       onClick={() => {
-        setFretState((curr) => {
-          const copy = [...curr];
-          copy.push(`${currentNum}`);
-          return copy;
-        });
+        currentNum === 5
+          ? setFretState([])
+          : setFretState((curr) => {
+              const copy = [...curr];
+              copy.push(`${currentNum}`);
+              return copy;
+            });
       }}
     >
       {fretState.length ? (
