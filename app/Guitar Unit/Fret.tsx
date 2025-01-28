@@ -25,7 +25,7 @@ export default function Fret({
       onClick={() => {
         currentNum === 5
           ? setFretState([])
-          : setFretState((curr) => {
+          : setFretStatenpm((curr) => {
               const copy = [...curr];
               copy.push(`${currentNum}`);
               return copy;
