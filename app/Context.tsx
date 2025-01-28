@@ -17,6 +17,15 @@ export interface iRockContextType {
   };
 }
 
+export interface GuitarFretboard {
+  [fret: `fret${number}`]: string[];
+}
+
+export interface Guitar {
+  students: Record<string, string>;
+  [string: `string${number}`]: GuitarFretboard;
+}
+
 export interface iRockDataType {
   sectionName: string;
   chords: string;
@@ -26,7 +35,19 @@ export interface iRockDataType {
     guitar: Record<string, string>;
   };
   keys: Record<string, string[]>;
-  drums: Record<string, string>;
+  drums: {
+    students: { student1: string; student2: string };
+    drum1: string;
+    drum2: string;
+    drum3: string;
+    drum4: string;
+    drum5: string;
+    drum6: string;
+    drum7: string;
+    drum8: string;
+    drum9: string;
+  };
+  guitar: Guitar;
 }
 
 export interface iRockSongType {

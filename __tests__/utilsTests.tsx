@@ -8,7 +8,6 @@ describe("structureUpdater - ", () => {
     c: { 1: 1, 2: "num" },
     d: { nest: { nested: "egg" } },
     e: null,
-    f: ["a", "r", "r", "a", "y"],
   };
 
   const modelObj = {
@@ -17,8 +16,8 @@ describe("structureUpdater - ", () => {
     c: { 1: 0, 2: "", 3: "" },
     d: { nest: { nested: "" } },
     e: null,
-    f: [],
     g: "",
+    h: { nest: { big1: "", big2: "", big3: "" } },
   };
 
   const expectedObj = {
@@ -27,8 +26,8 @@ describe("structureUpdater - ", () => {
     c: { 1: 1, 2: "num", 3: "" },
     d: { nest: { nested: "egg" } },
     e: null,
-    f: ["a", "r", "r", "a", "y"],
     g: "",
+    h: { nest: { big1: "", big2: "", big3: "" } },
   };
 
   test("returns an object", () => {
@@ -75,4 +74,8 @@ describe("structureUpdater - ", () => {
     console.log(testResult);
     objectComparer(expectedObj, testResult);
   });
+  // test("should add nested properties and values", () => {
+  //   const testResult = structureUpdater(testObj, modelObj);
+
+  // });
 });

@@ -11,6 +11,7 @@ export default function SongHeader({
 }) {
   const { tools } = useContext<iRockContextType>(iRockContext);
   const [currentSong, setCurrentSong] = tools.currentSong;
+
   return (
     <h1 className="flex flex-col items-center justify-between px-2 w-full">
       <p className="p-2 text-3xl ">{currentSong}</p>
