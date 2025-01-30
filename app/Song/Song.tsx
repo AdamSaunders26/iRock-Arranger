@@ -5,6 +5,7 @@ import { iRockContext, iRockContextType, iRockSongType } from "../Context";
 import Section from "./Section";
 import SongHeader from "./SongHeader";
 import { usePDF } from "react-to-pdf";
+import NotesSection from "./NotesSection";
 
 export default function Song() {
   const { tools } = useContext<iRockContextType>(iRockContext);
@@ -27,6 +28,7 @@ export default function Song() {
   return (
     <div className="flex flex-col w-full p-2  ">
       <SongHeader currentSongData={currentSongData} />
+      <NotesSection />
       {currentSong
         ? currSects.map((value, i) => {
             return (

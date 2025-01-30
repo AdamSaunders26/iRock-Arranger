@@ -10,6 +10,10 @@ export interface iRockContextType {
       string | null,
       React.Dispatch<React.SetStateAction<string | null>>
     ];
+    noteList: [
+      Record<string, string>,
+      React.Dispatch<React.SetStateAction<Record<string, string>>>
+    ];
     songList: [
       iRockSongListObjectType,
       React.Dispatch<React.SetStateAction<iRockSongListObjectType>>
@@ -66,6 +70,7 @@ export const iRockContext = createContext<iRockContextType>(blankDataStruct);
 export function IRockContextProvider({ children }: { children: ReactNode }) {
   const [currentSong, setCurrentSong] = useState<null | string>(null);
   const [songList, setSongList] = useState({ songList: {} });
+  const [noteList, setNoteList] = useState({});
 
   return (
     <iRockContext.Provider
@@ -73,6 +78,7 @@ export function IRockContextProvider({ children }: { children: ReactNode }) {
         // storageFunction: storageFunction,
         tools: {
           currentSong: [currentSong, setCurrentSong],
+          noteList: [noteList, setNoteList],
           songList: [songList, setSongList],
         },
       }}

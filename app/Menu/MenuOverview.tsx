@@ -69,15 +69,17 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
           >
             Clear storage (Do not click!)
           </button> */}
-          {/* <button
+          <button
             className="bg-red-600 mx-auto p-1"
             onClick={() => {
               let songs = localStorage.getItem("songList");
               console.log(JSON.parse(songs as string));
+              let notes = localStorage.getItem("noteList");
+              console.log(JSON.parse(notes as string));
             }}
           >
             localStorage logger
-          </button> */}
+          </button>
           {/* <button
             className="bg-pink-600 mx-auto p-1"
             onClick={() => {
