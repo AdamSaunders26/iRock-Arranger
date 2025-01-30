@@ -1,4 +1,10 @@
 @tailwind base;
+@layer base {
+  img,
+  canvas {
+    @apply inline-block;
+  }
+}
 @tailwind components;
 @tailwind utilities;
 
