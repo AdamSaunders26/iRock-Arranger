@@ -1,12 +1,10 @@
 "use client";
 
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { iRockContext, iRockContextType, iRockSongType } from "../Context";
-import { blankSectionStruct } from "../modelData";
 import Section from "./Section";
-import NewSectionButton from "./NewSectionButton";
 import SongHeader from "./SongHeader";
-import { objectCopier, saveSongData, structureUpdater } from "../utils";
+import { usePDF } from "react-to-pdf";
 
 export default function Song() {
   const { tools } = useContext<iRockContextType>(iRockContext);
@@ -20,21 +18,11 @@ export default function Song() {
     currSects = Object.keys(songList.songList[currentSong]);
   }
 
-  // useEffect(() => {
-  //   const songDataCopy = objectCopier(currentSongData);
-
-  //   for (const section in songDataCopy) {
-  //     const updatedSection = structureUpdater(
-  //       currentSongData[section],
-  //       blankSectionStruct
-  //     );
-  //     // console.log(updatedSection);
-  //     songDataCopy[section] = updatedSection;
-  //   }
-  //   if (currentSong) {
-  //     setSongList(saveSongData(songDataCopy, songList, currentSong));
-  //   }
-  // }, []);
+  // const { toPDF, targetRef } = usePDF({
+  //   filename: `${currentSong}_arrangement.pdf`,
+  // });
+  //
+  //targetRef to go on highest-level div below for PDF
 
   return (
     <div className="flex flex-col w-full p-2  ">
