@@ -194,7 +194,6 @@ export function objectCopier(object: any) {
   return JSON.parse(JSON.stringify(object));
 }
 
-//xoezn't work with arrays...
 export function structureUpdater(targetObject: any, modelObject: any) {
   let returnObject = objectCopier(targetObject);
 
@@ -218,4 +217,20 @@ export function structureUpdater(targetObject: any, modelObject: any) {
   propertyAdder(returnObject, modelObject);
 
   return returnObject;
+}
+
+export function saveNotes(
+  notes: string,
+  songName: string,
+  noteList: any,
+  setNoteList: any
+) {
+  const noteListCopy = objectCopier(noteList);
+  noteListCopy[songName] = notes;
+  // console.log(localStorage.getItem("noteList"));
+  // console.log(noteListCopy);
+  localStorage.setItem("noteList", JSON.stringify(noteListCopy));
+  setNoteList(noteListCopy);
+
+  // localStorage.setItem("noteList", )
 }

@@ -28,7 +28,7 @@ export default function Song() {
   return (
     <div className="flex flex-col w-full p-2  ">
       <SongHeader currentSongData={currentSongData} />
-      <NotesSection />
+      {currentSong ? <NotesSection songName={currentSong} /> : null}
       {currentSong
         ? currSects.map((value, i) => {
             return (

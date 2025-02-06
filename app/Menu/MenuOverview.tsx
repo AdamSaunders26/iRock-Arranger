@@ -11,6 +11,8 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
   const [currentSong, setCurrentSong] = tools.currentSong;
   const [songList, setSongList] = tools.songList;
   const [songName, setSongName] = useState("Enter song name");
+  const [noteList, setNoteList] = tools.noteList;
+
   const toDisplay = Object.keys(Object.values(songList)[0]);
   const sortedToDisplay = toDisplay.toSorted((a, b) => {
     const nameA = a.toUpperCase();
@@ -25,7 +27,15 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
   });
 
   useEffect(() => {
-    // localStorage.setItem("songList", JSON.stringify({ songList: {} }));
+    const storedNoteList = localStorage.getItem("noteList");
+    console.log(storedNoteList);
+    if (!storedNoteList) {
+      const blankNoteList = {};
+      localStorage.setItem("noteList", JSON.stringify(blankNoteList));
+    } else {
+      setNoteList(JSON.parse(storedNoteList));
+    }
+
     const storedSongList = localStorage.getItem("songList");
     if (localStorage.length === 0) {
       const blankSongList = { songList: {} };
@@ -35,6 +45,7 @@ export default function MenuOverview({ children }: { children: ReactNode }) {
         setSongList(JSON.parse(storedSongList));
       }
     }
+
     if (storedSongList) {
       const songListCopy = objectCopier(JSON.parse(storedSongList));
       // console.log(songListCopy);
