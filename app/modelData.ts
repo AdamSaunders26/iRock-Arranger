@@ -4,6 +4,7 @@ export const blankDataStruct: iRockContextType = {
   tools: {
     currentSong: [null, () => {}],
     songList: [{ songList: {} }, () => {}],
+    noteList: [{}, () => {}],
   },
 };
 
