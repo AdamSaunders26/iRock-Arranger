@@ -23,7 +23,7 @@ export default function DrumNameInput({
 
   return (
     <div className="flex justify-end items-center w-full">
-      <label htmlFor="voice" className="mr-1">
+      <label htmlFor="chords" className="mr-1">
         {studentNumber === 1 ? "Kit: " : `Pad:`}
       </label>
       <input
