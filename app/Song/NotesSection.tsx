@@ -9,6 +9,8 @@ export default function NotesSection({ songName }: { songName: string }) {
 
   const [tempNotes, setTempNotes] = useState(noteList[songName]);
 
+  const [largeNotes, setLargeNotes] = useState(false);
+
   useEffect(() => {
     if (currentSong) {
       console.log(noteList[currentSong]);
@@ -20,15 +22,30 @@ export default function NotesSection({ songName }: { songName: string }) {
     }
   }, []);
 
-  //Add expand button for two different sizes
-
   return (
     <div className="bg-primary border-4 border-primary rounded-lg shadow-lg flex flex-col w-full  my-2">
-      <h1 className="text-white ml-2">Notes: </h1>
+      <div className="flex justify-between items-center">
+        <label
+          htmlFor="notes"
+          className="text-white ml-2 text-xl font-bold mb-1 "
+        >
+          Notes:
+        </label>
+        <button
+          className="p-1 px-2 mb-2 mx-1 mt-1 bg-white rounded-lg"
+          onClick={() => {
+            setLargeNotes((curr) => !curr);
+          }}
+        >
+          Expand
+        </button>
+      </div>
       <textarea
         className="w-full rounded-md p-1 "
-        rows={5}
+        id="notes"
+        rows={largeNotes ? 5 : 2}
         defaultValue={tempNotes}
+        placeholder="Store any useful notes here."
         onChange={(e) => {
           if (currentSong) {
             saveNotes(e.target.value, currentSong, noteList, setNoteList);
